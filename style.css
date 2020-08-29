@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     margin: 5px;
+    padding-bottom: 20px;
 }
 
 #imagen img {
     width: 84rem;
-    max-height: 13rem;
+    max-height: 18rem;
     margin: 5px;
 }
 
