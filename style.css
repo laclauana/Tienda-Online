@@ -1,0 +1,94 @@
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+#imagen img {
+    width: 84rem;
+    max-height: 13rem;
+    margin: 5px;
+}
+
+.pagina-productos {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    align-content: space-between;
+
+}
+
+section {
+    display: flex;
+    background-color: burlywood;
+    /* height: 500px; */
+    /* align-items: start; */
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+aside {
+    align-self: flex-start;
+  
+    
+}
+
+.contenedor-tarjetas {
+    background-color: darkgray;
+    width: 1000px;
+    height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor-tarjetas>div {
+    background-color: darkslateblue;
+    border: 1px solid black;
+    margin: 5px;
+    flex: 1 1 200px;
+}
+
+/* 
+section > div { /*   hijos directos de seccion */
+ /* border: black solid 1px;
+ background-color: blueviolet;
+ margin: 5px;
+ /* flex-grow: 1; */
+ /* width: 100px; */
+ /* height: 150px;
+ /* align-self: flex-start; */
+ /* flex: 1; */ 
+
+ 
+/* } */
+
+/* p {
+  margin: 0;
+}
+
+#primer-elemento {
+    background-color: chartreuse;
+    align-self: flex-start;
+    flex: 5; */ */
+    /* order: 1; */
+    /* flex-grow: 3; */
+    /* flex-shrink: 3; */
+    /* flex-basis: 300px;  flex-basis opera por encima de width */
+    /* flex: propiedad que se aplica a los HIJOS de flex, comprende:
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    ejemplo:
+    flex: 1 1 200px;
+    lo mas normal es que se ingrese flex: 1
+    es el resumen de las tres propiedades,
+    tiene la finalidad de que crecen y se achiquen proporcionalmente.
+    Caso contrario doy:
+    flex: 5; */ 
+
+/* } */
+
+/* #segundo-elemento {
+    order: 2;
+    background-color: cornflowerblue;
+} */ 
