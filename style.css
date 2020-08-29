@@ -1,6 +1,7 @@
 .encabezado {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
 }
 
@@ -16,7 +17,9 @@
     margin: 15px;
     width: 100%;
     justify-content: space-between;
-
+    padding: 15px;
+    background-color: wheat;
+ 
 }
 
 main {
@@ -43,6 +46,7 @@ aside {
 .filtros {
     display: flex;
     justify-content: space-between;
+    width: 200px;
 }
 
 .contenedor-tarjetas {
@@ -54,7 +58,7 @@ aside {
 }
 
 .contenedor-tarjetas>div {
-    background-color: darkslateblue;
+    background-color: wheat;
     border: 1px solid black;
     margin: 5px;
     flex: 1 1 200px;
