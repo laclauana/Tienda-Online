@@ -37,11 +37,10 @@ section {
 aside {
     align-self: flex-start;
     flex-grow: 3;
-    
+    padding: 35px;
 }
 
 .contenedor-tarjetas {
-    background-color: darkgray;
     width: 1000px;
     height: 500px;
     display: flex;
