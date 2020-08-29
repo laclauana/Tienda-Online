@@ -41,6 +41,11 @@ aside {
     padding: 35px;
 }
 
+.filtros {
+    display: flex;
+    justify-content: space-between;
+}
+
 .contenedor-tarjetas {
     width: 1000px;
     height: 500px;
