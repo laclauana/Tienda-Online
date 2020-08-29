@@ -22,6 +22,18 @@
  
 }
 
+.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto button {
+    padding: 10px;
+    margin: 10px;
+}
+
 main {
     display: flex;
     background-color: burlywood;
@@ -51,10 +63,9 @@ aside {
 
 .contenedor-tarjetas {
     width: 1000px;
-    height: 500px;
+   
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .contenedor-tarjetas>div {
@@ -62,6 +73,11 @@ aside {
     border: 1px solid black;
     margin: 5px;
     flex: 1 1 200px;
+}
+
+.contenedor-tarjetas img {
+    max-width: 170px;
+
 }
 
 /* 
