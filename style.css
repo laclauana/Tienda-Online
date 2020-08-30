@@ -5,8 +5,8 @@
     padding: 10px;
 }
 
-#imagen img {
-    width: 84rem;
+.imagen img {
+    width: 83rem;
     max-height: 18rem;
     margin: 5px;
 }
@@ -27,10 +27,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .producto button {
-    padding: 10px;
+    padding: 15px;
     margin: 10px;
 }
 
@@ -63,9 +64,9 @@ aside {
 
 .contenedor-tarjetas {
     width: 1000px;
-   
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .contenedor-tarjetas>div {
@@ -77,7 +78,28 @@ aside {
 
 .contenedor-tarjetas img {
     max-width: 170px;
+    margin: 10px;
+}
 
+.ec-stars-wrapper {
+	font-size: 0;
+    display: flex;
+    align-items: center;
+}
+.ec-stars-wrapper a {
+	text-decoration: none;
+    display: inline-flex;
+	font-size: 25px;
+    color: darkorange;
+ 
+}
+
+.ec-stars-wrapper:hover a {
+	color: rgb(243, 230, 45);
+}
+
+.ec-stars-wrapper > a:hover ~ a {
+	color: #888;
 }
 
 /* 
