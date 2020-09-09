@@ -32,9 +32,10 @@ button {
     font-weight: bold;
 }
 
-i {
+i, .encabezado img {
     font-size: 24px;
     color: orangered;
+     margin-right: 7px;
 }
 
 h1 {
@@ -149,6 +150,11 @@ aside {
     display: flex;
     justify-content: space-between;
     width: 200px;
+    margin-bottom: 25px;
+}
+
+.busqueda input, .categoria label:last-child {
+    margin-bottom: 25px;
 }
 
 .categoria {
@@ -203,6 +209,7 @@ label {
     letter-spacing: 8px;
     display: flex;
     align-items: center;
+    
 }
 
 .hidden {
