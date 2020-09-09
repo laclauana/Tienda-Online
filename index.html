@@ -4,116 +4,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clase 20</title>
+    <title>Tienda online - Melomanía</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
 </head>
 
 <body>
 
     <header>
         <div class="encabezado">
-            <div><button>ADA SHOP</button></div>
+            <div><img src="./assets/favicon-32x32.png" alt="notamusical"><button>MELOMANIA</button></div>
+
             <div>
-                <p>Carrito</p>
+                <p> <i class="fas fa-shopping-cart"></i>Carrito (0 items) </p>
             </div>
         </div>
-        <div class="imagen"><img src="./coffee.jpg" alt="coffee"></div>
+        <div class="imagen">
+            <img src="./11036328_10207071863459548_8186659021892142841_n.jpg" alt="">
+            <h1>INSTRUMENTOS MUSICALES</h1>
+
+        </div>
+
+        </div>
     </header>
     <main>
 
         <section>
             <div class="pagina-productos">
-                <div>Encabezado filtros</div>
-                <div>Iconos chiquitos</div>
+                <div id="pagina">Página 1 de 14</div>
+                <div><i class="far fa-list-alt"></i></div>
             </div>
             <div class="contenedor-tarjetas">
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="bass" data-category="instruments" data-price="35000" data-rating="5">
+                    <img src="https://d1aeri3ty3izns.cloudfront.net/media/33/330997/600/preview_2.jpg" alt="bass">
+                    <p class="instrumento">Bajo</p>
+                    <p>35000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="guitar" data-category="instruments" data-price="60000" data-rating="4">
+                    <img src="https://media.guitarcenter.com/is/image/MMGS7/214ce-Rosewood-Grand-Auditorium-Acoustic-Electric-Guitar-Natural/L69529000001000-00-1200x1200.jpg"
+                        alt="guitar">
+                    <p class="instrumento">Guitarra</p>
+                    <p>60000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="electricpiano" data-category="instruments" data-price="40000"
+                    data-rating="3">
+                    <img src="https://m.media-amazon.com/images/I/81M0LZcUu0L._AC_SS350_.jpg" alt="electricpiano">
+                    <p class="instrumento">Piano eléctrico</p>
+                    <p>40000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="saxophone" data-category="instruments" data-price="70000"
+                    data-rating="2">
+                    <img src="https://image.made-in-china.com/43f34j00tBGTHcZPhFgw/Popular-Alto-Saxophone-Musical-Instrument-AS-100-.jpg"
+                        alt="saxo">
+                    <p class="instrumento">Saxofón</p>
+                    <p>70000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="cello" data-category="instruments" data-price="90000" data-rating="5">
+                    <img src="https://image.made-in-china.com/202f0j10BmTtpeEWaMqr/Student-Good-Quality-Musical-Instrument-Cello-Cello-Doublebass.jpg"
+                        alt="cello">
+                    <p class="instrumento">Violonchelo</p>
+                    <p>90000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="violin" data-category="instruments" data-price="120000"
+                    data-rating="5">
+                    <img src="https://i.pinimg.com/originals/d6/b2/35/d6b23525062c8b34eebb5f70d3efeb18.jpg"
+                        alt="violin">
+                    <p class="instrumento">Violín</p>
+                    <p>120000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="harmonica" data-category="instruments" data-price="6000"
+                    data-rating="2">
+                    <img src="https://www.thomann.de/pics/bdb/174728/9632795_800.jpg" alt="harmonica">
+                    <p class="instrumento">Armónica</p>
+                    <p>6000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
-                <div class="producto">
-                    <img src="./coffee2.jpg" alt="café">
-                    <p>Producto</p>
-                    <p>Precio</p>
-                    <p><i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i></p>
+                <div class="producto" data-name="flute" data-category="instruments" data-price="20000" data-rating="3">
+                    <img src="https://www.thomann.de/pics/bdb/175896/13374206_800.jpg" alt="flute">
+                    <p class="instrumento">Flauta</p>
+                    <p>20000</p>
+                    <p> <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i></p>
                     <button>COMPRAR</button>
                 </div>
             </div>
@@ -123,52 +142,57 @@
             <div>
                 <div class="filtros">
                     <h3>FILTROS</h3>
-                    <p>Limpiar</p>
+                    <p><i class="far fa-trash-alt"></i>Limpiar</p>
                 </div>
 
                 <label class="busqueda" for="busqueda">BUSQUEDA<input type="text" name="busqueda" id="busqueda"
-                        placeholder="Escriba su busqueda"></label>
+                        placeholder="Buscar productos"><i class="fas fa-search"></i></label>
 
                 <div class="categoria">
-                    <h3>CATEGORIA</h3>
-                    <label for="categoria"><input type="checkbox">OTROS PRODUCTOS </label>
-                    <label for="categoria"><input type="checkbox">OTROS PRODUCTOS </label>
-                    <label for="categoria"><input type="checkbox">OTROS PRODUCTOS </label>
-                    <label for="categoria"><input type="checkbox">OTROS PRODUCTOS </label>
-                    <label for="categoria"><input type="checkbox">OTROS PRODUCTOS </label>
+                    <h3>CATEGORIA INSTRUMENTOS</h3>
+                    <label for="categoria"><input type="checkbox"> DE CUERDA </label>
+                    <label for="categoria"><input type="checkbox"> DE VIENTO </label>
+                    <label for="categoria"><input type="checkbox"> DE PERCUSION </label>
+                    <label for="categoria"><input type="checkbox"> DE SEGUNDA MANO </label>
+                    <label for="categoria"><input type="checkbox"> ECONOMICOS </label>
                 </div>
 
                 <h3>PUNTAJE</h3>
-                <div class="ec-stars-wrapper"><input type="checkbox"><a href="#" data-value="1"
-                        title="Votar con 1 estrellas">&#9733;</a>
-                    <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-                    <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-                    <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-                    <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a></div>
-                <div class="ec-stars-wrapper"><input type="checkbox"><a href="#" data-value="1"
-                        title="Votar con 1 estrellas">&#9733;</a>
-                    <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-                    <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-                    <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-                    <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a></div>
-                <div class="ec-stars-wrapper"><input type="checkbox"><a href="#" data-value="1"
-                        title="Votar con 1 estrellas">&#9733;</a>
-                    <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-                    <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-                    <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-                    <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a></div>
-                <div class="ec-stars-wrapper"><input type="checkbox"><a href="#" data-value="1"
-                        title="Votar con 1 estrellas">&#9733;</a>
-                    <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-                    <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-                    <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-                    <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a></div>
-                <div class="ec-stars-wrapper"><input type="checkbox"><a href="#" data-value="1"
-                        title="Votar con 1 estrellas">&#9733;</a>
-                    <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-                    <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-                    <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-                    <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a></div>
+                <div class="input-puntaje"> <input type="checkbox" name="score" class="score" value="5"
+                        id="checkbox-5" />
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i></div>
+                <div class="input-puntaje"> <input type="checkbox" name="score" class="score" value="4"
+                        id="checkbox-4" />
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i></div>
+                <div class="input-puntaje"> <input type="checkbox" name="score" class="score" value="3"
+                        id="checkbox-3" />
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i></div>
+                <div class="input-puntaje"> <input type="checkbox" name="score" class="score" value="2"
+                        id="checkbox-2" />
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i></div>
+                <div class="input-puntaje"> <input type="checkbox" name="score" class="score" value="1"
+                        id="checkbox-1" />
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i></div>
 
             </div>
         </aside>
@@ -176,7 +200,6 @@
 
 
     </main>
-
 
 
 
