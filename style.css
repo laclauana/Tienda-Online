@@ -3,6 +3,7 @@
 body {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     font-family: 'Grandstander', cursive;
     background: rgb(214,224,223);
     background: radial-gradient(circle, rgba(214,224,223,1) 6%, rgba(236,170,247,1) 30%, rgba(230,136,246,0.6587009803921569) 56%, rgba(236,170,247,0.4542191876750701) 68%, rgba(214,224,223,0.6250875350140056) 100%);
@@ -32,7 +33,7 @@ button {
 }
 
 i {
-    font-size: 25px;
+    font-size: 24px;
     color: orangered;
 }
 
@@ -112,6 +113,11 @@ input::placeholder {
     font-size: 17px;
 }
 
+.input-puntaje i {
+    margin-bottom: 12px;
+    margin-left: 5px;
+}
+
 .instrumento {
     margin-top: 35px;
 }
@@ -188,7 +194,7 @@ label {
 }
 
 .contenedor-tarjetas img:hover {
-    transform: scale(1.3);
+    transform: scale(1.5);
  
 
 }
@@ -203,7 +209,6 @@ label {
     display: none;
   }
   
- 
 
  
 /* 
