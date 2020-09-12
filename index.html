@@ -21,13 +21,13 @@
             </div>
 
             <div>
-                <p> <i class="fas fa-shopping-cart"></i>Carrito (0 items) </p>
+                <div class="ocultar">
+                    <p> <i class="fas fa-shopping-cart"></i>Carrito (0 items) </p>
+                </div>
             </div>
         </div>
-        <div class="imagen">
-            <img src="./11036328_10207071863459548_8186659021892142841_n.jpg" alt="">
+        <div class="imagen overlay" id="overlay">
             <h1>INSTRUMENTOS MUSICALES</h1>
-
         </div>
 
         </div>
@@ -142,17 +142,17 @@
         <aside>
             <div>
                 <div class="filtros">
-                    <h3>FILTROS</h3>
+                    <h2>FILTROS</h2>
                     <p><i class="far fa-trash-alt"></i>Limpiar</p>
                 </div>
 
-                <label class="busqueda" for="busqueda">
-                    <h3> BUSQUEDA</h3><input type="text" name="busqueda" id="busqueda" placeholder="Buscar productos"><i
-                        class="fas fa-search"></i>
+
+                <h2> BUSQUEDA</h2> <label class="busqueda" for="busqueda"></label><input type="text" name="busqueda"
+                    id="busqueda" placeholder="Buscar productos"><i class="fas fa-search"></i>
                 </label>
 
                 <div class="categoria">
-                    <h3>CATEGORIA INSTRUMENTOS</h3>
+                    <h2>CATEGORIA INSTRUMENTOS</h2>
                     <label for="categoria"><input type="checkbox"> DE CUERDA </label>
                     <label for="categoria"><input type="checkbox"> DE VIENTO </label>
                     <label for="categoria"><input type="checkbox"> DE PERCUSION </label>
@@ -160,7 +160,7 @@
                     <label for="categoria"><input type="checkbox"> ECONOMICOS </label>
                 </div>
 
-                <h3>PUNTAJE</h3>
+                <h2>PUNTAJE</h2>
                 <div class="input-puntaje"> <input type="checkbox" name="score" class="score" value="5"
                         id="checkbox-5" />
                     <i class="fas fa-star" aria-hidden="true"></i>

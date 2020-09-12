@@ -27,7 +27,7 @@ body {
 button {
     font-family: 'Grandstander', cursive;
     font-size: 23px;
-    background-color: rgb(251, 220, 118);
+    background-color: rgb(245, 230, 182);
     border-radius: 20px;
     color: orangered;
     border: none;
@@ -54,7 +54,7 @@ i, .encabezado img {
 
 h1 {
     position: absolute;
-    z-index: 999;
+    z-index: 3;
     margin: 0 auto;
     left: 30%;
     right: 0;
@@ -95,16 +95,37 @@ input::placeholder {
 
 .imagen {
     position: relative;
+    background-image: url("./assets/image.jpg");
+    height: 350px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
-.imagen img {
-    width: 100%;
-    height: 60vh;
-    border-radius: 10px;
-    filter: blur(2px);
-    
+.overlay {
+    position: relative;
+    transition: all 1s;
 }
 
+.overlay:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    top: 0; 
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: 1;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+.overlay:hover:after {
+    opacity: 0;
+}
+.ocultar {
+    display: hidden;
+}
 .pagina-productos {
     display: flex;
     align-items: center;
@@ -179,6 +200,17 @@ aside {
 .busqueda {
     font-weight: bold;
     font-size: 20px;
+    position: relative;
+}
+
+#busqueda {
+    width: 200px;
+    margin-bottom: 25px;
+}
+
+.fa-search {
+    position: absolute;
+    left: 230px;
 }
 
 label {
@@ -205,7 +237,6 @@ label {
     max-width: 170px;
     margin: 10px;
     min-height: 180px;
-    z-index:999;
     -webkit-transition-property: all;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-timing-function: ease;
@@ -226,6 +257,10 @@ label {
 .hidden {
     display: none;
   }
+
+  /* position: relative; habilita las propiedades top, left, bottom y right para decir cuantos px quiero que se aleje ese elemento y desde donde. Con este valor se reserva el espacio donde estaba el elemento. 
+  Si le damos el valor absolute, el espacio donde iba ese contenedor ya no se reserva, el resto de los elementos ignoran al que es absolute. Absolute es respecto al body, A MENOS QUE tenga un contenedor padre posicionado, en ese caso sera absolute respecto a su antecesor. 
+  Relative es respecto al propio elemento.  */
   
  
 /* 
