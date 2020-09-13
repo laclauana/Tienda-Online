@@ -13,6 +13,7 @@
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+            /* -------------------- ALINEACION CONTENIDO -------------------- */
 
 body {
     display: flex;
@@ -20,33 +21,25 @@ body {
     flex-wrap: wrap;
     font-family: 'Grandstander', cursive;
     background: rgb(214,224,223);
-    background: radial-gradient(circle, rgba(214,224,223,1) 6%, rgba(236,170,247,1) 30%, rgba(230,136,246,0.6587009803921569) 56%, rgba(236,170,247,0.4542191876750701) 68%, rgba(214,224,223,0.6250875350140056) 100%);
-
+    background: radial-gradient(circle, rgb(246, 255, 254) 6%, rgb(239, 214, 243) 30%, rgba(230,136,246,0.6587009803921569) 56%, rgba(236,170,247,0.4542191876750701) 68%, rgba(214,224,223,0.6250875350140056) 100%);
 }
 
 button {
     font-family: 'Grandstander', cursive;
-    font-size: 23px;
-    background-color: rgb(245, 230, 182);
-    border-radius: 20px;
-    color: orangered;
+    font-size: 30px;
+    /* background-color: rgb(245, 230, 182); */
+    background: none;
+    border-radius: 10px;
+    color: orange;
     border: none;
     padding: 15px;
-    text-shadow: 1px 3px 2px purple; 
+    text-shadow: 1px 3px 2px rgb(141, 135, 141); 
     letter-spacing: 1px;
-}
-
-.producto button {
-    text-shadow: none;
-}
-
-.producto button:hover {
-
-    border: 1px solid orangered;
     font-weight: bold;
+    /* border: solid 1px orange; */
 }
 
-i, .encabezado img {
+i {
     font-size: 24px;
     color: orangered;
      margin-right: 7px;
@@ -84,13 +77,32 @@ input::placeholder {
     color: white;
 }
 
+label {
+    margin: 3px;
+}
+
+main {
+    display: flex;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+
+aside {
+    align-self: flex-start;
+    flex-grow: 3;
+    padding: 35px;
+}
+
 .encabezado {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-radius: 8px;
-
 }
 
 .imagen {
@@ -102,10 +114,23 @@ input::placeholder {
     background-size: 100%;
 }
 
-.overlay {
+        /* --------------------- ESTILO BOTONES Y ALINEACION TARJETAS ------------------- */
+
+.producto button {
+    text-shadow: none;
+}
+
+.producto button:hover {
+    color: purple;
+    background-color: rgb(250, 216, 154);
+    border-radius: 30px;
+    text-shadow: 2px 3px 1px white;
+}
+
+/* .overlay {
     position: relative;
     transition: all 1s;
-}
+} */
 
 .overlay:after {
     content: '\A';
@@ -120,9 +145,9 @@ input::placeholder {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
 }
-.overlay:hover:after {
+/* .overlay:hover:after {
     opacity: 0;
-}
+} */
 .ocultar {
     display: hidden;
 }
@@ -145,7 +170,6 @@ input::placeholder {
 }
 
 .producto p {
-
     font-size: 17px;
 }
 
@@ -161,24 +185,6 @@ input::placeholder {
 .producto button {
     padding: 15px;
     margin: 10px;
-
-}
-
-main {
-    display: flex;
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    order: 1;
-}
-
-aside {
-    align-self: flex-start;
-    flex-grow: 3;
-    padding: 35px;
-
 }
 
 .filtros {
@@ -211,11 +217,6 @@ aside {
 .fa-search {
     position: absolute;
     left: 230px;
-}
-
-label {
-    margin: 3px;
-
 }
 
 .contenedor-tarjetas {
@@ -251,59 +252,71 @@ label {
     letter-spacing: 8px;
     display: flex;
     align-items: center;
-  
 }
 
-.hidden {
+.hidden, .pagina-productos .fa-filter {
     display: none;
   }
 
-  /* position: relative; habilita las propiedades top, left, bottom y right para decir cuantos px quiero que se aleje ese elemento y desde donde. Con este valor se reserva el espacio donde estaba el elemento. 
-  Si le damos el valor absolute, el espacio donde iba ese contenedor ya no se reserva, el resto de los elementos ignoran al que es absolute. Absolute es respecto al body, A MENOS QUE tenga un contenedor padre posicionado, en ese caso sera absolute respecto a su antecesor. 
-  Relative es respecto al propio elemento.  */
-  
- 
-/* 
-section > div { /*   hijos directos de seccion */
- /* border: black solid 1px;
- background-color: blueviolet;
- margin: 5px;
- /* flex-grow: 1; */
- /* width: 100px; */
- /* height: 150px;
- /* align-self: flex-start; */
- /* flex: 1; */ 
+  /* ------------------- DISEÑO RESPONSIVO --------------------- */
 
- 
-/* } */
+  @media (min-width: 600px) and (max-width: 900px) {
+    .encabezado {
+        justify-content: start;
+    
+    }
+    h1 {
+        font-size: 30px;
+        text-align: center;
+        left: 10px;   
+    }
+    .imagen {
+        height: 20vh;
+    }
+    .contenedor-tarjetas, .encabezado, .imagen {
+        width: 100%;
+    }
+    .pagina-productos {
+        width: 90%;
+    }
+    aside {
+        display: none;
+    }
+  .pagina-productos .fa-filter {
+      display: inline;
+  }
+  .pagina-productos .fa-list-alt, .pagina-productos .fa-th {
+      display: none;
+  }
+  }
 
-/* p {
-  margin: 0;
-}
+@media (max-width: 600px) {
+    .encabezado {
+        justify-content: start;
+    
+    }
+    h1 {
+        font-size: 30px;
+        text-align: center;
+        left: 10px;   
+    }
+    .imagen {
+        height: 20vh;
+    }
+    .contenedor-tarjetas, .encabezado, .imagen {
+        width: 100%;
+    }
+    .pagina-productos {
+        width: 90%;
+    }
+    aside {
+        display: none;
+    }
+  .pagina-productos .fa-filter {
+      display: inline;
+  }
+  .pagina-productos .fa-list-alt, .pagina-productos .fa-th {
+      display: none;
+  }
 
-#primer-elemento {
-    background-color: chartreuse;
-    align-self: flex-start;
-    flex: 5; */ 
-    /* order: 1; */
-    /* flex-grow: 3; */
-    /* flex-shrink: 3; */
-    /* flex-basis: 300px;  flex-basis opera por encima de width */
-    /* flex: propiedad que se aplica a los HIJOS de flex, comprende:
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: auto;
-    ejemplo:
-    flex: 1 1 200px;
-    lo mas normal es que se ingrese flex: 1
-    es el resumen de las tres propiedades,
-    tiene la finalidad de que crecen y se achiquen proporcionalmente.
-    Caso contrario doy:
-    flex: 5; */ 
-
-/* } */
-
-/* #segundo-elemento {
-    order: 2;
-    background-color: cornflowerblue;
-} */ 
+}  

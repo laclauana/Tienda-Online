@@ -109,3 +109,53 @@ const filtroBusqueda = document.getElementsByClassName("score")
 //   total.textContent = subtotalProductos + recargo
 // }
 
+
+
+
+
+// let tieneDescuento = true
+// let tieneRecargo = false
+// let tieneGastoDeEnvio = true
+
+// const obtenerDescuento = (subtotal) => {
+//     subtotal - (subtotal * 0.1)
+// }
+// obtenerDescuento(100)
+
+
+// const obtenerRecargo = (subtotal) => {
+//     subtotal + (subtotal * 0.1)
+// }
+// obtenerRecargo(100)
+
+
+// const obtenerGastoDeEnvio = (subtotal) => {
+//     subtotal + 50
+// }
+
+// const obtenerTotal = (precio) => {
+//     if (tieneDescuento) {
+//         obtenerDescuento(precio) - precio
+//     }
+//     if (tieneRecargo) {
+//         obtenerRecargo(precio) - precio
+//     } if (tieneGastoDeEnvio) {
+//         obtenerGastoDeEnvio(precio) - precio
+//     }
+// }
+// obtenerTotal(100)
+
+// const obtenerCalculoDescuento = (precio) => {
+//     let descuento = obtenerDescuento(precio) - precio
+//     return descuento
+// }
+
+// const obtenerCalculoRecargo = (precio) => {
+//     let recargo = obtenerRecargo(precio) + precio
+//     return recargo
+// }
+
+// const obtenerCalculoEnvio = (precio) => {
+//     let envio = obtenerGastoDeEnvio(precio) - precio
+//     return envio
+// }
