@@ -128,9 +128,7 @@ footer span:last-child:hover {
 .encabezado {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px;
-    border-radius: 8px;
 }
 
 .imagen {
@@ -140,6 +138,12 @@ footer span:last-child:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.carrito {
+    display: flex;
+    align-items: center;
+    align-content: center;
 }
 
 .cuerpo {
@@ -321,7 +325,7 @@ footer span:last-child:hover {
 .fa-search {
     position: absolute;
     left: 17%;
-    top: 97%;
+    top: 96%;
 }
 
 .input-puntaje {
@@ -356,19 +360,23 @@ footer span:last-child:hover {
     .imagen {
         height: 20vh;
     }
-    .contenedor-tarjetas, .encabezado, .imagen {
-        width: 100%;
+    .contenedor-tarjetas, .encabezado, .imagen, .pagina-productos {
+        flex-basis: 100%;
     }
-    .pagina-productos {
-        width: 90%;
-    }
-    aside {
-        display: none;
-    }
-  .pagina-productos .fa-filter {
-      display: inline;
+
+    .pagina-productos .fa-filter {
+        display: flex;
   }
-  .pagina-productos .fa-list-alt, .pagina-productos .fa-th {
+  
+  .pagina-productos .fa-filter::after {
+      content: "Filtros";
+      color: black;
+      font-family: 'Grandstander', cursive;
+      font-size: 70%;
+      margin: 5px;
+  }
+  
+  aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th, .pagina-productos p, .carrito p {
       display: none;
   }
   }
@@ -386,19 +394,23 @@ footer span:last-child:hover {
     .imagen {
         height: 20vh;
     }
-    .contenedor-tarjetas, .encabezado, .imagen {
-        width: 100%;
+    .contenedor-tarjetas, .encabezado, .imagen, .pagina-productos {
+        flex-basis: 100%;
     }
-    .pagina-productos {
-        width: 90%;
-    }
-    aside {
-        display: none;
-    }
+
   .pagina-productos .fa-filter {
-      display: inline;
-  }
-  .pagina-productos .fa-list-alt, .pagina-productos .fa-th {
+      display: flex;
+}
+
+.pagina-productos .fa-filter::after {
+    content: "Filtros";
+    color: black;
+    font-family: 'Grandstander', cursive;
+    font-size: 70%;
+    margin: 5px;
+}
+  
+  aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th, .pagina-productos p, .carrito p {
       display: none;
   }
   footer {
