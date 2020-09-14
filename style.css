@@ -97,6 +97,30 @@ aside {
     padding: 35px;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   padding: 40px;
+   margin-top: 200px;
+   font-size: 17px;
+   color: purple;
+}
+
+a {
+    text-decoration: none;
+    text-shadow: 1px 3px 2px rgb(141, 135, 141); 
+    letter-spacing: 1px;
+    color: orange;
+}
+
+footer span:last-child:hover {
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: orangered;
+    font-size: 20px;
+}
+
 .encabezado {
     display: flex;
     justify-content: space-between;
@@ -170,7 +194,7 @@ aside {
 }
 
 .producto p {
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .input-puntaje i {
@@ -317,6 +341,9 @@ aside {
   }
   .pagina-productos .fa-list-alt, .pagina-productos .fa-th {
       display: none;
+  }
+  footer {
+        text-align: center;
   }
 
 }  
