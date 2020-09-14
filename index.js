@@ -1,9 +1,13 @@
-const filtroPagina = document.querySelector("#pagina")
-const tarjetas = document.getElementsByClassName("producto")
-const puntaje = document.querySelector(".score")
-const filtroBusqueda = document.getElementsByClassName("score")
+const contenedorTarjetas = document.querySelector(".contenedor-tarjetas")
 
+const productosEnLista = document.querySelector(".fa-list-alt")
+const cambiarDisplayProductos = () => {
+    productosEnLista.onclick = () => {
+        console.log("funciona")
 
+    }
+}
+cambiarDisplayProductos()
 
 // // cuando se escriba algo en el input
 // filtroNombre.oninput = () => {
