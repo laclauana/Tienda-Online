@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanalei&display=swap');
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -26,18 +27,18 @@ body {
 
 button {
     font-family: 'Grandstander', cursive;
-    font-size: 30px;
-    /* background-color: rgb(245, 230, 182); */
+    font-size: 25px;
     background: none;
     border-radius: 10px;
     color: orange;
     border: none;
-    padding: 15px;
-    text-shadow: 1px 3px 2px rgb(141, 135, 141); 
-    letter-spacing: 1px;
     font-weight: bold;
-    /* border: solid 1px orange; */
 }
+
+.encabezado button {
+    text-shadow: 3px 2px 2px rgb(141, 135, 141); 
+    letter-spacing: 6px;
+} 
 
 i {
     font-size: 24px;
@@ -101,16 +102,15 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-   padding: 40px;
+   padding: 35px;
    margin-top: 200px;
-   font-size: 17px;
    color: purple;
 }
 
 a {
     text-decoration: none;
-    text-shadow: 1px 3px 2px rgb(141, 135, 141); 
-    letter-spacing: 1px;
+    text-shadow: 3px 2px 2px rgb(141, 135, 141); 
+    letter-spacing: 6px;
     color: orange;
 }
 
@@ -119,6 +119,9 @@ footer span:last-child:hover {
     letter-spacing: 5px;
     color: orangered;
     font-size: 20px;
+    text-shadow:  2px 3px 1px orange;
+    font-family: "hanalei", cursive;
+ 
 }
 
 .encabezado {
