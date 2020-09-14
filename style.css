@@ -43,7 +43,10 @@ button {
 i {
     font-size: 24px;
     color: orangered;
-     margin-right: 7px;
+}
+
+.fa-trash-alt, .fa-shopping-cart {
+    margin-right: 6px;
 }
 
 h1 {
@@ -61,10 +64,10 @@ h1 {
 input {
     border: none;
     border-bottom: 2px solid orangered;
-    background-color: rgb(251, 220, 118);
-    padding: 5px;
+    background-color: rgb(251, 220, 118);   
     border-radius: 5px;
     outline: none;
+    padding: 6px;
 }
 
 input:focus {
@@ -74,7 +77,6 @@ input:focus {
 input::placeholder {
     font-size: 15px;
     font-family: 'Grandstander', cursive;
-    padding: 10px;
     color: white;
 }
 
@@ -297,6 +299,7 @@ footer span:last-child:hover {
 
 .busqueda input, .categoria label:last-child {
     margin-bottom: 25px;
+   
 }
 
 .categoria {
@@ -318,12 +321,20 @@ footer span:last-child:hover {
 .fa-search {
     position: absolute;
     left: 230px;
+    top: 607px;
 }
 
 .input-puntaje {
-    letter-spacing: 8px;
+    letter-spacing: 3px;
     display: flex;
     align-items: center;
+}
+
+.pagina-productos>div:last-child {
+    display: flex;
+    flex-basis: 150px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .pagina-productos .fa-filter {
