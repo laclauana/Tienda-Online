@@ -151,10 +151,11 @@ footer span:last-child:hover {
 }           
 
 .acerca-de {
-    flex-grow: 4;
+    flex-grow: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
 }
 
         /* --------------------- ESTILO BOTONES Y ALINEACION TARJETAS ------------------- */
