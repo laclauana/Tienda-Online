@@ -22,7 +22,7 @@ body {
     flex-wrap: wrap;
     font-family: 'Grandstander', cursive;
     background: rgb(214,224,223);
-    background: radial-gradient(circle, rgb(246, 255, 254) 6%, rgb(239, 214, 243) 30%, rgba(230,136,246,0.6587009803921569) 56%, rgba(236,170,247,0.4542191876750701) 68%, rgba(214,224,223,0.6250875350140056) 100%);
+    background: radial-gradient(circle, rgb(246, 255, 254) 6%, rgb(236, 168, 248) 30%, rgba(255, 255, 255, 0.659) 56%, rgba(226, 164, 240, 0.454) 68%, rgba(253, 255, 255, 0.625) 100%);
 }
 
 button {
@@ -234,7 +234,11 @@ footer span:last-child:hover {
     background-color: white;
     border: 1px solid orangered;
     overflow: hidden;
- }   */
+ }  
+
+ .ocultar {
+     display: flex;
+ } */
      
  
 /* ------------------ FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN LISTA -------------------- */
@@ -375,7 +379,7 @@ footer span:last-child:hover {
       font-size: 70%;
       margin: 5px;
   }
-  
+
   aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th, .pagina-productos p, .carrito p {
       display: none;
   }
