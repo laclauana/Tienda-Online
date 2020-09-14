@@ -1,13 +1,22 @@
-const contenedorTarjetas = document.querySelector(".contenedor-tarjetas")
+const contenedorTarjetas = document.getElementsByClassName("vista-cuadricula")
+const vistaCuadricula = document.getElementsByClassName("contenedor-tarjetas")
+const vistaProductoCuadricula = document.getElementsByClassName("producto")
 
 const productosEnLista = document.querySelector(".fa-list-alt")
 const cambiarDisplayProductos = () => {
     productosEnLista.onclick = () => {
-        console.log("funciona")
 
+        contenedorTarjetas.classList.remove("vista-cuadricula")
+        // contenedorTarjetas.classList.add("modo-lista")
+        vistaCuadricula.classList.remove("contenedor-tarjetas")
+        // vistaCuadricula.classList.add("estilo-lista")
+        vistaProductoCuadricula.classList.remove("producto")
+        // vistaProductoCuadricula.classList.add("en-lista")
     }
 }
 cambiarDisplayProductos()
+
+
 
 // // cuando se escriba algo en el input
 // filtroNombre.oninput = () => {

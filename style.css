@@ -238,7 +238,7 @@ footer span:last-child:hover {
  
 /* -------------- COMIENZO DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
 
- .contenedor-tarjetas img {
+ .vista-cuadricula {
     max-width: 170px;
     margin: 10px;
     min-height: 180px;
@@ -320,12 +320,12 @@ footer span:last-child:hover {
 
 .fa-search {
     position: absolute;
-    left: 230px;
-    top: 607px;
+    left: 17%;
+    top: 97%;
 }
 
 .input-puntaje {
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     display: flex;
     align-items: center;
 }
