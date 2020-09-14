@@ -349,6 +349,39 @@ footer span:last-child:hover {
     display: none;
   }
 
+  /* --------------------- CARRITO ABIERTO ---------------------- */
+
+  /* .contenedor-carrito-abierto {
+    position: fixed;
+    height: 100%;
+    background-color: cornsilk;
+    display: flex;
+    flex-direction: column;
+    left: 80%;
+    padding: 20px;
+    top: 0;
+    right: 0;
+  }
+  .carrito-abierto {
+      background-color: cornsilk;
+      display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .overlay-contenido {
+    content: '\A';
+    position: fixed;
+    width: 80%; 
+    height: 100%;
+    top: 0; 
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: 1;
+  } */
+
+  /* ------------ FIN CARRITO ABIERTO ---------------- */
+
   /* ------------------- DISEÑO RESPONSIVO --------------------- */
 
   @media (min-width: 600px) and (max-width: 900px) {
