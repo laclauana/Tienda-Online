@@ -1,21 +1,25 @@
-const contenedorTarjetas = document.getElementsByClassName("vista-cuadricula")
-const vistaCuadricula = document.getElementsByClassName("contenedor-tarjetas")
-const vistaProductoCuadricula = document.getElementsByClassName("producto")
+// declaracion de variables
 
-const productosEnLista = document.querySelector(".fa-list-alt")
-const cambiarDisplayProductos = () => {
-    productosEnLista.onclick = () => {
+const filtroBusqueda = document.querySelector("#busqueda")
+const categoriaFiltro = document.getElementsByClassName("filtro-categoria")
+const tarjetaInstrumento = document.getElementsByClassName("producto")
+const puntaje = document.getElementsByClassName("filtro-puntaje")
+const limpiar = document.querySelector(".fa-trash-alt")
+const checkbox = document.querySelectorAll(".filtro")
 
-        contenedorTarjetas.classList.remove("vista-cuadricula")
-        // contenedorTarjetas.classList.add("modo-lista")
-        vistaCuadricula.classList.remove("contenedor-tarjetas")
-        // vistaCuadricula.classList.add("estilo-lista")
-        vistaProductoCuadricula.classList.remove("producto")
-        // vistaProductoCuadricula.classList.add("en-lista")
-    }
-}
-cambiarDisplayProductos()
 
+
+// const contenedorTarjetas = document.getElementsByClassName("vista-cuadricula")
+// const vistaCuadricula = document.getElementsByClassName("contenedor-tarjetas")
+// const vistaProductoCuadricula = document.getElementsByClassName("producto")
+
+// const productosEnLista = document.querySelector(".fa-list-alt")
+// const cambiarDisplayProductos = () => {
+//     productosEnLista.onclick = () => {
+
+
+//     }
+// }
 
 
 // // cuando se escriba algo en el input

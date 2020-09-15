@@ -47,6 +47,7 @@ i {
 
 .fa-trash-alt, .fa-shopping-cart {
     margin-right: 6px;
+    cursor: pointer;
 }
 
 h1 {
@@ -129,7 +130,7 @@ footer span:last-child:hover {
     justify-content: center;
     align-items: center;
     flex-basis: 100%;
-    height: 45vh;
+    height: 53vh;
     background-image: url("./assets/image.jpg");
     background-size: cover;
     background-position: center;
