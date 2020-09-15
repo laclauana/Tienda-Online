@@ -267,7 +267,6 @@ footer span:last-child:hover {
     border: 1px solid orangered;
     margin: 5px;
     flex: 1;
-    overflow: hidden;
     flex-basis: 200px;
     display: flex;
     flex-direction: column;
@@ -279,9 +278,14 @@ footer span:last-child:hover {
  
 /* -------------- FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
 
+.contenedor-imagen {
+    margin: 2px;
+    overflow: hidden;
+}
 
 .contenedor-tarjetas img:hover {
     transform: scale(1.5);
+    opacity: 0.8;
 }
 
 .input-puntaje i {
