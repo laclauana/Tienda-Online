@@ -50,11 +50,6 @@ i {
 }
 
 h1 {
-    position: absolute;
-    margin: 0 auto;
-    left: 30%;
-    right: 0;
-    top: 40%;
     font-size: 45px;
     color: white;
 }
@@ -130,12 +125,14 @@ footer span:last-child:hover {
 }
 
 .imagen {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+    height: 45vh;
     background-image: url("./assets/image.jpg");
-    height: 60vh;
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
     filter: brightness(50%);
 }
 
@@ -321,8 +318,8 @@ footer span:last-child:hover {
 
 .fa-search {
     position: absolute;
-    left: 17%;
-    top: 103.5vh;
+    top: 2%;
+    right: -210px;
 }
 
 .input-puntaje {
@@ -383,12 +380,10 @@ footer span:last-child:hover {
     
     }
     h1 {
-        font-size: 30px;
-        text-align: center;
-        left: 10px;   
+        font-size: 2rem;
     }
     .imagen {
-        height: 20vh;
+        height: 30vh;
     }
     .contenedor-tarjetas, .encabezado, .imagen, .pagina-productos {
         flex-basis: 100%;
@@ -418,8 +413,6 @@ footer span:last-child:hover {
     }
     h1 {
         font-size: 30px;
-        text-align: center;
-        left: 10px;   
     }
     .imagen {
         height: 20vh;
