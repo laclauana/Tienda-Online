@@ -28,7 +28,8 @@ cerrarCarrito.onclick = () => {
 
 for (let botones of botonComprar) {
     botones.onclick = () => {
-        cantidadCarrito.textContent = "Carrito (1 item)"
+        let cantidad = 0
+        cantidadCarrito.textContent = `Carrito (${cantidad + 1} item)`
     }
 }
 
