@@ -179,7 +179,7 @@ footer span:last-child:hover {
     opacity: 1;
 }
 
-.ocultar {
+div.ocultar, p.ocultar {
     display: none;
 }
 
@@ -342,7 +342,7 @@ footer span:last-child:hover {
 
   /* --------------------- CARRITO ABIERTO ---------------------- */
 
-  /* .contenedor-carrito-abierto {
+  .contenedor-carrito-abierto {
     position: fixed;
     height: 100%;
     background-color: cornsilk;
@@ -369,7 +369,11 @@ footer span:last-child:hover {
     left: 0;
     background: rgba(0,0,0,0.3);
     opacity: 1;
-  } */
+  }
+
+  .fa-times {
+      cursor: pointer;
+  }
 
   /* ------------ FIN CARRITO ABIERTO ---------------- */
 

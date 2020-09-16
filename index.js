@@ -2,66 +2,74 @@
 
 const filtroBusqueda = document.querySelector("#busqueda")
 const categoriaFiltro = document.getElementsByClassName("filtro-categoria")
-const tarjetaInstrumento = document.getElementsByClassName("producto")
+const tarjetaInstrumento = document.querySelectorAll(".producto")
 const puntaje = document.getElementsByClassName("filtro-puntaje")
 const limpiar = document.querySelector(".fa-trash-alt")
-const checkbox = document.querySelectorAll(".filtro")
+const checkbox = document.querySelectorAll("input")
+const imagenesInstrumentos = document.querySelectorAll(".contenedor-imagen .modo-lista") // o ".vista-cuadricula"
+const sumarAlcarrito = document.querySelectorAll("#comprar")
+const carrito = document.querySelector(".fas.fa-shopping-cart")
+const carritoAbierto = document.querySelector(".contenedor-carrito-abierto")
+const overlay = document.querySelector(".overlay-contenido")
+const cerrarCarrito = document.querySelector(".fa.fa-times")
+
+carrito.onclick = () => {
+    carritoAbierto.classList.remove("ocultar")
+    overlay.classList.remove("ocultar")
+}
+cerrarCarrito.onclick = () => {
+    carritoAbierto.classList.add("ocultar")
+    overlay.classList.add("ocultar")
+}
 
 
 
-// const contenedorTarjetas = document.getElementsByClassName("vista-cuadricula")
-// const vistaCuadricula = document.getElementsByClassName("contenedor-tarjetas")
-// const vistaProductoCuadricula = document.getElementsByClassName("producto")
 
-// const productosEnLista = document.querySelector(".fa-list-alt")
-// const cambiarDisplayProductos = () => {
-//     productosEnLista.onclick = () => {
+// const producto = document.querySelectorAll(".producto")
+// producto.onclick = (e) => {
 
-
-//     }
 // }
 
+// nombreVariable.classList.toggle("equis-clase")  
+// es un switch generalmente para boton encendido / apagado, como para poner modo oscuro a una web
 
-// // cuando se escriba algo en el input
-// filtroNombre.oninput = () => {
-//     // recorro una a una cada tarjeta
-//     for (let tarjeta of tarjetas) {
-//         // me fijo el nombre de la tarjeta y qué buscó el usuario
-//         const titulo = tarjeta.dataset.nombre;
-//         const busqueda = filtroNombre.value;
-//         // si el titulo incluye lo que buscó el usuario...
-//         if (titulo.includes(busqueda)) {
-//             // le quito la clase "hidden" a la tarjeta
-//             tarjeta.classList.remove('hidden');
-//         } else {
-//             // se la agrego
-//             tarjeta.classList.add('hidden');
-//         }
-//     }
-// };
+// nombreVariable.classList.contains("equis-clase")   
+// devuelve un booleano que dice si el elemento contiene o no esa clase
 
-// // recorro uno a uno los checkbox
-// for (let checkbox of filtroRating) {
-//     // si le hacen clic a uno de los checkbox
-//     checkbox.onclick = () => {
-//         // recorro una a una las tarjetas
-//         for (let tarjeta of tarjetas) {
-//             // si el checkbox esta seleccionado
-//             if (checkbox.checked) {
-//                 const rating = tarjeta.dataset.rating;
-//                 // me fijo si el valor del checkbox es igual al rating de la tarjeta
-//                 if (checkbox.value === rating) {
-//                     tarjeta.classList.remove('hidden');
-//                 } else {
-//                     tarjeta.classList.add('hidden');
-//                 }
-//                 // si el checkbox NO esta seleccionado... 
-//             } else {
-//                 tarjeta.classList.remove('hidden');
-//             }
-//         }
-//     };
+// const elementosLista = document.getElementsByTagName("div")
+// const romperSitio = () => {
+// for (let elemento of elementosLista) {
+//     elemento.classList.add("ocultar")
 // }
+// }
+// romperSitio()
+
+// const todosLosP = document.getElementsByTagName("p")
+// console.log(todosLosP[2])
+
+// const img = document.querySelector("img")
+// console.log(img.src)
+// img.src = "http://www.placekitten.com/200"
+// console.log(img.src)
+
+// const cambiarDePagina = document.querySelector("a")
+// cambiarDePagina.href = "https://www.placekitten.com/200"
+// ejemplo no util para la tienda. Seguramente se pueda llevar a otro html propio. 
+// window.onkeydown  --> evento de teclado cuando estas por tipear
+// window.onkeypress --> evento de teclado cuanto tipeaste, pulsaste
+// window.onkeyup --> evento de teclado cuando soltaste la tecla
+// nombreVariable.onmouseenter --> evento que sucede cuando el mouse entra en un elemento
+// nombreVariable.onmouseleave --> evento que sucede cuando el mouse sale de un elemento
+// window.onresize --> evento de teclado para cuando el usuario cambia el tamanio de su pantalla
+// window.scroll --> evento para cuando el usuario scrollea hacia abajo
+
+window.onkeydown = (e) => {
+    if (e.keyCode === 13) {
+        alert("¿Qué se te ofrece?")
+    }
+}
+
+
 
 // const boton = document.querySelector('#boton')
 
