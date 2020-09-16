@@ -14,6 +14,9 @@ const carritoAbierto = document.querySelector(".contenedor-carrito-abierto")
 const overlay = document.querySelector(".overlay-contenido")
 const cerrarCarrito = document.querySelector(".fa.fa-times")
 
+
+//  -------------- acciones boton carrito ---------------
+
 carrito.onclick = () => {
     carritoAbierto.classList.remove("ocultar")
     overlay.classList.remove("ocultar")
@@ -23,20 +26,11 @@ cerrarCarrito.onclick = () => {
     overlay.classList.add("ocultar")
 }
 
-// botonComprar.onclick = () => {
-//     for (let botones of botonComprar) {
-//         cantidadCarrito.textContent = "Carrito (1 item)"
-//     }
-// }
-
-const sumarAlcarrito = function (e) {
-
-    cantidadCarrito.textContent = "Carrito (1 item)";
+for (let botones of botonComprar) {
+    botones.onclick = () => {
+        cantidadCarrito.textContent = "Carrito (1 item)"
+    }
 }
-botonComprar.forEach(boton => {
-    boton.addEventListener("click", sumarAlcarrito)
-});
-
 
 
 
