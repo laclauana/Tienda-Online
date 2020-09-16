@@ -7,7 +7,7 @@ const puntaje = document.getElementsByClassName("filtro-puntaje")
 const limpiar = document.querySelector(".fa-trash-alt")
 const checkbox = document.querySelectorAll("input")
 const imagenesInstrumentos = document.querySelectorAll(".contenedor-imagen .modo-lista") // o ".vista-cuadricula"
-const sumarAlcarrito = document.querySelector("#comprar")
+const botonComprar = document.querySelectorAll(".comprar")
 const carrito = document.querySelector(".fas.fa-shopping-cart")
 const cantidadCarrito = document.querySelector(".carrito > p")
 const carritoAbierto = document.querySelector(".contenedor-carrito-abierto")
@@ -23,10 +23,21 @@ cerrarCarrito.onclick = () => {
     overlay.classList.add("ocultar")
 }
 
-sumarAlcarrito.onclick = () => {
-    // console.log("agarro el boton")
-    cantidadCarrito.textContent = "Carrito (1 item)"
+// botonComprar.onclick = () => {
+//     for (let botones of botonComprar) {
+//         cantidadCarrito.textContent = "Carrito (1 item)"
+//     }
+// }
+
+const sumarAlcarrito = function (e) {
+
+    cantidadCarrito.textContent = "Carrito (1 item)";
 }
+botonComprar.forEach(boton => {
+    boton.addEventListener("click", sumarAlcarrito)
+});
+
+
 
 
 
