@@ -33,6 +33,9 @@ button {
     color: orange;
     border: none;
     font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .encabezado button {
@@ -96,10 +99,12 @@ aside {
 footer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-   padding: 35px;
+   padding: 25px;
    margin-top: 200px;
    color: purple;
+   
 }
 
 a {
@@ -109,20 +114,20 @@ a {
     color: orange;
 }
 
-footer span:last-child:hover {
+footer p:last-child:hover {
     font-weight: bold;
     letter-spacing: 5px;
     color: orangered;
     font-size: 20px;
     text-shadow:  2px 3px 1px orange;
     font-family: "hanalei", cursive;
- 
 }
 
 .encabezado {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    align-items: center;
 }
 
 .imagen {
@@ -141,6 +146,14 @@ footer span:last-child:hover {
     display: flex;
     align-items: center;
     align-content: center;
+}
+
+.carrito span, .filtros span{
+    letter-spacing: normal;
+    color: black;
+    text-shadow: none;
+    font-weight: normal;
+    font-size: 16px;
 }
 
 .cuerpo {
@@ -191,6 +204,9 @@ div.ocultar, p.ocultar {
     padding: 15px;
     background-color: white;
     border-radius: 5px;
+}
+.pagina-productos button {
+   
 }
 
 
@@ -292,7 +308,6 @@ div.ocultar, p.ocultar {
 .filtros {
     display: flex;
     justify-content: space-between;
-    width: 200px;
     margin-bottom: 25px;
 }
 
@@ -331,7 +346,7 @@ div.ocultar, p.ocultar {
 
 .pagina-productos>div:last-child {
     display: flex;
-    flex-basis: 150px;
+    flex-basis: 180px;
     align-items: center;
     justify-content: space-around;
 }
@@ -359,6 +374,7 @@ div.ocultar, p.ocultar {
     justify-content: space-between;
     width: 100%;
     border-radius: 15px;
+  
   }
   .overlay-contenido {
     content: '\A';
@@ -384,6 +400,10 @@ div.ocultar, p.ocultar {
         justify-content: start;
     
     }
+    .carrito span {
+        min-width: 150px;
+
+    }
     h1 {
         font-size: 2rem;
     }
@@ -406,8 +426,16 @@ div.ocultar, p.ocultar {
       margin: 5px;
   }
 
-  aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th, .pagina-productos p, .carrito p {
+  aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th {
       display: none;
+  }
+
+  .carrito-abierto {
+
+  }
+
+  .overlay-contenido {
+
   }
   }
 
@@ -415,6 +443,10 @@ div.ocultar, p.ocultar {
     .encabezado {
         justify-content: start;
     
+    }
+    .carrito span {
+        min-width: 150px;
+
     }
     h1 {
         font-size: 30px;
@@ -438,7 +470,7 @@ div.ocultar, p.ocultar {
     margin: 5px;
 }
   
-  aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th, .pagina-productos p, .carrito p {
+  aside, .pagina-productos .fa-list-alt, .pagina-productos .fa-th, .pagina-productos p {
       display: none;
   }
   footer {
