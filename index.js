@@ -1,57 +1,99 @@
 // declaracion de variables
 
-const filtroBusqueda = document.querySelector("#busqueda")
-const categoriaFiltro = document.getElementsByClassName("filtro-categoria")
-const tarjetaInstrumento = document.querySelectorAll(".producto")
-const puntaje = document.getElementsByClassName("filtro-puntaje")
-const limpiar = document.querySelector(".fa-trash-alt")
-const checkbox = document.querySelectorAll("input")
-const imagenesInstrumentos = document.querySelectorAll(".contenedor-imagen .modo-lista") // o ".vista-cuadricula"
-const botonComprar = document.querySelectorAll(".comprar")
-const carrito = document.querySelector(".carrito > button")
-const cantidadCarrito = document.querySelector(".carrito span")
-const carritoAbierto = document.querySelector(".contenedor-carrito-abierto")
-const overlay = document.querySelector(".overlay-contenido")
-const cerrarCarrito = document.querySelector(".fa.fa-times")
+const filtroBusqueda = document.querySelector('#busqueda');
+const categoriaFiltro = document.getElementsByClassName('filtro-categoria');
+const tarjetaInstrumento = document.getElementsByClassName('producto');
+const nombreInstrumento = document.getElementsByClassName('instrumento');
+const puntaje = document.getElementsByClassName('filtro-puntaje');
+const limpiar = document.querySelector('.fa-trash-alt');
+const checkbox = document.querySelectorAll('input');
 
+const imagenesInstrumentos = document.getElementsByClassName('modo-lista');
+const tipoLista = document.querySelector('#estilo-lista');
+const articuloEnLista = document.getElementsByClassName('en-lista');
+const botonLista = document.querySelector('#tipo-lista');
+const botonCuadricula = document.querySelector('#tipo-cuadricula');
 
+const botonComprar = document.querySelectorAll('.comprar');
+const carrito = document.querySelector('.carrito > button');
+const cantidadCarrito = document.querySelector('.carrito span');
+const carritoAbierto = document.querySelector('.contenedor-carrito-abierto');
+const overlay = document.querySelector('.overlay-contenido');
+const cerrarCarrito = document.querySelector('.fa.fa-times');
+let cantidad = 0;
+console.dir();
 //  -------------- acciones boton carrito ---------------
 
 carrito.onclick = () => {
-    carritoAbierto.classList.toggle("ocultar")
-    overlay.classList.toggle("ocultar")
-}
+	carritoAbierto.classList.toggle('ocultar');
+	overlay.classList.toggle('ocultar');
+};
 cerrarCarrito.onclick = () => {
-    carritoAbierto.classList.toggle("ocultar")
-    overlay.classList.toggle("ocultar")
-}
+	carritoAbierto.classList.toggle('ocultar');
+	overlay.classList.toggle('ocultar');
+};
 
 for (let botones of botonComprar) {
-    botones.onclick = () => {
-        let cantidad = 0
-        cantidadCarrito.textContent = `Carrito (${cantidad + 1} item)`
-    }
+	botones.onclick = () => {
+		cantidad++;
+
+		cantidadCarrito.textContent = `Carrito (${cantidad} item)`;
+	};
 }
 
-// filtroBusqueda.oninput = () => {
+// -------------------- modo de visualizacion de productos --------------
 
-// }
+botonCuadricula.onclick = () => {
+	for (let imagen1 of imagenesInstrumentos) {
+		imagen1.classList.add('vista-cuadricula');
+		imagen1.classList.remove('modo-lista');
+	}
+	tipoLista.classList.remove('estilo-lista');
+	tipoLista.classList.add('contenedor-tarjetas');
+	for (let instrumento of tarjetaInstrumento) {
+		instrumento.classList.remove('en-lista');
+		instrumento.classList.add('producto');
+	}
+};
 
+botonLista.onclick = () => {
+	for (let imagen of imagenesInstrumentos) {
+		imagen.classList.add('modo-lista');
+		imagen.classList.remove('vista-cuadricula');
+	}
+	tipoLista.classList.add('estilo-lista');
+	tipoLista.classList.remove('contenedor-tarjetas');
+	for (let articulo of articuloEnLista) {
+		articulo.classList.add('en-lista');
+		articulo.classList.remove('producto');
+	}
+};
+
+// --------------------------- filtro busqueda de producto ----------------
+
+filtroBusqueda.oninput = () => {
+	for (let tarjeta of tarjetaInstrumento) {
+		if (tarjeta.dataset.name.toLowerCase().includes(filtroBusqueda.value)) {
+			tarjeta.classList.remove('ocultar');
+		} else {
+			tarjeta.classList.add('ocultar');
+		}
+	}
+};
 
 // const borrarInputs = () => {
 
 // }
-
 
 // const producto = document.querySelectorAll(".producto")
 // producto.onclick = (e) => {
 
 // }
 
-// nombreVariable.classList.toggle("equis-clase")  
+// nombreVariable.classList.toggle("equis-clase")
 // es un switch generalmente para boton encendido / apagado, como para poner modo oscuro a una web
 
-// nombreVariable.classList.contains("equis-clase")   
+// nombreVariable.classList.contains("equis-clase")
 // devuelve un booleano que dice si el elemento contiene o no esa clase
 
 // const elementosLista = document.getElementsByTagName("div")
@@ -72,7 +114,7 @@ for (let botones of botonComprar) {
 
 // const cambiarDePagina = document.querySelector("a")
 // cambiarDePagina.href = "https://www.placekitten.com/200"
-// ejemplo no util para la tienda. Seguramente se pueda llevar a otro html propio. 
+// ejemplo no util para la tienda. Seguramente se pueda llevar a otro html propio.
 // window.onkeydown  --> evento de teclado cuando estas por tipear
 // window.onkeypress --> evento de teclado cuanto tipeaste, pulsaste
 // window.onkeyup --> evento de teclado cuando soltaste la tecla
@@ -82,12 +124,10 @@ for (let botones of botonComprar) {
 // window.scroll --> evento para cuando el usuario scrollea hacia abajo
 
 window.onkeydown = (e) => {
-    if (e.keyCode === 13) {
-        alert("¿Qué se te ofrece?")
-    }
-}
-
-
+	if (e.keyCode === 13) {
+		alert('¿Qué se te ofrece?');
+	}
+};
 
 // const boton = document.querySelector('#boton')
 
@@ -103,10 +143,6 @@ window.onkeydown = (e) => {
 
 //     limpiarFiltro()
 // }
-
-
-
-
 
 // <button id="abrir-carrito">Carrito</button>
 
@@ -152,10 +188,6 @@ window.onkeydown = (e) => {
 //   total.textContent = subtotalProductos + recargo
 // }
 
-
-
-
-
 // let tieneDescuento = true
 // let tieneRecargo = false
 // let tieneGastoDeEnvio = true
@@ -165,12 +197,10 @@ window.onkeydown = (e) => {
 // }
 // obtenerDescuento(100)
 
-
 // const obtenerRecargo = (subtotal) => {
 //     subtotal + (subtotal * 0.1)
 // }
 // obtenerRecargo(100)
-
 
 // const obtenerGastoDeEnvio = (subtotal) => {
 //     subtotal + 50
@@ -203,9 +233,6 @@ window.onkeydown = (e) => {
 //     return envio
 // }
 
-
-
-
 // input type submit es para cuando enviamos el formulario.
 // el atributo value es lo que dira el boton dentro.
 
@@ -233,24 +260,29 @@ window.onkeydown = (e) => {
 // si quiero que se envie la funcion es form.submit pero no se usa.
 
 // inputPassword.onblur = (e) => {     // cuando el usuario hace foco el evento es focus, cuando sale del input es blur. Solo se dispara onblur si previamente hubo onfocus
-    // if (inputPassword.value.length < 8) {
-        // checkPassword.textContent = "Tu password es muy corta"
-        // inputPassword.classList.add("input-error")
+// if (inputPassword.value.length < 8) {
+// checkPassword.textContent = "Tu password es muy corta"
+// inputPassword.classList.add("input-error")
 //     }
 // }
 
 // evento de input .onchange alude a toda vez que cambie algo por parte del usuario. Escucha cualquier cambio que haya ocurrido en mi input.
 // el evento .oninput alude a cuando el usuario escribe en mi input
 
-
 // si uso por ejemplo
 // inputName.oninput = (e) => {
-    // console.log(e)
+// console.log(e)
 // }                       voy a estar oyendo lo que puso el usuario en ese evento
 
 // const boton = document.querySelector("button")
 // boton.onclick = (e) => {   // puede ser e o event
-// la E trae informacion sobre el evento en si. 
+// la E trae informacion sobre el evento en si.
 // si ingresamos console.log veremos por ejemplo el TARGET que nos indica el elemento al que le hicieron clic
-    // console.log("hiciste clic")
+// console.log("hiciste clic")
 // }
+
+// inputPassword.onblur = (e) => {
+// console.log(e.target.value)
+// es lo mismo que decir
+//console.log(inputPassword.value)
+// } ya que en ambos casos le pedimos el valor del input

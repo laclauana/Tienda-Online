@@ -214,7 +214,7 @@ div.ocultar, p.ocultar {
 /* -------------- COMIENZO DE ESTILO VISUALIZACION DE PRODUCTOS EN LISTA ----------------- */
 
 
-/* .modo-lista {
+.modo-lista {
     max-width: 300px;
     margin: 10px;
     min-height: 180px;
@@ -237,12 +237,7 @@ div.ocultar, p.ocultar {
     background-color: white;
     border: 1px solid orangered;
     overflow: hidden;
- }  
-
- .ocultar {
-     display: flex;
- } */
-     
+ }       
  
 /* ------------------ FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN LISTA -------------------- */
  
@@ -256,7 +251,6 @@ div.ocultar, p.ocultar {
     -webkit-transition-property: all;
     -webkit-transition-duration: 0.3s;
     -webkit-transition-timing-function: ease;
-  
  }
 
  .contenedor-tarjetas {
