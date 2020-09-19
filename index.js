@@ -8,11 +8,12 @@ const puntaje = document.getElementsByClassName('filtro-puntaje');
 const limpiar = document.querySelector('.fa-trash-alt');
 const checkbox = document.querySelectorAll('input');
 
-const imagenesInstrumentos = document.getElementsByClassName('modo-lista');
+const imagenesInstrumentos = document.querySelectorAll('.modo-lista');
 const tipoLista = document.querySelector('#estilo-lista');
-const articuloEnLista = document.getElementsByClassName('en-lista');
+const articuloEnLista = document.querySelectorAll('.en-lista');
 const botonLista = document.querySelector('#tipo-lista');
 const botonCuadricula = document.querySelector('#tipo-cuadricula');
+const descripcionProducto = document.querySelectorAll('.descripcion');
 
 const botonComprar = document.querySelectorAll('.comprar');
 const carrito = document.querySelector('.carrito > button');
@@ -21,7 +22,7 @@ const carritoAbierto = document.querySelector('.contenedor-carrito-abierto');
 const overlay = document.querySelector('.overlay-contenido');
 const cerrarCarrito = document.querySelector('.fa.fa-times');
 let cantidad = 0;
-console.dir();
+
 //  -------------- acciones boton carrito ---------------
 
 carrito.onclick = () => {
@@ -54,6 +55,9 @@ botonCuadricula.onclick = () => {
 		instrumento.classList.remove('en-lista');
 		instrumento.classList.add('producto');
 	}
+	for (let descripcion of descripcionProducto) {
+		descripcion.classList.add('ocultar');
+	}
 };
 
 botonLista.onclick = () => {
@@ -66,6 +70,9 @@ botonLista.onclick = () => {
 	for (let articulo of articuloEnLista) {
 		articulo.classList.add('en-lista');
 		articulo.classList.remove('producto');
+	}
+	for (let descripcion of descripcionProducto) {
+		descripcion.classList.remove('ocultar');
 	}
 };
 
