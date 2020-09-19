@@ -13,6 +13,45 @@ filtroBusqueda.oninput = () => {
 	}
 };
 
+// ------------------- filtro de busqueda por puntaje ---------------------
+
+const filtroPuntaje = document.getElementsByClassName('filtro-puntaje');
+
+for (let checkbox of filtroPuntaje) {
+	checkbox.onclick = () => {
+		filtrarTarjetas();
+	};
+}
+
+const hayCheckboxSeleccionado = () => {
+	for (let checkbox of filtroPuntaje) {
+		if (checkbox.checked) {
+			return true;
+		}
+	}
+};
+
+const coincidenCheckboxYtarjeta = (tarjeta) => {
+	for (let checkbox of filtroPuntaje) {
+		if (checkbox.value === tarjeta.dataset.puntaje && checkbox.checked) {
+			return true;
+		}
+	}
+};
+
+const filtrarTarjetas = () => {
+	for (let tarjeta of tarjetaInstrumento) {
+		tarjeta.classList.add('ocultar');
+		if (hayCheckboxSeleccionado()) {
+			if (coincidenCheckboxYtarjeta(tarjeta)) {
+				tarjeta.classList.remove('ocultar');
+			}
+		} else {
+			tarjeta.classList.remove('hidden');
+		}
+	}
+};
+
 //  -------------- acciones boton carrito ---------------
 
 const botonComprar = document.querySelectorAll('.comprar');
