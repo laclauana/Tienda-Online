@@ -1,19 +1,19 @@
-// declaracion de variables
+// -------------- filtro de busqueda por producto ----------------
 
 const filtroBusqueda = document.querySelector('#busqueda');
-const categoriaFiltro = document.getElementsByClassName('filtro-categoria');
 const tarjetaInstrumento = document.getElementsByClassName('producto');
-const nombreInstrumento = document.getElementsByClassName('instrumento');
-const puntaje = document.getElementsByClassName('filtro-puntaje');
-const limpiar = document.querySelector('.fa-trash-alt');
-const checkbox = document.querySelectorAll('input');
 
-const imagenesInstrumentos = document.querySelectorAll('.modo-lista');
-const tipoLista = document.querySelector('#estilo-lista');
-const articuloEnLista = document.querySelectorAll('.en-lista');
-const botonLista = document.querySelector('#tipo-lista');
-const botonCuadricula = document.querySelector('#tipo-cuadricula');
-const descripcionProducto = document.querySelectorAll('.descripcion');
+filtroBusqueda.oninput = () => {
+	for (let tarjeta of tarjetaInstrumento) {
+		if (tarjeta.dataset.nombre.toLowerCase().includes(filtroBusqueda.value)) {
+			tarjeta.classList.remove('ocultar');
+		} else {
+			tarjeta.classList.add('ocultar');
+		}
+	}
+};
+
+//  -------------- acciones boton carrito ---------------
 
 const botonComprar = document.querySelectorAll('.comprar');
 const carrito = document.querySelector('.carrito > button');
@@ -22,8 +22,6 @@ const carritoAbierto = document.querySelector('.contenedor-carrito-abierto');
 const overlay = document.querySelector('.overlay-contenido');
 const cerrarCarrito = document.querySelector('.fa.fa-times');
 let cantidad = 0;
-
-//  -------------- acciones boton carrito ---------------
 
 carrito.onclick = () => {
 	carritoAbierto.classList.toggle('ocultar');
@@ -43,6 +41,13 @@ for (let botones of botonComprar) {
 }
 
 // -------------------- modo de visualizacion de productos --------------
+
+const imagenesInstrumentos = document.querySelectorAll('.modo-lista');
+const tipoLista = document.querySelector('#estilo-lista');
+const articuloEnLista = document.querySelectorAll('.en-lista');
+const botonLista = document.querySelector('#tipo-lista');
+const botonCuadricula = document.querySelector('#tipo-cuadricula');
+const descripcionProducto = document.querySelectorAll('.descripcion');
 
 botonCuadricula.onclick = () => {
 	for (let imagen1 of imagenesInstrumentos) {
@@ -75,27 +80,6 @@ botonLista.onclick = () => {
 		descripcion.classList.remove('ocultar');
 	}
 };
-
-// --------------------------- filtro busqueda de producto ----------------
-
-filtroBusqueda.oninput = () => {
-	for (let tarjeta of tarjetaInstrumento) {
-		if (tarjeta.dataset.nombre.toLowerCase().includes(filtroBusqueda.value)) {
-			tarjeta.classList.remove('ocultar');
-		} else {
-			tarjeta.classList.add('ocultar');
-		}
-	}
-};
-
-// const borrarInputs = () => {
-
-// }
-
-// const producto = document.querySelectorAll(".producto")
-// producto.onclick = (e) => {
-
-// }
 
 // nombreVariable.classList.toggle("equis-clase")
 // es un switch generalmente para boton encendido / apagado, como para poner modo oscuro a una web
