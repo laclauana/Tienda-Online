@@ -52,6 +52,21 @@ const filtrarTarjetas = () => {
 	}
 };
 
+// -------------------- limpiar filtros -------------------
+
+const botonLimpiar = document.querySelector('#tacho');
+
+botonLimpiar.onclick = () => {
+	limpiarFiltros();
+};
+
+const limpiarFiltros = () => {
+	filtroBusqueda.value = ' ';
+	for (let checkbox of filtroPuntaje) {
+		checkbox.checked = false;
+	}
+};
+
 //  -------------- acciones boton carrito ---------------
 
 const botonComprar = document.querySelectorAll('.comprar');
