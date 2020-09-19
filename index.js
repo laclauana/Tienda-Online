@@ -80,7 +80,7 @@ botonLista.onclick = () => {
 
 filtroBusqueda.oninput = () => {
 	for (let tarjeta of tarjetaInstrumento) {
-		if (tarjeta.dataset.name.toLowerCase().includes(filtroBusqueda.value)) {
+		if (tarjeta.dataset.nombre.toLowerCase().includes(filtroBusqueda.value)) {
 			tarjeta.classList.remove('ocultar');
 		} else {
 			tarjeta.classList.add('ocultar');
