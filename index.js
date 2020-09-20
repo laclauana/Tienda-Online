@@ -47,7 +47,7 @@ const filtrarTarjetas = () => {
 				tarjeta.classList.remove('ocultar');
 			}
 		} else {
-			tarjeta.classList.remove('hidden');
+			tarjeta.classList.remove('ocultar');
 		}
 	}
 };
@@ -104,24 +104,18 @@ cerrarCarrito.onclick = () => {
 };
 
 // -------------------- modo de visualizacion de productos --------------
+const botonLista = document.querySelector('#boton-lista');
+const botonCuadricula = document.querySelector('#boton-cuadricula');
+const contenedor = document.querySelector('#estilo-lista');
 
-const imagenesInstrumentos = document.querySelectorAll('.modo-lista');
-const tipoLista = document.querySelector('#estilo-lista');
-const articuloEnLista = document.querySelectorAll('.en-lista');
-const botonLista = document.querySelector('#tipo-lista');
-const botonCuadricula = document.querySelector('#tipo-cuadricula');
 const descripcionProducto = document.querySelectorAll('.descripcion');
 
 botonCuadricula.onclick = () => {
-	for (let imagen1 of imagenesInstrumentos) {
-		imagen1.classList.add('vista-cuadricula');
-		imagen1.classList.remove('modo-lista');
-	}
-	tipoLista.classList.remove('estilo-lista');
-	tipoLista.classList.add('contenedor-tarjetas');
+	contenedor.classList.remove('estilo-lista');
+	contenedor.classList.add('contenedor-tarjetas');
 	for (let instrumento of tarjetaInstrumento) {
 		instrumento.classList.remove('en-lista');
-		instrumento.classList.add('producto');
+		instrumento.classList.add('en-cuadricula');
 	}
 	for (let descripcion of descripcionProducto) {
 		descripcion.classList.add('ocultar');
@@ -129,15 +123,11 @@ botonCuadricula.onclick = () => {
 };
 
 botonLista.onclick = () => {
-	for (let imagen of imagenesInstrumentos) {
-		imagen.classList.add('modo-lista');
-		imagen.classList.remove('vista-cuadricula');
-	}
-	tipoLista.classList.add('estilo-lista');
-	tipoLista.classList.remove('contenedor-tarjetas');
-	for (let articulo of articuloEnLista) {
-		articulo.classList.add('en-lista');
-		articulo.classList.remove('producto');
+	contenedor.classList.add('estilo-lista');
+	contenedor.classList.remove('contenedor-tarjetas');
+	for (let instrumento of tarjetaInstrumento) {
+		instrumento.classList.add('en-lista');
+		instrumento.classList.remove('en-cuadricula');
 	}
 	for (let descripcion of descripcionProducto) {
 		descripcion.classList.remove('ocultar');
