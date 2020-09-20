@@ -62,8 +62,11 @@ i {
 }
 
 h1 {
+	position: absolute;
 	font-size: 45px;
 	color: white;
+	left: 30%;
+	top: 30%;
 }
 
 input {
@@ -77,6 +80,7 @@ input {
 
 input:focus {
 	border: 2px solid orangered;
+	background-color: wheat;
 }
 
 input::placeholder,
@@ -147,12 +151,10 @@ footer p:last-child:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-basis: 100%;
-	height: 53vh;
+	height: 50vh;
 	background-image: url("./assets/image.jpg");
 	background-size: cover;
 	background-position: center;
-	filter: brightness(50%);
 }
 
 .carrito {
@@ -193,17 +195,6 @@ footer p:last-child:hover {
 	background-color: rgb(250, 216, 154);
 	border-radius: 30px;
 	text-shadow: 2px 3px 1px white;
-}
-
-.overlay {
-	transition: all 1s;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(0, 0, 0, 0.3);
-	opacity: 1;
 }
 
 div.ocultar,
@@ -361,37 +352,44 @@ div.ocultar,
 
 /* --------------------- CARRITO ABIERTO ---------------------- */
 
-.contenedor-carrito-abierto {
-	position: fixed;
-	height: 100%;
-	background-color: cornsilk;
-	display: flex;
-	flex-direction: column;
-	left: 80%;
-	padding: 20px;
-	top: 0;
-	right: 0;
-}
-.carrito-abierto {
-	background-color: cornsilk;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	border-radius: 15px;
-}
-.overlay-contenido {
-	content: '\A';
-	position: fixed;
-	width: 80%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(0, 0, 0, 0.3);
-	opacity: 1;
-}
-
 .fa-times {
 	cursor: pointer;
+	margin: 5px;
+}
+
+.overlay {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.menu {
+	width: 300px;
+	height: 100vh;
+	background-color: wheat;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translate(300px);
+	transition: 2s;
+}
+
+.mostrar-menu {
+	transform: translate(0);
+}
+
+.no-scroll {
+	overflow: hidden;
+}
+
+.menu > p,
+.menu > h2 {
+	margin: 10px;
+	margin-top: 25px;
 }
 
 /* ------------ FIN CARRITO ABIERTO ---------------- */
@@ -408,12 +406,8 @@ div.ocultar,
 	h1 {
 		font-size: 2rem;
 	}
-	.imagen {
-		height: 30vh;
-	}
 	.contenedor-tarjetas,
 	.encabezado,
-	.imagen,
 	.pagina-productos {
 		flex-basis: 100%;
 	}
@@ -436,12 +430,6 @@ div.ocultar,
 	#pagina p {
 		display: none;
 	}
-
-	.carrito-abierto {
-	}
-
-	.overlay-contenido {
-	}
 }
 
 @media (max-width: 600px) {
@@ -454,12 +442,9 @@ div.ocultar,
 	h1 {
 		font-size: 30px;
 	}
-	.imagen {
-		height: 20vh;
-	}
+
 	.contenedor-tarjetas,
 	.encabezado,
-	.imagen,
 	.pagina-productos {
 		flex-basis: 100%;
 	}

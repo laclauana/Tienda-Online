@@ -76,8 +76,8 @@ const limpiarFiltros = () => {
 const botonComprar = document.querySelectorAll('.comprar');
 const carrito = document.querySelector('.carrito > button');
 const cantidadCarrito = document.querySelector('.carrito span');
-const carritoAbierto = document.querySelector('.contenedor-carrito-abierto');
-const overlay = document.querySelector('.overlay-contenido');
+const menu = document.getElementById('menu');
+const overlay = document.getElementById('overlay');
 const cerrarCarrito = document.querySelector('.fa.fa-times');
 let cantidad = 0;
 
@@ -91,16 +91,16 @@ for (let botones of botonComprar) {
 
 carrito.onclick = () => {
 	if (cantidad === 0) {
-		carritoAbierto.classList.remove('ocultar');
 		overlay.classList.remove('ocultar');
-	} else {
-		carritoAbierto.classList.add('ocultar');
-		overlay.classList.add('ocultar');
+		document.body.classList.add('no-scroll');
+		menu.classList.add('mostrar-menu');
 	}
 };
+
 cerrarCarrito.onclick = () => {
-	carritoAbierto.classList.toggle('ocultar');
-	overlay.classList.toggle('ocultar');
+	overlay.classList.add('ocultar');
+	document.body.classList.remove('no-scroll');
+	menu.classList.remove('mostrar-menu');
 };
 
 // -------------------- modo de visualizacion de productos --------------
