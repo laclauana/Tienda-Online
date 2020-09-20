@@ -52,6 +52,10 @@ const filtrarTarjetas = () => {
 	}
 };
 
+// -------------------- filtro de busqueda por categoria ----------------
+
+const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
 // -------------------- limpiar filtros -------------------
 
 const botonLimpiar = document.querySelector('#tacho');
@@ -77,15 +81,6 @@ const overlay = document.querySelector('.overlay-contenido');
 const cerrarCarrito = document.querySelector('.fa.fa-times');
 let cantidad = 0;
 
-carrito.onclick = () => {
-	carritoAbierto.classList.toggle('ocultar');
-	overlay.classList.toggle('ocultar');
-};
-cerrarCarrito.onclick = () => {
-	carritoAbierto.classList.toggle('ocultar');
-	overlay.classList.toggle('ocultar');
-};
-
 for (let botones of botonComprar) {
 	botones.onclick = () => {
 		cantidad++;
@@ -93,6 +88,20 @@ for (let botones of botonComprar) {
 		cantidadCarrito.textContent = `Carrito (${cantidad} item)`;
 	};
 }
+
+carrito.onclick = () => {
+	if (cantidad === 0) {
+		carritoAbierto.classList.remove('ocultar');
+		overlay.classList.remove('ocultar');
+	} else {
+		carritoAbierto.classList.add('ocultar');
+		overlay.classList.add('ocultar');
+	}
+};
+cerrarCarrito.onclick = () => {
+	carritoAbierto.classList.toggle('ocultar');
+	overlay.classList.toggle('ocultar');
+};
 
 // -------------------- modo de visualizacion de productos --------------
 
