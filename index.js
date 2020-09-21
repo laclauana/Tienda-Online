@@ -1,3 +1,18 @@
+// ---------------- Refreshing visible product amount------------------------
+
+const visibleProductsHeader = document.querySelector('#visible-products');
+
+const refreshVisibleProducts = () => {
+	let visibleAmount = tarjetaInstrumento.length;
+	for (let tarjeta of tarjetaInstrumento) {
+		if (tarjeta.classList.contains('ocultar')) {
+			visibleAmount--;
+		}
+	}
+
+	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${tarjetaInstrumento.length}`;
+};
+
 // -------------- filtro de busqueda por producto ----------------
 
 const filtroBusqueda = document.querySelector('#busqueda');
@@ -7,8 +22,10 @@ filtroBusqueda.oninput = () => {
 	for (let tarjeta of tarjetaInstrumento) {
 		if (tarjeta.dataset.nombre.toLowerCase().includes(filtroBusqueda.value)) {
 			tarjeta.classList.remove('ocultar');
+			refreshVisibleProducts();
 		} else {
 			tarjeta.classList.add('ocultar');
+			refreshVisibleProducts();
 		}
 	}
 };
@@ -42,12 +59,15 @@ const coincidenCheckboxYtarjeta = (tarjeta) => {
 const filtrarTarjetas = () => {
 	for (let tarjeta of tarjetaInstrumento) {
 		tarjeta.classList.add('ocultar');
+		refreshVisibleProducts();
 		if (hayCheckboxSeleccionado()) {
 			if (coincidenCheckboxYtarjeta(tarjeta)) {
 				tarjeta.classList.remove('ocultar');
+				refreshVisibleProducts();
 			}
 		} else {
 			tarjeta.classList.remove('ocultar');
+			refreshVisibleProducts();
 		}
 	}
 };
@@ -68,6 +88,12 @@ const limpiarFiltros = () => {
 	filtroBusqueda.value = ' ';
 	for (let checkbox of filtroPuntaje) {
 		checkbox.checked = false;
+	}
+	for (let tarjeta of tarjetaInstrumento) {
+		if (tarjeta.classList.contains('ocultar')) {
+			tarjeta.classList.remove('ocultar');
+			refreshVisibleProducts();
+		}
 	}
 };
 
@@ -104,6 +130,7 @@ cerrarCarrito.onclick = () => {
 };
 
 // -------------------- modo de visualizacion de productos --------------
+
 const botonLista = document.querySelector('#boton-lista');
 const botonCuadricula = document.querySelector('#boton-cuadricula');
 const contenedor = document.querySelector('#estilo-lista');
