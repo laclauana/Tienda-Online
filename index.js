@@ -161,6 +161,15 @@ botonLista.onclick = () => {
 	}
 };
 
+// ------------------- filtro productos desde tablets y celulares ------------
+
+const filterButton = document.querySelector('#boton-filtros');
+const asideMenu = document.querySelector('aside');
+
+filterButton.onclick = () => {
+	console.log(asideMenu);
+};
+
 // nombreVariable.classList.contains("equis-clase")
 // devuelve un booleano que dice si el elemento contiene o no esa clase
 
