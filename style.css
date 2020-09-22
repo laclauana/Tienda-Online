@@ -208,7 +208,8 @@ footer p:last-child:hover {
 }
 
 div.ocultar,
-.ocultar {
+.ocultar,
+.pagina-productos .fa-filter {
 	display: none;
 }
 
@@ -348,10 +349,6 @@ div.ocultar,
 	flex-basis: 180px;
 	align-items: center;
 	justify-content: space-around;
-}
-
-.pagina-productos .fa-filter {
-	display: none;
 }
 
 /* --------------------- CARRITO ABIERTO ---------------------- */
