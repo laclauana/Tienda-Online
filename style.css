@@ -43,6 +43,7 @@ button {
 	cursor: pointer;
 	display: flex;
 	align-items: center;
+	outline: none;
 }
 
 .encabezado button {
@@ -59,7 +60,6 @@ i {
 .fa-trash-alt,
 .fa-shopping-cart {
 	margin-right: 6px;
-	cursor: pointer;
 }
 
 h1 {
@@ -107,13 +107,12 @@ main {
 
 section {
 	order: 1;
-	flex-grow: 2;
+	/* flex-grow: 2; */
 	flex: 1;
 }
 
 aside {
 	align-self: flex-start;
-	flex-shrink: 1;
 	padding: 35px;
 }
 
@@ -143,7 +142,8 @@ footer p:last-child:hover {
 	font-family: "hanalei", cursive;
 }
 
-.encabezado {
+.encabezado,
+.pagina-productos {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
@@ -211,11 +211,7 @@ div.ocultar,
 }
 
 .pagina-productos {
-	display: flex;
-	align-items: center;
 	margin: 15px;
-	justify-content: space-between;
-	padding: 15px;
 	background-color: white;
 	border-radius: 5px;
 }
@@ -272,12 +268,15 @@ div.ocultar,
 .contenedor-tarjetas {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-left: 10px;
 }
 
 .producto {
 	background-color: white;
 	border: 1px solid orangered;
 	display: flex;
+	/* flex-grow: 1; */
 }
 
 /* -------------- FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
@@ -287,7 +286,8 @@ div.ocultar,
 	overflow: hidden;
 }
 
-.contenedor-tarjetas img:hover {
+.contenedor-tarjetas img:hover,
+.en-lista > .contenedor-imagen > img:hover {
 	transform: scale(1.5);
 	opacity: 0.8;
 }

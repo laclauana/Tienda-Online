@@ -167,7 +167,7 @@ const filterButton = document.querySelector('#boton-filtros');
 const asideMenu = document.querySelector('aside');
 
 filterButton.onclick = () => {
-	console.log(asideMenu);
+	asideMenu.classList.remove('ocultar');
 };
 
 // nombreVariable.classList.contains("equis-clase")
