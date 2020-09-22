@@ -90,6 +90,8 @@ input[type="text"] {
 	font-size: 15px;
 	font-family: 'Grandstander', cursive;
 	color: white;
+	width: 200px;
+	margin-bottom: 25px;
 }
 
 input[type="text"] {
@@ -327,11 +329,6 @@ div.ocultar,
 	font-weight: bold;
 	font-size: 20px;
 	position: relative;
-}
-
-#busqueda {
-	width: 200px;
-	margin-bottom: 25px;
 }
 
 .fa-search {
