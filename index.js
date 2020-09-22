@@ -161,9 +161,6 @@ botonLista.onclick = () => {
 	}
 };
 
-// nombreVariable.classList.toggle("equis-clase")
-// es un switch generalmente para boton encendido / apagado, como para poner modo oscuro a una web
-
 // nombreVariable.classList.contains("equis-clase")
 // devuelve un booleano que dice si el elemento contiene o no esa clase
 

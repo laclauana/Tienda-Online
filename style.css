@@ -66,7 +66,7 @@ h1 {
 	font-size: 45px;
 	color: white;
 	left: 30%;
-	top: 30%;
+	top: 35%;
 }
 
 input {
@@ -148,12 +148,17 @@ footer p:last-child:hover {
 	align-items: center;
 }
 
+.container-header-img {
+	opacity: 0.7;
+	background-color: rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
 .imagen {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./assets/image.jpg');
+	width: 100%;
+	text-align: center;
 	height: 50vh;
-	background-image: url("./assets/image.jpg");
 	background-size: cover;
 	background-position: center;
 }
@@ -405,7 +410,7 @@ div.ocultar,
 	}
 	h1 {
 		font-size: 2rem;
-		top: 15%;
+		top: 30%;
 		left: 25%;
 		text-align: center;
 	}
@@ -448,9 +453,10 @@ div.ocultar,
 	.carrito span {
 		min-width: 150px;
 	}
+
 	h1 {
 		font-size: 30px;
-		top: 15%;
+		top: 25%;
 		left: 15%;
 		text-align: center;
 	}
