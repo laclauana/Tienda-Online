@@ -30,6 +30,7 @@ body {
 		rgba(226, 164, 240, 0.454) 68%,
 		rgba(253, 255, 255, 0.625) 100%
 	);
+	object-fit: contain;
 }
 
 button {
@@ -461,6 +462,16 @@ div.ocultar,
 }
 
 @media (max-width: 600px) {
+	.small-devices-display {
+		width: 122vw;
+		height: 100vh;
+		background-color: wheat;
+		position: fixed;
+		right: 0;
+		top: 0;
+		transform: translate(300px);
+		transition: 1s;
+	}
 	.small-devices-hidden {
 		display: none;
 	}
