@@ -3,28 +3,28 @@
 const visibleProductsHeader = document.querySelector('#visible-products');
 
 const refreshVisibleProducts = () => {
-	let visibleAmount = tarjetaInstrumento.length;
-	for (let tarjeta of tarjetaInstrumento) {
-		if (tarjeta.classList.contains('ocultar')) {
+	let visibleAmount = singleProduct.length;
+	for (let each of singleProduct) {
+		if (each.classList.contains('hidden')) {
 			visibleAmount--;
 		}
 	}
 
-	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${tarjetaInstrumento.length}`;
+	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${singleProduct.length}`;
 };
 
 // -------------- filtro de busqueda por producto ----------------
 
-const filtroBusqueda = document.querySelector('#busqueda');
-const tarjetaInstrumento = document.getElementsByClassName('producto');
+const searchingFilter = document.querySelector('#searching');
+const singleProduct = document.getElementsByClassName('product');
 
-filtroBusqueda.oninput = () => {
-	for (let tarjeta of tarjetaInstrumento) {
-		if (tarjeta.dataset.nombre.toLowerCase().includes(filtroBusqueda.value)) {
-			tarjeta.classList.remove('ocultar');
+searchingFilter.oninput = () => {
+	for (let each of singleProduct) {
+		if (each.dataset.name.toLowerCase().includes(searchingFilter.value)) {
+			each.classList.remove('hidden');
 			refreshVisibleProducts();
 		} else {
-			tarjeta.classList.add('ocultar');
+			each.classList.add('hidden');
 			refreshVisibleProducts();
 		}
 	}
@@ -32,41 +32,41 @@ filtroBusqueda.oninput = () => {
 
 // ------------------- filtro de busqueda por puntaje ---------------------
 
-const filtroPuntaje = document.getElementsByClassName('filtro-puntaje');
+const gradingFilter = document.getElementsByClassName('grading-filter');
 
-for (let checkbox of filtroPuntaje) {
+for (let checkbox of gradingFilter) {
 	checkbox.onclick = () => {
-		filtrarTarjetas();
+		filterProducts();
 	};
 }
 
-const hayCheckboxSeleccionado = () => {
-	for (let checkbox of filtroPuntaje) {
+const matchingCheckbox = () => {
+	for (let checkbox of gradingFilter) {
 		if (checkbox.checked) {
 			return true;
 		}
 	}
 };
 
-const coincidenCheckboxYtarjeta = (tarjeta) => {
-	for (let checkbox of filtroPuntaje) {
-		if (checkbox.value === tarjeta.dataset.puntaje && checkbox.checked) {
+const pickingMatch = (each) => {
+	for (let checkbox of gradingFilter) {
+		if (checkbox.value === each.dataset.grading && checkbox.checked) {
 			return true;
 		}
 	}
 };
 
-const filtrarTarjetas = () => {
-	for (let tarjeta of tarjetaInstrumento) {
-		tarjeta.classList.add('ocultar');
+const filterProducts = () => {
+	for (let each of singleProduct) {
+		each.classList.add('hidden');
 		refreshVisibleProducts();
-		if (hayCheckboxSeleccionado()) {
-			if (coincidenCheckboxYtarjeta(tarjeta)) {
-				tarjeta.classList.remove('ocultar');
+		if (matchingCheckbox()) {
+			if (pickingMatch(each)) {
+				each.classList.remove('hidden');
 				refreshVisibleProducts();
 			}
 		} else {
-			tarjeta.classList.remove('ocultar');
+			each.classList.remove('hidden');
 			refreshVisibleProducts();
 		}
 	}
@@ -78,54 +78,54 @@ const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
 // -------------------- limpiar filtros -------------------
 
-const botonLimpiar = document.querySelector('#tacho');
+const trashButton = document.querySelector('#tacho');
 
-botonLimpiar.onclick = () => {
-	limpiarFiltros();
+trashButton.onclick = () => {
+	wipingFilter();
 };
 
-const limpiarFiltros = () => {
-	filtroBusqueda.value = ' ';
-	for (let checkbox of filtroPuntaje) {
+const wipingFilter = () => {
+	searchingFilter.value = ' ';
+	for (let checkbox of gradingFilter) {
 		checkbox.checked = false;
 	}
-	for (let tarjeta of tarjetaInstrumento) {
-		if (tarjeta.classList.contains('ocultar')) {
-			tarjeta.classList.remove('ocultar');
+	for (let each of singleProduct) {
+		if (each.classList.contains('hidden')) {
+			each.classList.remove('hidden');
 			refreshVisibleProducts();
 		}
 	}
 };
 
-//  -------------- acciones boton carrito ---------------
+//  -------------- acciones boton cart ---------------
 
-const botonComprar = document.querySelectorAll('.comprar');
-const carrito = document.querySelector('.carrito > button');
-const cantidadCarrito = document.querySelector('.carrito span');
+const purchaseButton = document.querySelectorAll('.purchase-button');
+const cart = document.querySelector('.cart > button');
+const cartAmount = document.querySelector('.cart span');
 const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
-const cerrarCarrito = document.querySelectorAll('#close-menu');
-let cantidad = 0;
+const closeCartMenu = document.querySelectorAll('#close-menu');
+let amount = 0;
 
-for (let botones of botonComprar) {
-	botones.onclick = () => {
-		cantidad++;
+for (let button of purchaseButton) {
+	button.onclick = () => {
+		amount++;
 
-		cantidadCarrito.textContent = `Carrito (${cantidad} item)`;
+		cartAmount.textContent = `Carrito (${amount} item)`;
 	};
 }
 
-carrito.onclick = () => {
-	if (cantidad === 0) {
-		overlay.classList.remove('ocultar');
+cart.onclick = () => {
+	if (amount === 0) {
+		overlay.classList.remove('hidden');
 		document.body.classList.add('no-scroll');
 		menu.classList.add('mostrar-menu');
 	}
 };
 
-for (let cross of cerrarCarrito) {
+for (let cross of closeCartMenu) {
 	cross.onclick = () => {
-		overlay.classList.add('ocultar');
+		overlay.classList.add('hidden');
 		document.body.classList.remove('no-scroll');
 		menu.classList.remove('mostrar-menu');
 	};
@@ -133,46 +133,46 @@ for (let cross of cerrarCarrito) {
 
 // -------------------- modo de visualizacion de productos --------------
 
-const botonLista = document.querySelector('#boton-lista');
-const botonCuadricula = document.querySelector('#boton-cuadricula');
-const contenedor = document.querySelector('#estilo-lista');
+const listLikeButton = document.querySelector('#list-layout-button');
+const gridLikeButton = document.querySelector('#grid-layout-button');
+const container = document.querySelector('#list-layout');
 
-const descripcionProducto = document.querySelectorAll('.descripcion');
+const productDescription = document.querySelectorAll('.product-description');
 
-botonCuadricula.onclick = () => {
-	contenedor.classList.remove('estilo-lista');
-	contenedor.classList.add('contenedor-tarjetas');
-	for (let instrumento of tarjetaInstrumento) {
-		instrumento.classList.remove('en-lista');
-		instrumento.classList.add('en-cuadricula');
+gridLikeButton.onclick = () => {
+	container.classList.remove('list-layout');
+	container.classList.add('products-container');
+	for (let each of singleProduct) {
+		each.classList.remove('en-lista');
+		each.classList.add('grid-layout');
 	}
-	for (let descripcion of descripcionProducto) {
-		descripcion.classList.add('ocultar');
+	for (let description of productDescription) {
+		description.classList.add('hidden');
 	}
 };
 
-botonLista.onclick = () => {
-	contenedor.classList.add('estilo-lista');
-	contenedor.classList.remove('contenedor-tarjetas');
-	for (let instrumento of tarjetaInstrumento) {
-		instrumento.classList.add('en-lista');
-		instrumento.classList.remove('en-cuadricula');
+listLikeButton.onclick = () => {
+	container.classList.add('list-layout');
+	container.classList.remove('products-container');
+	for (let each of singleProduct) {
+		each.classList.add('en-lista');
+		each.classList.remove('grid-layout');
 	}
-	for (let descripcion of descripcionProducto) {
-		descripcion.classList.remove('ocultar');
+	for (let description of productDescription) {
+		description.classList.remove('hidden');
 	}
 };
 
 // ------------------- filtro productos desde tablets y celulares ------------
 
-const filterButton = document.querySelector('#boton-filtros');
+const filterButton = document.querySelector('#filters-button');
 const asideMenu = document.querySelector('aside');
 const closeMenuButton = document.querySelector('.close-menu');
 
 filterButton.onclick = () => {
 	asideMenu.classList.remove('small-devices-hidden');
 	asideMenu.classList.add('small-devices-display');
-	closeMenuButton.classList.remove('ocultar');
+	closeMenuButton.classList.remove('hidden');
 	closeMenuButton.onclick = () => {
 		asideMenu.classList.add('small-devices-hidden');
 		asideMenu.classList.remove('small-devices-display');

@@ -47,7 +47,7 @@ button {
 	outline: none;
 }
 
-.encabezado button {
+.header button {
 	text-shadow: 3px 2px 2px rgb(141, 135, 141);
 	letter-spacing: 6px;
 }
@@ -145,8 +145,8 @@ footer p:last-child:hover {
 	font-family: "hanalei", cursive;
 }
 
-.encabezado,
-.pagina-productos {
+.header,
+.products-amount {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
@@ -159,7 +159,7 @@ footer p:last-child:hover {
 	position: relative;
 }
 
-.imagen {
+.image {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./assets/image.jpg');
 	width: 100%;
 	text-align: center;
@@ -168,14 +168,14 @@ footer p:last-child:hover {
 	background-position: center;
 }
 
-.carrito {
+.cart {
 	display: flex;
 	align-items: center;
 	align-content: center;
 }
 
-.carrito span,
-.filtros span {
+.cart span,
+.filters span {
 	letter-spacing: normal;
 	color: black;
 	text-shadow: none;
@@ -183,11 +183,11 @@ footer p:last-child:hover {
 	font-size: 16px;
 }
 
-.cuerpo {
+.main-content {
 	display: flex;
 }
 
-.acerca-de {
+.about {
 	flex-grow: 3;
 	display: flex;
 	flex-direction: column;
@@ -197,25 +197,25 @@ footer p:last-child:hover {
 
 /* --------------------- ESTILO BOTONES Y ALINEACION TARJETAS ------------------- */
 
-.producto button {
+.product button {
 	text-shadow: none;
 }
 
-.producto button:hover {
+.product button:hover {
 	color: purple;
 	background-color: rgb(250, 216, 154);
 	border-radius: 30px;
 	text-shadow: 2px 3px 1px white;
 }
 
-div.ocultar,
-.ocultar,
-.pagina-productos .fa-filter,
-.close-menu.ocultar {
+div.hidden,
+.hidden,
+.products-amount .fa-filter,
+.close-menu.hidden {
 	display: none;
 }
 
-.pagina-productos {
+.products-amount {
 	margin: 15px;
 	background-color: white;
 	border-radius: 5px;
@@ -223,7 +223,7 @@ div.ocultar,
 
 /* -------------- COMIENZO DE ESTILO VISUALIZACION DE PRODUCTOS EN LISTA ----------------- */
 
-.en-lista > .contenedor-imagen > img {
+.en-lista > .img-container > img {
 	max-width: 300px;
 	margin: 10px;
 	height: 90%;
@@ -232,7 +232,7 @@ div.ocultar,
 	-webkit-transition-timing-function: ease;
 }
 
-.estilo-lista {
+.list-layout {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -251,7 +251,7 @@ div.ocultar,
 
 /* -------------- COMIENZO DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
 
-.en-cuadricula {
+.grid-layout {
 	margin: 5px;
 	flex-basis: 200px;
 	flex-direction: column;
@@ -261,7 +261,7 @@ div.ocultar,
 	font-size: 20px;
 }
 
-.en-cuadricula > .contenedor-imagen > img {
+.grid-layout > .img-container > img {
 	max-width: 170px;
 	margin: 10px;
 	min-height: 180px;
@@ -270,14 +270,14 @@ div.ocultar,
 	-webkit-transition-timing-function: ease;
 }
 
-.contenedor-tarjetas {
+.products-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	padding-left: 10px;
 }
 
-.producto {
+.product {
 	background-color: white;
 	border: 1px solid orangered;
 	display: flex;
@@ -286,48 +286,48 @@ div.ocultar,
 
 /* -------------- FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
 
-.contenedor-imagen {
+.img-container {
 	margin: 2px;
 	overflow: hidden;
 }
 
-.contenedor-tarjetas img:hover,
-.en-lista > .contenedor-imagen > img:hover {
+.products-container img:hover,
+.en-lista > .img-container > img:hover {
 	transform: scale(1.5);
 	opacity: 0.8;
 }
 
-.input-puntaje i {
+.grading-input i {
 	margin-bottom: 12px;
 	margin-left: 5px;
 }
 
-.instrumento {
+.product-name {
 	margin-top: 35px;
 	font-weight: bold;
 }
 
-.producto button {
+.product button {
 	padding: 15px;
 	margin: 10px;
 }
 
-.filtros {
+.filters {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 25px;
 }
 
-.categoria label:last-child {
+.category label:last-child {
 	margin-bottom: 25px;
 }
 
-.categoria {
+.category {
 	display: flex;
 	flex-direction: column;
 }
 
-.busqueda {
+.searching {
 	font-weight: bold;
 	font-size: 20px;
 	position: relative;
@@ -339,20 +339,20 @@ div.ocultar,
 	left: 180px;
 }
 
-.input-puntaje {
+.grading-input {
 	letter-spacing: 2px;
 	display: flex;
 	align-items: center;
 }
 
-.pagina-productos > div:last-child {
+.products-amount > div:last-child {
 	display: flex;
 	flex-basis: 180px;
 	align-items: center;
 	justify-content: space-around;
 }
 
-/* --------------------- CARRITO ABIERTO ---------------------- */
+/* --------------------- cart ABIERTO ---------------------- */
 
 .fa-times {
 	cursor: pointer;
@@ -399,7 +399,7 @@ div.ocultar,
 	margin-top: 25px;
 }
 
-/* ------------ FIN CARRITO ABIERTO ---------------- */
+/* ------------ FIN cart ABIERTO ---------------- */
 
 /* ------------------- DISEÑO RESPONSIVO --------------------- */
 
@@ -418,10 +418,10 @@ div.ocultar,
 	.small-devices-hidden {
 		display: none;
 	}
-	.encabezado {
+	.header {
 		justify-content: start;
 	}
-	.carrito span {
+	.cart span {
 		min-width: 150px;
 	}
 	h1 {
@@ -431,22 +431,22 @@ div.ocultar,
 		text-align: center;
 	}
 
-	.imagen {
+	.image {
 		height: 25vh;
 	}
 
-	.contenedor-tarjetas,
-	.encabezado,
-	.pagina-productos,
-	.producto {
+	.products-container,
+	.header,
+	.products-amount,
+	.product {
 		flex-basis: 100%;
 	}
 
-	.pagina-productos .fa-filter {
+	.products-amount .fa-filter {
 		display: flex;
 	}
 
-	.pagina-productos .fa-filter::after {
+	.products-amount .fa-filter::after {
 		content: "Filtros";
 		color: black;
 		font-family: 'Grandstander', cursive;
@@ -454,9 +454,9 @@ div.ocultar,
 		margin: 5px;
 	}
 
-	.pagina-productos .fa-list-alt,
-	.pagina-productos .fa-th,
-	#pagina p {
+	.products-amount .fa-list-alt,
+	.products-amount .fa-th,
+	#cards-header p {
 		display: none;
 	}
 }
@@ -475,10 +475,10 @@ div.ocultar,
 	.small-devices-hidden {
 		display: none;
 	}
-	.encabezado {
+	.header {
 		justify-content: start;
 	}
-	.carrito span {
+	.cart span {
 		min-width: 150px;
 	}
 
@@ -489,22 +489,22 @@ div.ocultar,
 		text-align: center;
 	}
 
-	.imagen {
+	.image {
 		height: 25vh;
 	}
 
-	.contenedor-tarjetas,
-	.encabezado,
-	.pagina-productos,
-	.producto {
+	.products-container,
+	.header,
+	.products-amount,
+	.product {
 		flex-basis: 100%;
 	}
 
-	.pagina-productos .fa-filter {
+	.products-amount .fa-filter {
 		display: flex;
 	}
 
-	.pagina-productos .fa-filter::after {
+	.products-amount .fa-filter::after {
 		content: "Filtros";
 		color: black;
 		font-family: 'Grandstander', cursive;
@@ -512,10 +512,10 @@ div.ocultar,
 		margin: 5px;
 	}
 
-	.pagina-productos .fa-list-alt,
-	.pagina-productos .fa-th,
-	.pagina-productos p,
-	#pagina p {
+	.products-amount .fa-list-alt,
+	.products-amount .fa-th,
+	.products-amount p,
+	#cards-header p {
 		display: none;
 	}
 	footer {
