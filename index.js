@@ -104,7 +104,7 @@ const carrito = document.querySelector('.carrito > button');
 const cantidadCarrito = document.querySelector('.carrito span');
 const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
-const cerrarCarrito = document.querySelector('.fa.fa-times');
+const cerrarCarrito = document.querySelectorAll('#close-menu');
 let cantidad = 0;
 
 for (let botones of botonComprar) {
@@ -123,11 +123,13 @@ carrito.onclick = () => {
 	}
 };
 
-cerrarCarrito.onclick = () => {
-	overlay.classList.add('ocultar');
-	document.body.classList.remove('no-scroll');
-	menu.classList.remove('mostrar-menu');
-};
+for (let cross of cerrarCarrito) {
+	cross.onclick = () => {
+		overlay.classList.add('ocultar');
+		document.body.classList.remove('no-scroll');
+		menu.classList.remove('mostrar-menu');
+	};
+}
 
 // -------------------- modo de visualizacion de productos --------------
 
@@ -165,9 +167,16 @@ botonLista.onclick = () => {
 
 const filterButton = document.querySelector('#boton-filtros');
 const asideMenu = document.querySelector('aside');
+const closeMenuButton = document.querySelector('.close-menu');
 
 filterButton.onclick = () => {
-	asideMenu.classList.remove('ocultar');
+	asideMenu.classList.remove('small-devices-hidden');
+	asideMenu.classList.add('small-devices-display');
+	closeMenuButton.classList.remove('ocultar');
+	closeMenuButton.onclick = () => {
+		asideMenu.classList.add('small-devices-hidden');
+		asideMenu.classList.remove('small-devices-display');
+	};
 };
 
 // nombreVariable.classList.contains("equis-clase")

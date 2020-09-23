@@ -209,7 +209,8 @@ footer p:last-child:hover {
 
 div.ocultar,
 .ocultar,
-.pagina-productos .fa-filter {
+.pagina-productos .fa-filter,
+.close-menu.ocultar {
 	display: none;
 }
 
@@ -316,7 +317,6 @@ div.ocultar,
 	margin-bottom: 25px;
 }
 
-.busqueda input,
 .categoria label:last-child {
 	margin-bottom: 25px;
 }
@@ -379,6 +379,11 @@ div.ocultar,
 	transition: 1s;
 }
 
+.menu > div {
+	display: flex;
+	justify-content: flex-end;
+}
+
 .mostrar-menu {
 	transform: translate(0);
 }
@@ -398,6 +403,20 @@ div.ocultar,
 /* ------------------- DISEÑO RESPONSIVO --------------------- */
 
 @media (min-width: 600px) and (max-width: 900px) {
+	.small-devices-display {
+		width: 55vh;
+		height: 100vh;
+		background-color: wheat;
+		position: fixed;
+		right: 0;
+		top: 0;
+		transform: translate(300px);
+		transition: 1s;
+	}
+
+	.small-devices-hidden {
+		display: none;
+	}
 	.encabezado {
 		justify-content: start;
 	}
@@ -434,7 +453,6 @@ div.ocultar,
 		margin: 5px;
 	}
 
-	aside,
 	.pagina-productos .fa-list-alt,
 	.pagina-productos .fa-th,
 	#pagina p {
@@ -443,6 +461,9 @@ div.ocultar,
 }
 
 @media (max-width: 600px) {
+	.small-devices-hidden {
+		display: none;
+	}
 	.encabezado {
 		justify-content: start;
 	}
@@ -480,7 +501,6 @@ div.ocultar,
 		margin: 5px;
 	}
 
-	aside,
 	.pagina-productos .fa-list-alt,
 	.pagina-productos .fa-th,
 	.pagina-productos p,
