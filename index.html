@@ -15,6 +15,7 @@
 
 <body>
 
+    <!-- ------------------- Header: brand logo and cart button ----------------- -->
 
     <header>
         <div class="header">
@@ -29,6 +30,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- ------------------ Background image with main title on top ------------- -->
+
         <div class="container-header-img">
             <div class="image">
                 <h1>INSTRUMENTOS MUSICALES</h1>
@@ -38,6 +42,8 @@
     </header>
 
     <main>
+
+        <!-- ---------- Products header: shown or filtered products and layout buttons --------- -->
 
         <section class="main-content">
             <section>
@@ -49,6 +55,8 @@
                         <button id="grid-layout-button"><i class="fas fa-th" aria-hidden="true"></i></button>
                         <button id="filters-button"><i class="fa fa-filter" aria-hidden="true"></i></button>
                     </div>
+
+                    <!-- ------------------- Main content: products cards ---------------------- -->
 
                 </div>
                 <div class="products-container" id="list-layout">
@@ -327,6 +335,9 @@
                 </div>
 
             </section>
+
+            <!-- ----------------- Side panel containing product filters ---------------- -->
+
             <aside class="small-devices-hidden small-devices-display">
                 <div>
                     <button class="close-menu hidden"><i class="fa fa-times" aria-hidden="true"></i></button>
@@ -334,7 +345,7 @@
                 <div>
                     <div class="filters">
                         <h2>FILTROS</h2>
-                        <button id="tacho"><i class="far fa-trash-alt"></i><span>Limpiar</span></button>
+                        <button id="trash-can"><i class="far fa-trash-alt"></i><span>Limpiar</span></button>
                     </div>
 
                     <div>
@@ -406,6 +417,8 @@
 
     </main>
 
+    <!-- ------------------------- Brief footer ------------------------- -->
+
     <footer>
 
         <p>Gracias por confiar en </p><button><a href="#melomania">MELOMANÍA <img src="./assets/favicon-32x32.png"
@@ -414,6 +427,8 @@
         <p> Feliz composición <img src="./assets/favicon-footer-32x32.png" alt="estrella-fugaz"></i></p>
 
     </footer>
+
+    <!-- -------------- Small devices menu displayed for empty cart when pressed ------------- -->
 
     <div class="overlay hidden" id="overlay"></div>
     <div id="menu" class="menu">

@@ -1,3 +1,5 @@
+/* -------------- Fonts imported and scrollbar layout ---------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanalei&display=swap');
 
@@ -14,7 +16,8 @@
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
-/* -------------------- ALINEACION CONTENIDO -------------------- */
+
+/* -------------------- Main tags properties for content alignment -------------------- */
 
 body {
 	display: flex;
@@ -33,36 +36,6 @@ body {
 	object-fit: contain;
 }
 
-button {
-	font-family: 'Grandstander', cursive;
-	font-size: 25px;
-	background: none;
-	border-radius: 10px;
-	color: orange;
-	border: none;
-	font-weight: bold;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	outline: none;
-}
-
-.header button {
-	text-shadow: 3px 2px 2px rgb(141, 135, 141);
-	letter-spacing: 6px;
-}
-
-i {
-	font-size: 24px;
-	color: orangered;
-	text-shadow: none;
-}
-
-.fa-trash-alt,
-.fa-shopping-cart {
-	margin-right: 6px;
-}
-
 h1 {
 	position: absolute;
 	font-size: 45px;
@@ -70,38 +43,6 @@ h1 {
 	text-shadow: 2px 4px rgb(80, 17, 80);
 	left: 30%;
 	top: 35%;
-}
-
-input {
-	border: none;
-	border-bottom: 2px solid orangered;
-	background-color: rgb(251, 220, 118);
-	border-radius: 5px;
-	outline: none;
-	padding: 6px;
-}
-
-input:focus {
-	border: 2px solid orangered;
-	background-color: wheat;
-}
-
-input::placeholder,
-input[type="text"] {
-	font-size: 15px;
-	font-family: 'Grandstander', cursive;
-	color: white;
-	width: 200px;
-	margin-bottom: 25px;
-}
-
-input[type="text"] {
-	color: purple;
-	font-weight: bold;
-}
-
-label {
-	margin: 3px;
 }
 
 main {
@@ -117,6 +58,33 @@ section {
 aside {
 	align-self: flex-start;
 	padding: 35px;
+}
+
+button {
+	font-family: 'Grandstander', cursive;
+	font-size: 25px;
+	background: none;
+	border-radius: 10px;
+	color: orange;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	outline: none;
+}
+
+input {
+	border: none;
+	border-bottom: 2px solid orangered;
+	background-color: rgb(251, 220, 118);
+	border-radius: 5px;
+	outline: none;
+	padding: 6px;
+}
+
+label {
+	margin: 3px;
 }
 
 footer {
@@ -136,21 +104,23 @@ a {
 	color: orange;
 }
 
-footer p:last-child:hover {
-	font-weight: bold;
-	letter-spacing: 5px;
+i {
+	font-size: 24px;
 	color: orangered;
-	font-size: 20px;
-	text-shadow: 2px 3px 1px orange;
-	font-family: "hanalei", cursive;
+	text-shadow: none;
 }
 
-.header,
-.products-amount {
+/* ----------------------- Header content properties ------------------ */
+
+.header button {
+	text-shadow: 3px 2px 2px rgb(141, 135, 141);
+	letter-spacing: 6px;
+}
+
+.cart {
 	display: flex;
-	justify-content: space-between;
-	padding: 10px;
 	align-items: center;
+	align-content: center;
 }
 
 .container-header-img {
@@ -168,10 +138,22 @@ footer p:last-child:hover {
 	background-position: center;
 }
 
-.cart {
-	display: flex;
-	align-items: center;
-	align-content: center;
+/* ------------------------- Alignment for buttons icons and content next to them ----------------- */
+
+.fa-trash-alt,
+.fa-shopping-cart {
+	margin-right: 6px;
+}
+
+.fa-search {
+	position: absolute;
+	top: 2%;
+	left: 180px;
+}
+
+.fa-times {
+	cursor: pointer;
+	margin: 5px;
 }
 
 .cart span,
@@ -183,21 +165,80 @@ footer p:last-child:hover {
 	font-size: 16px;
 }
 
-.main-content {
-	display: flex;
+/* -------------------------- Searching filter input's design ------------------ */
+
+input[type="text"] {
+	color: purple;
+	font-weight: bold;
 }
 
-.about {
-	flex-grow: 3;
+input::placeholder,
+input[type="text"] {
+	font-size: 15px;
+	font-family: 'Grandstander', cursive;
+	color: white;
+	width: 200px;
+	margin-bottom: 25px;
+}
+
+input:focus {
+	border: 2px solid orangered;
+	background-color: wheat;
+}
+
+/* ----------------------- Products header layout --------------------- */
+
+.products-amount {
+	margin: 15px;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.products-amount > div:last-child {
 	display: flex;
-	flex-direction: column;
+	flex-basis: 180px;
 	align-items: center;
 	justify-content: space-around;
 }
 
-/* --------------------- ESTILO BOTONES Y ALINEACION TARJETAS ------------------- */
+/* ---------------- Main content alignment and shared properties between elements ------------------ */
+
+.main-content {
+	display: flex;
+}
+
+.header,
+.products-amount {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	align-items: center;
+}
+
+/* --------------------------- Each product layout properties in common ------------------- */
+
+.products-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-left: 10px;
+}
+
+.product {
+	background-color: white;
+	border: 1px solid orangered;
+	display: flex;
+	/* flex-grow: 1; */
+}
+
+.product-name {
+	margin-top: 35px;
+	font-weight: bold;
+}
 
 .product button {
+	padding: 15px;
+	margin: 10px;
 	text-shadow: none;
 }
 
@@ -208,48 +249,18 @@ footer p:last-child:hover {
 	text-shadow: 2px 3px 1px white;
 }
 
-div.hidden,
-.hidden,
-.products-amount .fa-filter,
-.close-menu.hidden {
-	display: none;
-}
-
-.products-amount {
-	margin: 15px;
-	background-color: white;
-	border-radius: 5px;
-}
-
-/* -------------- COMIENZO DE ESTILO VISUALIZACION DE PRODUCTOS EN LISTA ----------------- */
-
-.en-lista > .img-container > img {
-	max-width: 300px;
-	margin: 10px;
-	height: 90%;
-	-webkit-transition-property: all;
-	-webkit-transition-duration: 0.3s;
-	-webkit-transition-timing-function: ease;
-}
-
-.list-layout {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.en-lista {
-	border-radius: 10px;
-	margin: 10px;
+.img-container {
+	margin: 2px;
 	overflow: hidden;
-	flex-basis: 300px;
-	width: 95%;
 }
 
-/* ------------------ FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN LISTA -------------------- */
+.products-container img:hover,
+.list-style > .img-container > img:hover {
+	transform: scale(1.5);
+	opacity: 0.8;
+}
 
-/* -------------- COMIENZO DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
+/* -------------------------- Grid-like layout products styling --------------------- */
 
 .grid-layout {
 	margin: 5px;
@@ -270,61 +281,47 @@ div.hidden,
 	-webkit-transition-timing-function: ease;
 }
 
-.products-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	padding-left: 10px;
-}
+/* ------------------------- List-like layout products styling -------------------- */
 
-.product {
-	background-color: white;
-	border: 1px solid orangered;
-	display: flex;
-	/* flex-grow: 1; */
-}
-
-/* -------------- FIN DE ESTILO VISUALIZACION DE PRODUCTOS EN CUADRICULA ----------------- */
-
-.img-container {
-	margin: 2px;
-	overflow: hidden;
-}
-
-.products-container img:hover,
-.en-lista > .img-container > img:hover {
-	transform: scale(1.5);
-	opacity: 0.8;
-}
-
-.grading-input i {
-	margin-bottom: 12px;
-	margin-left: 5px;
-}
-
-.product-name {
-	margin-top: 35px;
-	font-weight: bold;
-}
-
-.product button {
-	padding: 15px;
+.list-style > .img-container > img {
+	max-width: 300px;
 	margin: 10px;
+	height: 90%;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease;
 }
+
+.list-layout {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.list-style {
+	border-radius: 10px;
+	margin: 10px;
+	overflow: hidden;
+	flex-basis: 300px;
+	width: 95%;
+}
+
+.about {
+	flex-grow: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+/* --------------------------- Filters from side panel --------------------- */
 
 .filters {
+	/* this belongs to trash can button */
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 25px;
-}
-
-.category label:last-child {
-	margin-bottom: 25px;
-}
-
-.category {
-	display: flex;
-	flex-direction: column;
 }
 
 .searching {
@@ -333,10 +330,13 @@ div.hidden,
 	position: relative;
 }
 
-.fa-search {
-	position: absolute;
-	top: 2%;
-	left: 180px;
+.category {
+	display: flex;
+	flex-direction: column;
+}
+
+.category label:last-child {
+	margin-bottom: 25px;
 }
 
 .grading-input {
@@ -345,19 +345,12 @@ div.hidden,
 	align-items: center;
 }
 
-.products-amount > div:last-child {
-	display: flex;
-	flex-basis: 180px;
-	align-items: center;
-	justify-content: space-around;
+.grading-input i {
+	margin-bottom: 12px;
+	margin-left: 5px;
 }
 
-/* --------------------- cart ABIERTO ---------------------- */
-
-.fa-times {
-	cursor: pointer;
-	margin: 5px;
-}
+/* ----------------------- Empty cart opened -------------------- */
 
 .overlay {
 	width: 100vw;
@@ -380,12 +373,18 @@ div.hidden,
 	transition: 1s;
 }
 
+.menu > p,
+.menu > h2 {
+	margin: 10px;
+	margin-top: 25px;
+}
+
 .menu > div {
 	display: flex;
 	justify-content: flex-end;
 }
 
-.mostrar-menu {
+.show-menu {
 	transform: translate(0);
 }
 
@@ -393,17 +392,84 @@ div.hidden,
 	overflow: hidden;
 }
 
-.menu > p,
-.menu > h2 {
-	margin: 10px;
-	margin-top: 25px;
+/* ------------------------ Brief footer detail ---------------------- */
+
+footer p:last-child:hover {
+	font-weight: bold;
+	letter-spacing: 5px;
+	color: orangered;
+	font-size: 20px;
+	text-shadow: 2px 3px 1px orange;
+	font-family: "hanalei", cursive;
 }
 
-/* ------------ FIN cart ABIERTO ---------------- */
+/* ------------------- Hidden elements ------------------------ */
 
-/* ------------------- DISEÑO RESPONSIVO --------------------- */
+div.hidden,
+.hidden,
+.products-amount .fa-filter,
+.close-menu.hidden {
+	display: none;
+}
+
+/* ------------------- Responsive features for tablets --------------------- */
 
 @media (min-width: 600px) and (max-width: 900px) {
+	/* ----------------------- Header adjustments -------------------- */
+
+	.header {
+		justify-content: start;
+	}
+
+	.cart span {
+		min-width: 150px;
+	}
+
+	.image {
+		height: 25vh;
+	}
+
+	h1 {
+		font-size: 2rem;
+		top: 30%;
+		left: 25%;
+		text-align: center;
+	}
+
+	/* --------------------- Filters button display ---------------------- */
+
+	.products-amount .fa-filter {
+		display: flex;
+	}
+
+	.products-amount .fa-filter::after {
+		content: "Filtros";
+		color: black;
+		font-family: 'Grandstander', cursive;
+		font-size: 70%;
+		margin: 5px;
+	}
+
+	/* ------------------------ Hidden elements --------------------- */
+
+	.products-amount .fa-list-alt,
+	.products-amount .fa-th,
+	#cards-header p,
+	.small-devices-hidden {
+		display: none;
+	}
+
+	/* ---------------------- Shared adjustment properties between elements ---------------- */
+
+	.products-container,
+	.header,
+	.products-amount,
+	.product {
+		flex-basis: 100%;
+	}
+
+	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
+
 	.small-devices-display {
 		width: 55vh;
 		height: 100vh;
@@ -414,33 +480,30 @@ div.hidden,
 		transform: translate(300px);
 		transition: 1s;
 	}
+}
 
-	.small-devices-hidden {
-		display: none;
-	}
+@media (max-width: 600px) {
+	/* ----------------------- Header adjustments -------------------- */
+
 	.header {
 		justify-content: start;
 	}
 	.cart span {
 		min-width: 150px;
 	}
-	h1 {
-		font-size: 2rem;
-		top: 30%;
-		left: 25%;
-		text-align: center;
-	}
 
 	.image {
 		height: 25vh;
 	}
 
-	.products-container,
-	.header,
-	.products-amount,
-	.product {
-		flex-basis: 100%;
+	h1 {
+		font-size: 30px;
+		top: 25%;
+		left: 15%;
+		text-align: center;
 	}
+
+	/* --------------------- Filters button display ---------------------- */
 
 	.products-amount .fa-filter {
 		display: flex;
@@ -454,14 +517,27 @@ div.hidden,
 		margin: 5px;
 	}
 
+	/* ------------------------ Hidden elements --------------------- */
+
 	.products-amount .fa-list-alt,
 	.products-amount .fa-th,
-	#cards-header p {
+	.products-amount p,
+	#cards-header p,
+	.small-devices-hidden {
 		display: none;
 	}
-}
 
-@media (max-width: 600px) {
+	/* ---------------------- Shared adjustment properties between elements ---------------- */
+
+	.products-container,
+	.header,
+	.products-amount,
+	.product {
+		flex-basis: 100%;
+	}
+
+	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
+
 	.small-devices-display {
 		width: 122vw;
 		height: 100vh;
@@ -472,52 +548,9 @@ div.hidden,
 		transform: translate(300px);
 		transition: 1s;
 	}
-	.small-devices-hidden {
-		display: none;
-	}
-	.header {
-		justify-content: start;
-	}
-	.cart span {
-		min-width: 150px;
-	}
 
-	h1 {
-		font-size: 30px;
-		top: 25%;
-		left: 15%;
-		text-align: center;
-	}
+	/* --------------------------- Footer brief adjustment -------------------- */
 
-	.image {
-		height: 25vh;
-	}
-
-	.products-container,
-	.header,
-	.products-amount,
-	.product {
-		flex-basis: 100%;
-	}
-
-	.products-amount .fa-filter {
-		display: flex;
-	}
-
-	.products-amount .fa-filter::after {
-		content: "Filtros";
-		color: black;
-		font-family: 'Grandstander', cursive;
-		font-size: 70%;
-		margin: 5px;
-	}
-
-	.products-amount .fa-list-alt,
-	.products-amount .fa-th,
-	.products-amount p,
-	#cards-header p {
-		display: none;
-	}
 	footer {
 		text-align: center;
 	}

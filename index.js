@@ -1,4 +1,4 @@
-// ---------------- Refreshing visible product amount------------------------
+// ---------------- Refreshing visible product amount ------------------------
 
 const visibleProductsHeader = document.querySelector('#visible-products');
 
@@ -13,7 +13,7 @@ const refreshVisibleProducts = () => {
 	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${singleProduct.length}`;
 };
 
-// -------------- filtro de busqueda por producto ----------------
+// -------------- Search per product filter ----------------
 
 const searchingFilter = document.querySelector('#searching');
 const singleProduct = document.getElementsByClassName('product');
@@ -30,7 +30,7 @@ searchingFilter.oninput = () => {
 	}
 };
 
-// ------------------- filtro de busqueda por puntaje ---------------------
+// ------------------- Search per grading filter ---------------------
 
 const gradingFilter = document.getElementsByClassName('grading-filter');
 
@@ -72,13 +72,13 @@ const filterProducts = () => {
 	}
 };
 
-// -------------------- filtro de busqueda por categoria ----------------
+// -------------------- Search per category filter ----------------
 
 const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-// -------------------- limpiar filtros -------------------
+// -------------------- Filter wiping -------------------
 
-const trashButton = document.querySelector('#tacho');
+const trashButton = document.querySelector('#trash-can');
 
 trashButton.onclick = () => {
 	wipingFilter();
@@ -97,7 +97,7 @@ const wipingFilter = () => {
 	}
 };
 
-//  -------------- acciones boton cart ---------------
+//  -------------- Cart button's behaviour ---------------
 
 const purchaseButton = document.querySelectorAll('.purchase-button');
 const cart = document.querySelector('.cart > button');
@@ -119,7 +119,7 @@ cart.onclick = () => {
 	if (amount === 0) {
 		overlay.classList.remove('hidden');
 		document.body.classList.add('no-scroll');
-		menu.classList.add('mostrar-menu');
+		menu.classList.add('show-menu');
 	}
 };
 
@@ -127,11 +127,11 @@ for (let cross of closeCartMenu) {
 	cross.onclick = () => {
 		overlay.classList.add('hidden');
 		document.body.classList.remove('no-scroll');
-		menu.classList.remove('mostrar-menu');
+		menu.classList.remove('show-menu');
 	};
 }
 
-// -------------------- modo de visualizacion de productos --------------
+// -------------------- Products layout --------------
 
 const listLikeButton = document.querySelector('#list-layout-button');
 const gridLikeButton = document.querySelector('#grid-layout-button');
@@ -143,7 +143,7 @@ gridLikeButton.onclick = () => {
 	container.classList.remove('list-layout');
 	container.classList.add('products-container');
 	for (let each of singleProduct) {
-		each.classList.remove('en-lista');
+		each.classList.remove('list-style');
 		each.classList.add('grid-layout');
 	}
 	for (let description of productDescription) {
@@ -155,7 +155,7 @@ listLikeButton.onclick = () => {
 	container.classList.add('list-layout');
 	container.classList.remove('products-container');
 	for (let each of singleProduct) {
-		each.classList.add('en-lista');
+		each.classList.add('list-style');
 		each.classList.remove('grid-layout');
 	}
 	for (let description of productDescription) {
@@ -163,7 +163,7 @@ listLikeButton.onclick = () => {
 	}
 };
 
-// ------------------- filtro productos desde tablets y celulares ------------
+// ------------------- Products filter from tablets and cell devices ------------
 
 const filterButton = document.querySelector('#filters-button');
 const asideMenu = document.querySelector('aside');
@@ -223,11 +223,6 @@ window.onkeydown = (e) => {
 //     for (let checkbox of listaDeCheckbox) {
 //         checkbox.checked = false
 //     }
-// }
-
-// boton.onclick = () => {
-
-//     limpiarFiltro()
 // }
 
 // <button id="abrir-carrito">Carrito</button>
