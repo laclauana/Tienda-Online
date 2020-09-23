@@ -217,14 +217,14 @@ input:focus {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	padding-left: 10px;
+	padding-left: 43px;
 }
 
 .product {
 	background-color: white;
 	border: 1px solid orangered;
 	display: flex;
-	/* flex-grow: 1; */
+	min-width: 23%;
 }
 
 .product-name {
@@ -462,6 +462,7 @@ div.hidden,
 	.products-amount,
 	.product {
 		flex-basis: 100%;
+		padding-left: 0;
 	}
 
 	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
@@ -529,6 +530,7 @@ div.hidden,
 	.products-amount,
 	.product {
 		flex-basis: 100%;
+		padding-left: 0;
 	}
 
 	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
