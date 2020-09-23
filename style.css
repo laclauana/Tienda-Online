@@ -450,7 +450,7 @@ div.hidden,
 
 	.products-amount .fa-list-alt,
 	.products-amount .fa-th,
-	#cards-header p,
+	.products-amount div:last-child > p,
 	.small-devices-hidden {
 		display: none;
 	}
@@ -517,8 +517,7 @@ div.hidden,
 
 	.products-amount .fa-list-alt,
 	.products-amount .fa-th,
-	.products-amount p,
-	#cards-header p,
+	.products-amount div:last-child > p,
 	.small-devices-hidden {
 		display: none;
 	}
