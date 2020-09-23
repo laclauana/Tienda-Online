@@ -455,7 +455,7 @@ div.hidden,
 		display: none;
 	}
 
-	/* ---------------------- Shared adjustment properties between elements ---------------- */
+	/* ---------------------- Properties adjustment shared between elements ---------------- */
 
 	.products-container,
 	.header,
@@ -522,7 +522,7 @@ div.hidden,
 		display: none;
 	}
 
-	/* ---------------------- Shared adjustment properties between elements ---------------- */
+	/* ---------------------- Properties adjustment shared between elements ---------------- */
 
 	.products-container,
 	.header,
