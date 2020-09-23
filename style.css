@@ -167,11 +167,6 @@ i {
 
 /* -------------------------- Searching filter input's design ------------------ */
 
-input[type="text"] {
-	color: purple;
-	font-weight: bold;
-}
-
 input::placeholder,
 input[type="text"] {
 	font-size: 15px;
@@ -184,6 +179,7 @@ input[type="text"] {
 input:focus {
 	border: 2px solid orangered;
 	background-color: wheat;
+	color: purple;
 }
 
 /* ----------------------- Products header layout --------------------- */
