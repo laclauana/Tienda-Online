@@ -248,6 +248,7 @@ input:focus {
 .img-container {
 	margin: 2px;
 	overflow: hidden;
+	max-width: 85%;
 }
 
 .products-container img:hover,

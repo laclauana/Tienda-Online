@@ -1,17 +1,36 @@
-// ---------------- Refreshing visible product amount ------------------------
+//  -------------- Cart button's behaviour ---------------
 
-const visibleProductsHeader = document.querySelector('#visible-products');
+const purchaseButton = document.querySelectorAll('.purchase-button');
+const cart = document.querySelector('.cart > button');
+const cartAmount = document.querySelector('.cart span');
+const menu = document.getElementById('menu');
+const overlay = document.getElementById('overlay');
+const closeCartMenu = document.querySelectorAll('#close-menu');
+let amount = 0;
 
-const refreshVisibleProducts = () => {
-	let visibleAmount = singleProduct.length;
-	for (let each of singleProduct) {
-		if (each.classList.contains('hidden')) {
-			visibleAmount--;
-		}
+for (let button of purchaseButton) {
+	button.onclick = () => {
+		amount++;
+
+		cartAmount.textContent = `Carrito (${amount} item)`;
+	};
+}
+
+cart.onclick = () => {
+	if (amount === 0) {
+		overlay.classList.remove('hidden');
+		document.body.classList.add('no-scroll');
+		menu.classList.add('show-menu');
 	}
-
-	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${singleProduct.length}`;
 };
+
+for (let cross of closeCartMenu) {
+	cross.onclick = () => {
+		overlay.classList.add('hidden');
+		document.body.classList.remove('no-scroll');
+		menu.classList.remove('show-menu');
+	};
+}
 
 // -------------- Search per product filter ----------------
 
@@ -97,40 +116,6 @@ const wipingFilter = () => {
 	}
 };
 
-//  -------------- Cart button's behaviour ---------------
-
-const purchaseButton = document.querySelectorAll('.purchase-button');
-const cart = document.querySelector('.cart > button');
-const cartAmount = document.querySelector('.cart span');
-const menu = document.getElementById('menu');
-const overlay = document.getElementById('overlay');
-const closeCartMenu = document.querySelectorAll('#close-menu');
-let amount = 0;
-
-for (let button of purchaseButton) {
-	button.onclick = () => {
-		amount++;
-
-		cartAmount.textContent = `Carrito (${amount} item)`;
-	};
-}
-
-cart.onclick = () => {
-	if (amount === 0) {
-		overlay.classList.remove('hidden');
-		document.body.classList.add('no-scroll');
-		menu.classList.add('show-menu');
-	}
-};
-
-for (let cross of closeCartMenu) {
-	cross.onclick = () => {
-		overlay.classList.add('hidden');
-		document.body.classList.remove('no-scroll');
-		menu.classList.remove('show-menu');
-	};
-}
-
 // -------------------- Products layout --------------
 
 const listLikeButton = document.querySelector('#list-layout-button');
@@ -161,6 +146,21 @@ listLikeButton.onclick = () => {
 	for (let description of productDescription) {
 		description.classList.remove('hidden');
 	}
+};
+
+// ---------------- Refreshing visible product amount ------------------------
+
+const visibleProductsHeader = document.querySelector('#visible-products');
+
+const refreshVisibleProducts = () => {
+	let visibleAmount = singleProduct.length;
+	for (let each of singleProduct) {
+		if (each.classList.contains('hidden')) {
+			visibleAmount--;
+		}
+	}
+
+	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${singleProduct.length}`;
 };
 
 // ------------------- Products filter from tablets and cell devices ------------
