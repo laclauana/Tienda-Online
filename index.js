@@ -1,11 +1,11 @@
 //  -------------- Cart button's behaviour ---------------
 
-const purchaseButton = document.querySelectorAll('.purchase-button');
 const cart = document.querySelector('.cart > button');
 const cartAmount = document.querySelector('.cart span');
 const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 const closeCartMenu = document.querySelectorAll('#close-menu');
+const purchaseButton = document.querySelectorAll('.purchase-button');
 let amount = 0;
 
 for (let button of purchaseButton) {
@@ -93,7 +93,54 @@ const filterProducts = () => {
 
 // -------------------- Search per category filter ----------------
 
-const checkboxes = document.querySelectorAll("input[type='checkbox']");
+const categoryCheckboxes = document.querySelectorAll('.category-filter');
+// console.log(checkboxes);
+
+for (let checkbox of categoryCheckboxes) {
+	checkbox.onclick = () => {
+		filterPerCategory();
+	};
+}
+
+const selectedCategory = () => {
+	for (let checkbox of categoryCheckboxes) {
+		if (checkbox.checked) {
+			return true;
+		}
+	}
+};
+
+const pickingMatchedCategory = (each) => {
+	for (let checkbox of categoryCheckboxes) {
+		if (checkbox.value === each.dataset.category && checkbox.checked) {
+			return true;
+		}
+	}
+};
+
+// const selectAffordableCategory = (each) => {
+// 	for (let checkbox of categoryCheckboxes) {
+// 		if (checkbox.dataset.shared === each.dataset.shared && checkbox.checked) {
+// 			return true;
+// 		}
+// 	}
+// };
+
+const filterPerCategory = () => {
+	for (let each of singleProduct) {
+		each.classList.add('hidden');
+		refreshVisibleProducts();
+		if (selectedCategory()) {
+			if (pickingMatchedCategory(each)) {
+				each.classList.remove('hidden');
+				refreshVisibleProducts();
+			}
+		} else {
+			each.classList.remove('hidden');
+			refreshVisibleProducts();
+		}
+	}
+};
 
 // -------------------- Filter wiping -------------------
 
