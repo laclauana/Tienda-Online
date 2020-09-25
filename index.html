@@ -338,6 +338,7 @@
 
             <!-- ----------------- Side panel containing product filters ---------------- -->
 
+            <!-- <div class="overlay hidden" id="overlay"></div> -->
             <aside class="small-devices-hidden small-devices-display">
                 <div>
                     <button class="close-menu hidden" id="close-menu"><i class="fa fa-times"
@@ -462,8 +463,8 @@
         <div>
             <h2>Datos personales</h2>
             <form action="index.html" method="get">
-                <label for="name"><input type="text"> Nombre y apellido *</label>
-                <label for="email"><input type="email"> Email *</label>
+                <label for="name">Nombre y apellido *</label><input type="text">
+                <label for="email">Email *</label><input type="email">
             </form>
             <hr>
 
@@ -475,25 +476,27 @@
             <label for="discount-card"><input type="checkbox"> Tengo tarjeta de descuento </label>
 
         </div>
-        <div>
-            <h2>Resumen</h2>
+        <div class="middle-purchase-panel">
+            <div class="final-numbers-container">
+                <h2>Resumen</h2>
 
-            <div>
-                <p>Subtotal</p> <span>$</span>
-            </div>
-            <div>
-                <p>Descuento 10%</p> <span>$</span>
-            </div>
-            <div>
-                <p>Envío</p> <span>$</span>
-            </div>
-            <div>
-                <p>Recargo</p> <span>$</span>
-            </div>
-            <div>
-                <p>Total:</p> <span>$</span>
-            </div>
+                <p>Subtotal</p>
+                <p>$</p>
 
+                <p>Descuento 10%</p>
+                <p>$</p>
+
+                <p>Envío</p>
+                <p>$</p>
+
+                <p>Recargo</p>
+                <p>$</p>
+
+                <p>Total:</p>
+                <p>$</p>
+
+
+            </div>
         </div>
         <div>
             <button>Seguir comprando</button>

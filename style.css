@@ -393,8 +393,90 @@ input:focus {
 	overflow: hidden;
 }
 
-/* ------------------------ Brief footer detail ---------------------- */
+/* ------------------------ Overlapped panel when completing purchase process ---------------- */
 
+.purchase-panel {
+	position: fixed;
+	background-color: rgb(234, 211, 248);
+	height: 100%;
+	width: 80%;
+	left: 10%;
+	right: 10%;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.purchase-panel div:first-child {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-evenly; */
+	margin: 20px;
+	/* flex-wrap: wrap; */
+	width: 250px;
+}
+
+.purchase-panel div:last-child {
+	align-self: flex-end;
+	display: flex;
+	position: absolute;
+	left: 40%;
+}
+
+.purchase-panel div:last-child > button {
+	width: 250px;
+	justify-content: center;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 15px;
+	border-radius: 8px;
+	padding: 20px;
+}
+
+.purchase-panel div:last-child > button:hover {
+	box-shadow: 5px 3px 6px rgb(163, 144, 118);
+}
+
+.purchase-panel div:last-child > button:first-of-type {
+	color: purple;
+	border: solid 2px purple;
+}
+
+.purchase-panel div:last-child > button:last-child {
+	background-color: rgb(251, 106, 53);
+	color: wheat;
+	font-weight: bold;
+}
+
+.purchase-panel input {
+	background-color: wheat;
+	width: 220px;
+	color: purple;
+	font-family: 'Grandstander', cursive;
+	margin-top: 7px;
+}
+
+.middle-purchase-panel {
+	height: 400px;
+	width: 350px;
+	border-radius: 11px;
+	padding: 25px;
+}
+
+.final-numbers-container {
+	background-color: wheat;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: flex-start; */
+}
+
+.final-numbers-container div:only-child {
+	align-content: space-between;
+}
+
+/* ------------------------ Brief footer detail ---------------------- */
 footer p:last-child:hover {
 	font-weight: bold;
 	letter-spacing: 5px;
@@ -541,6 +623,8 @@ div.hidden,
 	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
 
 	.small-devices-display {
+		/* intenté unificar este estilo ingresando esta clase junto a ".menu" y ".fullcart-menu" pero de ningún modo responde el sitio a este estilado para el menú desplegado del botón filtros. Mi intención era darle también la clase "show-menu" para que el efecto sea el mismo y reutilizar el código.
+		También intenté usar el mismo estilo de overlay en el div previo al contenedor en el html pero tampoco resultó. Esto quizs sea mayor problema de Javascript. */
 		width: 122vw;
 		height: 100vh;
 		background-color: wheat;
