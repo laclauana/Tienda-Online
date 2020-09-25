@@ -340,7 +340,8 @@
 
             <aside class="small-devices-hidden small-devices-display">
                 <div>
-                    <button class="close-menu hidden"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <button class="close-menu hidden" id="close-menu"><i class="fa fa-times"
+                            aria-hidden="true"></i></button>
                 </div>
                 <div>
                     <div class="filters">
@@ -437,6 +438,68 @@
         <h2>Carrito</h2>
         <p>Este carrito se ve desolado...</p>
         <p>¡Agregá algún producto!</p>
+    </div>
+
+    <!-- ---------------- Menu displayed for full cart when pressed --------------- -->
+
+    <div id="fullcart-menu" class="fullcart-menu">
+        <div>
+            <button id="close-menu"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <h2>Carrito</h2>
+        <p>1 producto(s) agregado(s)</p>
+        <div class="cart-products">
+
+        </div>
+        <p>Subtotal $</p>
+        <button>Comprar</button>
+        <button>Vaciar</button>
+    </div>
+
+    <!-- --------------------- Panel displayed when pressing "Comprar" button --------------- -->
+
+    <div class="purchase-panel">
+        <div>
+            <h2>Datos personales</h2>
+            <form action="index.html" method="get">
+                <label for="name"><input type="text"> Nombre y apellido *</label>
+                <label for="email"><input type="email"> Email *</label>
+            </form>
+            <hr>
+
+            <h2>Opciones de pago</h2>
+
+            <label for="cash-debit"><input type="radio"> Efectivo / Débito </label>
+            <label for="credit-card"><input type="radio"> Tarjeta de crédito </label>
+            <label for="pay-shipping"><input type="checkbox"> Necesito envío </label>
+            <label for="discount-card"><input type="checkbox"> Tengo tarjeta de descuento </label>
+
+        </div>
+        <div>
+            <h2>Resumen</h2>
+
+            <div>
+                <p>Subtotal</p> <span>$</span>
+            </div>
+            <div>
+                <p>Descuento 10%</p> <span>$</span>
+            </div>
+            <div>
+                <p>Envío</p> <span>$</span>
+            </div>
+            <div>
+                <p>Recargo</p> <span>$</span>
+            </div>
+            <div>
+                <p>Total:</p> <span>$</span>
+            </div>
+
+        </div>
+        <div>
+            <button>Seguir comprando</button>
+            <button>Finalizar</button>
+
+        </div>
     </div>
 
 

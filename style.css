@@ -347,7 +347,7 @@ input:focus {
 	margin-left: 5px;
 }
 
-/* ----------------------- Empty cart opened -------------------- */
+/* ----------------------- Cart opened -------------------- */
 
 .overlay {
 	width: 100vw;
@@ -359,7 +359,8 @@ input:focus {
 	left: 0;
 }
 
-.menu {
+.menu,
+.fullcart-menu {
 	width: 300px;
 	height: 100vh;
 	background-color: wheat;
@@ -371,12 +372,15 @@ input:focus {
 }
 
 .menu > p,
-.menu > h2 {
+.menu > h2,
+.fullcart-menu > p,
+.fullcart-menu > h2 {
 	margin: 10px;
 	margin-top: 25px;
 }
 
-.menu > div {
+.menu > div,
+.fullcart-menu > div {
 	display: flex;
 	justify-content: flex-end;
 }

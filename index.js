@@ -1,4 +1,4 @@
-//  -------------- Cart button's behaviour ---------------
+//  -------------- Empty cart button's behaviour ---------------
 
 const cart = document.querySelector('.cart > button');
 const cartAmount = document.querySelector('.cart span');
@@ -6,31 +6,68 @@ const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 const closeCartMenu = document.querySelectorAll('#close-menu');
 const purchaseButton = document.querySelectorAll('.purchase-button');
-let amount = 0;
 
-for (let button of purchaseButton) {
-	button.onclick = () => {
-		amount++;
+const openEmptyCart = () => {
+	let amount = 0;
+	for (let button of purchaseButton) {
+		button.onclick = () => {
+			amount++;
 
-		cartAmount.textContent = `Carrito (${amount} item)`;
+			cartAmount.textContent = `Carrito (${amount} item)`;
+		};
+	}
+
+	cart.onclick = () => {
+		if (amount === 0) {
+			overlay.classList.remove('hidden');
+			document.body.classList.add('no-scroll');
+			menu.classList.add('show-menu');
+		}
 	};
-}
 
-cart.onclick = () => {
-	if (amount === 0) {
-		overlay.classList.remove('hidden');
-		document.body.classList.add('no-scroll');
-		menu.classList.add('show-menu');
+	for (let cross of closeCartMenu) {
+		cross.onclick = () => {
+			overlay.classList.add('hidden');
+			document.body.classList.remove('no-scroll');
+			menu.classList.remove('show-menu');
+		};
 	}
 };
 
-for (let cross of closeCartMenu) {
-	cross.onclick = () => {
-		overlay.classList.add('hidden');
-		document.body.classList.remove('no-scroll');
-		menu.classList.remove('show-menu');
-	};
-}
+openEmptyCart();
+
+// --------------- Full cart button's behaviour -----------------
+
+const fullCartMenu = document.querySelector('#fullcart-menu');
+
+// const openFullCart = () => {
+// 	let amount = amount > 0;
+// 	for (let button of purchaseButton) {
+// 		button.onclick = () => {
+// 			amount++;
+
+// 			cartAmount.textContent = `Carrito (${amount} item)`;
+// 		};
+// 	}
+
+// 	cart.onclick = () => {
+// 		if (amount > 0) {
+// 			overlay.classList.remove('hidden');
+// 			document.body.classList.add('no-scroll');
+// 			fullCartMenu.classList.add('fullcart-menu');
+// 		}
+// 	};
+
+// 	for (let cross of closeCartMenu) {
+// 		cross.onclick = () => {
+// 			overlay.classList.add('hidden');
+// 			document.body.classList.remove('no-scroll');
+// 			fullCartMenu.classList.remove('fullcart-menu');
+// 		};
+// 	}
+// };
+
+// openFullCart();
 
 // -------------- Search per product filter ----------------
 
@@ -216,15 +253,32 @@ const filterButton = document.querySelector('#filters-button');
 const asideMenu = document.querySelector('aside');
 const closeMenuButton = document.querySelector('.close-menu');
 
-filterButton.onclick = () => {
-	asideMenu.classList.remove('small-devices-hidden');
-	asideMenu.classList.add('small-devices-display');
-	closeMenuButton.classList.remove('hidden');
-	closeMenuButton.onclick = () => {
-		asideMenu.classList.add('small-devices-hidden');
-		asideMenu.classList.remove('small-devices-display');
+const filtersForSmallDevices = () => {
+	filterButton.onclick = () => {
+		asideMenu.classList.remove('small-devices-hidden');
+		asideMenu.classList.add('small-devices-display');
+
+		// for (let cross of closeCartMenu) {
+		// 	cross.classList.remove('hidden');
+		// 	cross.onclick = () => {
+		// 		overlay.classList.add('hidden');
+		// 		document.body.classList.remove('no-scroll');
+		// 		menu.classList.remove('show-menu');
+		// 	};
+		// }
+
+		closeMenuButton.classList.remove('hidden');
+		document.body.classList.add('no-scroll');
+
+		closeMenuButton.onclick = () => {
+			document.body.classList.remove('no-scroll');
+			asideMenu.classList.add('small-devices-hidden');
+			asideMenu.classList.remove('small-devices-display');
+		};
 	};
 };
+
+filtersForSmallDevices();
 
 // nombreVariable.classList.contains("equis-clase")
 // devuelve un booleano que dice si el elemento contiene o no esa clase
