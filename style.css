@@ -434,15 +434,14 @@ input:focus {
 	display: flex;
 	flex-direction: column;
 	background-color: rgb(251, 239, 215);
-	justify-content: space-between;
 	border: dotted 1px orange;
 	border-radius: 18px;
-	height: 350px;
+	height: 400px;
 	margin: 15px;
 }
 
 .purchase-panel > section:last-of-type > div:first-of-type {
-	margin-top: 100px;
+	margin-top: 150px;
 }
 
 .purchase-panel > section:last-of-type > div:first-of-type > p {
@@ -450,10 +449,13 @@ input:focus {
 	justify-content: space-between;
 }
 
+.purchase-panel > section:last-of-type > div:first-of-type > p:last-of-type {
+	font-size: 30px;
+}
+
 .purchase-panel > section:last-of-type > div:last-of-type {
-	margin-top: 130px;
+	margin-top: 50px;
 	display: flex;
-	width: 500px;
 }
 
 .purchase-panel button {
@@ -476,7 +478,7 @@ input:focus {
 }
 
 .purchase-panel div:last-child > button:last-child {
-	background-color: rgb(251, 106, 53);
+	background-color: rgb(253, 108, 55);
 	color: wheat;
 }
 
