@@ -437,6 +437,7 @@ input:focus {
 	border-radius: 18px;
 	height: 400px;
 	margin: 15px;
+	width: 50%;
 }
 
 .purchase-panel > section:last-of-type > div:first-of-type {
