@@ -459,50 +459,46 @@
 
     <!-- --------------------- Panel displayed when pressing "Comprar" button --------------- -->
 
-    <div class="purchase-panel hidden">
-        <div>
-            <h2>Datos personales</h2>
-            <form action="index.html" method="get">
-                <label for="name">Nombre y apellido *</label><input type="text">
-                <label for="email">Email *</label><input type="email">
-            </form>
-            <hr>
+    <div class="purchase-panel">
 
-            <h2>Opciones de pago</h2>
+        <section>
 
-            <label for="cash-debit"><input type="radio"> Efectivo / Débito </label>
-            <label for="credit-card"><input type="radio"> Tarjeta de crédito </label>
-            <label for="pay-shipping"><input type="checkbox"> Necesito envío </label>
-            <label for="discount-card"><input type="checkbox"> Tengo tarjeta de descuento </label>
-
-        </div>
-        <div class="middle-purchase-panel">
-            <div class="final-numbers-container">
-                <h2>Resumen</h2>
-
-                <p>Subtotal</p>
-                <p>$</p>
-
-                <p>Descuento 10%</p>
-                <p>$</p>
-
-                <p>Envío</p>
-                <p>$</p>
-
-                <p>Recargo</p>
-                <p>$</p>
-
-                <p>Total:</p>
-                <p>$</p>
-
-
+            <div>
+                <h2>Datos personales</h2>
+                <form action="index.html" method="get">
+                    <label for="name">Nombre y apellido * <input type="text"></label>
+                    <label for="email">Email * <input type="email"></label>
+                </form>
             </div>
-        </div>
-        <div>
-            <button>Seguir comprando</button>
-            <button>Finalizar</button>
 
-        </div>
+            <div>
+                <h2>Opciones de pago</h2>
+
+                <label for="cash-debit"><input type="radio"> Efectivo / Débito </label>
+                <label for="credit-card"><input type="radio"> Tarjeta de crédito </label>
+                <label for="pay-shipping"><input type="checkbox"> Necesito envío </label>
+                <label for="discount-card"><input type="checkbox"> Tengo tarjeta de descuento </label>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Resumen</h2>
+            <div>
+                <p>Subtotal <span>$</span></p>
+                <p>Descuento 10% <span>$</span></p>
+                <p>Envío <span>$</span></p>
+                <p>Recargo <span>$</span></p>
+                <p>Total: <span>$</span></p>
+            </div>
+
+            <div>
+                <button>Seguir comprando</button>
+                <button>Finalizar</button>
+            </div>
+
+        </section>
+
     </div>
 
 
