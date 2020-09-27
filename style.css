@@ -419,9 +419,14 @@ input:focus {
 
 .purchase-panel > section:first-child > div:first-child input {
 	min-width: 200px;
-	color: purple;
-	background-color: wheat;
+	color: rgb(78, 5, 78);
+	font-weight: bold;
+	background-color: rgb(248, 237, 215);
 	font-family: 'Grandstander', cursive;
+}
+
+.purchase-panel > section:first-child > div:first-child input:focus {
+	background-color: white;
 }
 
 .purchase-panel > section:first-child > div:last-child {
@@ -432,8 +437,8 @@ input:focus {
 .purchase-panel > section:last-of-type {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(251, 239, 215);
-	border: dotted 1px orange;
+	background-color: rgb(248, 237, 215);
+	border: dotted 1px orangered;
 	border-radius: 18px;
 	height: 400px;
 	margin: 15px;
@@ -467,7 +472,6 @@ input:focus {
 	border-radius: 8px;
 	padding: 15px;
 	font-size: 18px;
-	font-weight: normal;
 }
 
 .purchase-panel button:hover {
@@ -481,7 +485,7 @@ input:focus {
 
 .purchase-panel div:last-child > button:last-child {
 	background-color: rgb(253, 108, 55);
-	color: wheat;
+	color: white;
 }
 
 /* ------------------------ Brief footer detail ---------------------- */
