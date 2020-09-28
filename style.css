@@ -403,10 +403,15 @@ input:focus {
 	top: 0;
 	bottom: 0;
 	display: flex;
+	width: fit-content;
 }
 
 .purchase-panel section {
-	padding: 30px;
+	margin: 15px;
+}
+
+.purchase-panel h2 {
+	margin: 10px;
 }
 
 .purchase-panel > section:first-child > div:first-child {
@@ -434,41 +439,48 @@ input:focus {
 	flex-direction: column;
 }
 
-.purchase-panel > section:last-of-type {
+.purchase-panel > section:last-child {
 	display: flex;
 	flex-direction: column;
+}
+
+.purchase-panel > section:last-child > div:first-of-type {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 	background-color: rgb(248, 237, 215);
 	border: dotted 1px orangered;
 	border-radius: 18px;
-	height: 400px;
-	margin: 15px;
-	width: 50%;
+	max-width: 85%;
 }
 
-.purchase-panel > section:last-of-type > div:first-of-type {
+.purchase-panel > section:last-child > div:last-of-type {
+	display: flex;
+	width: 70%;
+	justify-content: center;
+	margin: 10px;
+}
+
+.purchase-panel > section:last-child > div:first-of-type > p {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 15px;
+	padding-right: 50px;
+}
+
+.purchase-panel > section:last-child > div > p:nth-child(2) {
 	margin-top: 150px;
 }
 
-.purchase-panel > section:last-of-type > div:first-of-type > p {
-	display: flex;
-	justify-content: space-between;
-	margin-right: 100px;
-}
-
-.purchase-panel > section:last-of-type > div:first-of-type > p:last-of-type {
+.purchase-panel > section:last-child > div > p:nth-child(6) {
 	font-size: 30px;
 }
 
-.purchase-panel > section:last-of-type > div:last-of-type {
-	margin-top: 50px;
-	display: flex;
-}
-
 .purchase-panel button {
+	display: flex;
 	min-width: 200px;
 	justify-content: center;
-	font-size: 20px;
-	margin-left: 10px;
+	margin: 10px;
 	border-radius: 8px;
 	padding: 15px;
 	font-size: 18px;
@@ -577,6 +589,17 @@ div.hidden,
 		transform: translate(300px);
 		transition: 1s;
 	}
+
+	/* ------------------- Purchase panel adjustments ------------------- */
+
+	.purchase-panel {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.purchase-panel section:last-child > div:last-child {
+		width: fit-content;
+	}
 }
 
 @media (max-width: 600px) {
@@ -652,5 +675,22 @@ div.hidden,
 
 	footer {
 		text-align: center;
+	}
+	/* ------------------- Purchase panel adjustments ------------------- */
+
+	.purchase-panel {
+		display: flex;
+		flex-direction: column;
+		right: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.purchase-panel section {
+		width: 100%;
+	}
+
+	.purchase-panel section:last-child > div:last-child {
+		width: fit-content;
 	}
 }
