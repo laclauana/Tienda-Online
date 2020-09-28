@@ -1,4 +1,4 @@
-/* -------------- Fonts imported and scrollbar layout ---------------------- */
+/* -------------- Imported fonts and scrollbar layout ---------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanalei&display=swap');
@@ -51,7 +51,6 @@ main {
 
 section {
 	order: 1;
-	/* flex-grow: 2; */
 	flex: 1;
 }
 
@@ -216,8 +215,7 @@ input:focus {
 .products-container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
-	padding-left: 43px;
+	justify-content: center;
 }
 
 .product {
@@ -228,7 +226,6 @@ input:focus {
 }
 
 .product-name {
-	margin-top: 35px;
 	font-weight: bold;
 }
 
@@ -574,7 +571,6 @@ div.hidden,
 	.products-amount,
 	.product {
 		flex-basis: 100%;
-		padding-left: 0;
 	}
 
 	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
@@ -653,7 +649,6 @@ div.hidden,
 	.products-amount,
 	.product {
 		flex-basis: 100%;
-		padding-left: 0;
 	}
 
 	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
