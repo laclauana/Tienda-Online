@@ -19,7 +19,7 @@ const productDescription = document.querySelectorAll('.product-description');
 const visibleProductsHeader = document.querySelector('#visible-products');
 const filterButton = document.querySelector('#filters-button');
 
-const asideMenu = document.querySelector('aside');
+const asideMenu = document.querySelector('#small-devices-display');
 
 //  -------------- Empty cart button's behaviour ---------------
 
@@ -255,7 +255,7 @@ const filtersForSmallDevices = () => {
 
 		asideMenu.classList.add('small-devices-display');
 		asideMenu.classList.remove('small-devices-hidden');
-		asideMenu.classList.add('.small-devices-hidden-try');
+		asideMenu.classList.add('.small-devices-showmenu');
 
 		for (let cross of closeCartMenu) {
 			cross.classList.remove('hidden');
@@ -265,7 +265,7 @@ const filtersForSmallDevices = () => {
 
 				asideMenu.classList.remove('small-devices-display');
 				asideMenu.classList.add('small-devices-hidden');
-				asideMenu.classList.remove('.small-devices-hidden-try');
+				asideMenu.classList.remove('.small-devices-showmenu');
 			};
 		}
 	};

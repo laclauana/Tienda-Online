@@ -383,12 +383,34 @@ input:focus {
 }
 
 .show-menu,
-.small-devices-hidden-try {
+.small-devices-showmenu {
 	transform: translate(0);
 }
 
 .no-scroll {
 	overflow: hidden;
+}
+
+/* ------------------------ Filters menu for small devices ----------------------- */
+
+.small-devices-display {
+	width: 300px;
+	height: 200vh;
+	background-color: wheat;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translate(5%);
+	transition: 1s;
+}
+
+.small-devices-display > div:first-child {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.small-devices-showmenu {
+	transform: translate(0);
 }
 
 /* ------------------------ Overlapped panel when completing purchase process ---------------- */
@@ -569,28 +591,6 @@ div.hidden,
 		flex-basis: 100%;
 	}
 
-	/* ------------------- Filters menu ---------------- */
-
-	.small-devices-display {
-		width: 300px;
-		height: 200vh;
-		background-color: wheat;
-		position: fixed;
-		right: 0;
-		top: 0;
-		transform: translate(5%);
-		transition: 1s;
-	}
-
-	.small-devices-display > div:first-child {
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	.small-devices-hidden-try {
-		transform: translate(0);
-	}
-
 	/* ------------------- Purchase panel adjustments ------------------- */
 
 	.purchase-panel {
@@ -660,28 +660,6 @@ div.hidden,
 
 	footer {
 		text-align: center;
-	}
-
-	/* ------------------- Filters menu ---------------- */
-
-	.small-devices-display {
-		width: 300px;
-		height: 200vh;
-		background-color: wheat;
-		position: fixed;
-		right: 0;
-		top: 0;
-		transform: translate(5%);
-		transition: 1s;
-	}
-
-	.small-devices-display > div:first-child {
-		display: flex;
-		justify-content: flex-end;
-	}
-
-	.small-devices-hidden-try {
-		transform: translate(0);
 	}
 
 	/* ------------------- Purchase panel adjustments ------------------- */
