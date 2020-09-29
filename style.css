@@ -348,7 +348,7 @@ input:focus {
 
 .overlay {
 	width: 100vw;
-	height: 100vh;
+	height: 200vh;
 	background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
@@ -359,7 +359,7 @@ input:focus {
 .menu,
 .fullcart-menu {
 	width: 300px;
-	height: 100vh;
+	height: 200vh;
 	background-color: wheat;
 	position: fixed;
 	right: 0;
@@ -382,7 +382,8 @@ input:focus {
 	justify-content: flex-end;
 }
 
-.show-menu {
+.show-menu,
+.small-devices-hidden-try {
 	transform: translate(0);
 }
 
@@ -431,11 +432,7 @@ input:focus {
 	background-color: white;
 }
 
-.purchase-panel > section:first-child > div:last-child {
-	display: flex;
-	flex-direction: column;
-}
-
+.purchase-panel > section:first-child > div:last-child,
 .purchase-panel > section:last-child {
 	display: flex;
 	flex-direction: column;
@@ -512,8 +509,7 @@ footer p:last-child:hover {
 
 div.hidden,
 .hidden,
-.products-amount .fa-filter,
-.close-menu.hidden {
+.products-amount .fa-filter {
 	display: none;
 }
 
@@ -573,17 +569,26 @@ div.hidden,
 		flex-basis: 100%;
 	}
 
-	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
+	/* ------------------- Filters menu ---------------- */
 
 	.small-devices-display {
-		width: 55vh;
-		height: 100vh;
+		width: 300px;
+		height: 200vh;
 		background-color: wheat;
 		position: fixed;
 		right: 0;
 		top: 0;
-		transform: translate(300px);
+		transform: translate(5%);
 		transition: 1s;
+	}
+
+	.small-devices-display > div:first-child {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.small-devices-hidden-try {
+		transform: translate(0);
 	}
 
 	/* ------------------- Purchase panel adjustments ------------------- */
@@ -651,26 +656,34 @@ div.hidden,
 		flex-basis: 100%;
 	}
 
-	/* ------------------- Filters menu displayed when pressing Filters button --------------- */
-
-	.small-devices-display {
-		/* intenté unificar este estilo ingresando esta clase junto a ".menu" y ".fullcart-menu" pero de ningún modo responde el sitio a este estilado para el menú desplegado del botón filtros. Mi intención era darle también la clase "show-menu" para que el efecto sea el mismo y reutilizar el código.
-		También intenté usar el mismo estilo de overlay en el div previo al contenedor en el html pero tampoco resultó. Esto quizs sea mayor problema de Javascript. */
-		width: 122vw;
-		height: 100vh;
-		background-color: wheat;
-		position: fixed;
-		right: 0;
-		top: 0;
-		transform: translate(300px);
-		transition: 1s;
-	}
-
 	/* --------------------------- Footer brief adjustment -------------------- */
 
 	footer {
 		text-align: center;
 	}
+
+	/* ------------------- Filters menu ---------------- */
+
+	.small-devices-display {
+		width: 300px;
+		height: 200vh;
+		background-color: wheat;
+		position: fixed;
+		right: 0;
+		top: 0;
+		transform: translate(5%);
+		transition: 1s;
+	}
+
+	.small-devices-display > div:first-child {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.small-devices-hidden-try {
+		transform: translate(0);
+	}
+
 	/* ------------------- Purchase panel adjustments ------------------- */
 
 	.purchase-panel {

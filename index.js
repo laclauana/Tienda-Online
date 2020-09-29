@@ -1,11 +1,27 @@
-//  -------------- Empty cart button's behaviour ---------------
-
 const cart = document.querySelector('.cart > button');
 const cartAmount = document.querySelector('.cart span');
 const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 const closeCartMenu = document.querySelectorAll('#close-menu');
 const purchaseButton = document.querySelectorAll('.purchase-button');
+const fullCartMenu = document.querySelector('#fullcart-menu');
+
+const searchingFilter = document.querySelector('#searching');
+const gradingFilter = document.getElementsByClassName('grading-filter');
+const categoryFilter = document.querySelectorAll('.category-filter');
+const singleProduct = document.getElementsByClassName('product');
+const trashButton = document.querySelector('#trash-can');
+
+const listLikeButton = document.querySelector('#list-layout-button');
+const gridLikeButton = document.querySelector('#grid-layout-button');
+const container = document.querySelector('#list-layout');
+const productDescription = document.querySelectorAll('.product-description');
+const visibleProductsHeader = document.querySelector('#visible-products');
+const filterButton = document.querySelector('#filters-button');
+
+const asideMenu = document.querySelector('aside');
+
+//  -------------- Empty cart button's behaviour ---------------
 
 const openEmptyCart = () => {
 	let amount = 0;
@@ -41,8 +57,6 @@ openEmptyCart();
 // Se me pisan las órdenes si activo esta función. No me sale reutilizar código a lo largo del JS porque en un montón de oportunidades hago exactamente lo mismo que en otra función, con pequeñas variaciones.
 // No me sale probar dando parámetros a la función que es lo que creo que "funcionaría" valga la redundancia. Ja!
 
-const fullCartMenu = document.querySelector('#fullcart-menu');
-
 // const openFullCart = () => {
 // 	let amount = amount > 0;
 // 	for (let button of purchaseButton) {
@@ -74,9 +88,6 @@ const fullCartMenu = document.querySelector('#fullcart-menu');
 
 // -------------- Search per product filter ----------------
 
-const searchingFilter = document.querySelector('#searching');
-const singleProduct = document.getElementsByClassName('product');
-
 searchingFilter.oninput = () => {
 	for (let each of singleProduct) {
 		if (each.dataset.name.toLowerCase().includes(searchingFilter.value)) {
@@ -90,8 +101,6 @@ searchingFilter.oninput = () => {
 };
 
 // ------------------- Search per grading filter ---------------------
-
-const gradingFilter = document.getElementsByClassName('grading-filter');
 
 for (let checkbox of gradingFilter) {
 	checkbox.onclick = () => {
@@ -133,17 +142,14 @@ const filterProducts = () => {
 
 // -------------------- Search per category filter ----------------
 
-const categoryCheckboxes = document.querySelectorAll('.category-filter');
-// console.log(checkboxes);
-
-for (let checkbox of categoryCheckboxes) {
+for (let checkbox of categoryFilter) {
 	checkbox.onclick = () => {
 		filterPerCategory();
 	};
 }
 
 const selectedCategory = () => {
-	for (let checkbox of categoryCheckboxes) {
+	for (let checkbox of categoryFilter) {
 		if (checkbox.checked) {
 			return true;
 		}
@@ -151,7 +157,7 @@ const selectedCategory = () => {
 };
 
 const pickingMatchedCategory = (each) => {
-	for (let checkbox of categoryCheckboxes) {
+	for (let checkbox of categoryFilter) {
 		if (checkbox.value === each.dataset.category && checkbox.checked) {
 			return true;
 		}
@@ -159,7 +165,7 @@ const pickingMatchedCategory = (each) => {
 };
 
 // const selectAffordableCategory = (each) => {
-// 	for (let checkbox of categoryCheckboxes) {
+// 	for (let checkbox of categoryFilter) {
 // 		if (checkbox.dataset.shared === each.dataset.shared && checkbox.checked) {
 // 			return true;
 // 		}
@@ -184,8 +190,6 @@ const filterPerCategory = () => {
 
 // -------------------- Filter wiping -------------------
 
-const trashButton = document.querySelector('#trash-can');
-
 trashButton.onclick = () => {
 	wipingFilter();
 };
@@ -204,12 +208,6 @@ const wipingFilter = () => {
 };
 
 // -------------------- Products layout --------------
-
-const listLikeButton = document.querySelector('#list-layout-button');
-const gridLikeButton = document.querySelector('#grid-layout-button');
-const container = document.querySelector('#list-layout');
-
-const productDescription = document.querySelectorAll('.product-description');
 
 gridLikeButton.onclick = () => {
 	container.classList.remove('list-layout');
@@ -237,8 +235,6 @@ listLikeButton.onclick = () => {
 
 // ---------------- Refreshing visible product amount ------------------------
 
-const visibleProductsHeader = document.querySelector('#visible-products');
-
 const refreshVisibleProducts = () => {
 	let visibleAmount = singleProduct.length;
 	for (let each of singleProduct) {
@@ -250,34 +246,28 @@ const refreshVisibleProducts = () => {
 	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${singleProduct.length}`;
 };
 
-// ------------------- Products filter from tablets and cell devices ------------
-
-const filterButton = document.querySelector('#filters-button');
-const asideMenu = document.querySelector('aside');
-const closeMenuButton = document.querySelector('.close-menu');
+// ------------------- Products filter from tablets and cell devices -------------
 
 const filtersForSmallDevices = () => {
 	filterButton.onclick = () => {
-		asideMenu.classList.remove('small-devices-hidden');
-		asideMenu.classList.add('small-devices-display');
-
-		// for (let cross of closeCartMenu) {
-		// 	cross.classList.remove('hidden');
-		// 	cross.onclick = () => {
-		// 		overlay.classList.add('hidden');
-		// 		document.body.classList.remove('no-scroll');
-		// 		menu.classList.remove('show-menu');
-		// 	};
-		// }
-
-		closeMenuButton.classList.remove('hidden');
+		overlay.classList.remove('hidden');
 		document.body.classList.add('no-scroll');
 
-		closeMenuButton.onclick = () => {
-			document.body.classList.remove('no-scroll');
-			asideMenu.classList.add('small-devices-hidden');
-			asideMenu.classList.remove('small-devices-display');
-		};
+		asideMenu.classList.add('small-devices-display');
+		asideMenu.classList.remove('small-devices-hidden');
+		asideMenu.classList.add('.small-devices-hidden-try');
+
+		for (let cross of closeCartMenu) {
+			cross.classList.remove('hidden');
+			cross.onclick = () => {
+				overlay.classList.add('hidden');
+				document.body.classList.remove('no-scroll');
+
+				asideMenu.classList.remove('small-devices-display');
+				asideMenu.classList.add('small-devices-hidden');
+				asideMenu.classList.remove('.small-devices-hidden-try');
+			};
+		}
 	};
 };
 
