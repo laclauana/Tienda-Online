@@ -52,6 +52,7 @@ h1 {
 
 section {
 	order: 1;
+	flex: 1;
 }
 
 aside {
@@ -222,6 +223,11 @@ input:focus {
 	border: 1px solid orangered;
 	display: flex;
 	flex-grow: 1;
+	min-width: 25%;
+}
+
+.filter-prod-adjust {
+	flex-grow: 0;
 	min-width: 32%;
 }
 
@@ -258,7 +264,7 @@ input:focus {
 
 .grid-layout {
 	margin: 5px;
-	flex-basis: 200px;
+	/* flex-basis: 200px; */
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -558,6 +564,11 @@ div.hidden,
 		font-family: 'Grandstander', cursive;
 		font-size: 70%;
 		margin: 5px;
+	}
+
+	.filter-prod-respadjust {
+		flex-grow: 0;
+		min-width: 33%;
 	}
 
 	/* ------------------------ Hidden elements --------------------- */

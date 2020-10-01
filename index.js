@@ -92,6 +92,7 @@ searchingFilter.oninput = () => {
 	for (let each of singleProduct) {
 		if (each.dataset.name.toLowerCase().includes(searchingFilter.value)) {
 			each.classList.remove('hidden');
+			each.classList.add('filter-prod-adjust');
 			refreshVisibleProducts();
 		} else {
 			each.classList.add('hidden');
@@ -131,6 +132,7 @@ const filterProducts = () => {
 		if (matchingCheckbox()) {
 			if (pickingMatch(each)) {
 				each.classList.remove('hidden');
+				each.classList.add('filter-prod-adjust');
 				refreshVisibleProducts();
 			}
 		} else {
@@ -178,6 +180,7 @@ const filterPerCategory = () => {
 		refreshVisibleProducts();
 		if (selectedCategory()) {
 			if (pickingMatchedCategory(each)) {
+				each.classList.add('filter-prod-adjust');
 				each.classList.remove('hidden');
 				refreshVisibleProducts();
 			}
@@ -272,6 +275,15 @@ const filtersForSmallDevices = () => {
 };
 
 filtersForSmallDevices();
+
+const displayAdjust = () => {
+	if (categoryFilter.onclick() || gradingFilter.onclick() || searchingFilter.oninput()) {
+		for (let each of singleProduct) {
+			each.classList.add('.filter-prod-respadjust');
+		}
+	}
+};
+displayAdjust();
 
 // ------------------------ Purchase panel functioning -------------------
 
