@@ -36,6 +36,10 @@ body {
 	object-fit: contain;
 }
 
+main {
+	display: flex;
+}
+
 h1 {
 	position: absolute;
 	font-size: 45px;
@@ -45,13 +49,8 @@ h1 {
 	top: 35%;
 }
 
-main {
-	display: flex;
-}
-
 section {
 	order: 1;
-	flex: 1;
 }
 
 aside {
@@ -132,7 +131,7 @@ i {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./assets/image.jpg');
 	width: 100%;
 	text-align: center;
-	height: 50vh;
+	height: 300px;
 	background-size: cover;
 	background-position: center;
 }
@@ -215,14 +214,14 @@ input:focus {
 .products-container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 }
 
 .product {
 	background-color: white;
 	border: 1px solid orangered;
 	display: flex;
-	min-width: 23%;
+	flex-grow: 1;
+	/* flex-basis: 100px; */
 }
 
 .product-name {
@@ -357,27 +356,31 @@ input:focus {
 }
 
 .menu,
-.fullcart-menu {
+.fullcart-menu,
+.small-devices-display {
 	width: 300px;
 	height: 200vh;
 	background-color: wheat;
 	position: fixed;
 	right: 0;
 	top: 0;
-	transform: translate(300px);
 	transition: 1s;
 }
 
-.menu > p,
+.menu,
+.fullcart-menu {
+	transform: translate(300px);
+}
+
+.menu > div:nth-child(3),
 .menu > h2,
-.fullcart-menu > p,
-.fullcart-menu > h2 {
-	margin: 10px;
+.fullcart-menu > div {
+	margin: 20px;
 	margin-top: 25px;
 }
 
-.menu > div,
-.fullcart-menu > div {
+.empty-cart-button,
+.small-devices-display > div:first-child {
 	display: flex;
 	justify-content: flex-end;
 }
@@ -394,19 +397,7 @@ input:focus {
 /* ------------------------ Filters menu for small devices ----------------------- */
 
 .small-devices-display {
-	width: 300px;
-	height: 200vh;
-	background-color: wheat;
-	position: fixed;
-	right: 0;
-	top: 0;
 	transform: translate(5%);
-	transition: 1s;
-}
-
-.small-devices-display > div:first-child {
-	display: flex;
-	justify-content: flex-end;
 }
 
 .small-devices-showmenu {
@@ -548,15 +539,9 @@ div.hidden,
 		min-width: 150px;
 	}
 
-	.image {
-		height: 25vh;
-	}
-
 	h1 {
 		font-size: 2rem;
-		top: 30%;
 		left: 25%;
-		text-align: center;
 	}
 
 	/* --------------------- Filters button display ---------------------- */
@@ -584,11 +569,13 @@ div.hidden,
 
 	/* ---------------------- Properties adjustment shared between elements ---------------- */
 
-	.products-container,
 	.header,
-	.products-amount,
-	.product {
+	.products-amount {
 		flex-basis: 100%;
+	}
+
+	.product {
+		flex-basis: 45%;
 	}
 
 	/* ------------------- Purchase panel adjustments ------------------- */
@@ -613,15 +600,9 @@ div.hidden,
 		min-width: 150px;
 	}
 
-	.image {
-		height: 25vh;
-	}
-
 	h1 {
 		font-size: 30px;
-		top: 25%;
 		left: 15%;
-		text-align: center;
 	}
 
 	/* --------------------- Filters button display ---------------------- */
@@ -649,7 +630,6 @@ div.hidden,
 
 	/* ---------------------- Properties adjustment shared between elements ---------------- */
 
-	.products-container,
 	.header,
 	.products-amount,
 	.product {

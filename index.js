@@ -19,7 +19,7 @@ const productDescription = document.querySelectorAll('.product-description');
 const visibleProductsHeader = document.querySelector('#visible-products');
 const filterButton = document.querySelector('#filters-button');
 
-const asideMenu = document.querySelector('#small-devices-display');
+const asideMenu = document.querySelector('aside');
 
 //  -------------- Empty cart button's behaviour ---------------
 
@@ -272,3 +272,112 @@ const filtersForSmallDevices = () => {
 };
 
 filtersForSmallDevices();
+
+// ------------------------ Purchase panel functioning -------------------
+
+const subtotal = document.querySelector('#subtotal');
+const total = document.querySelector('#total');
+const recargoParrafo = document.querySelector('#recargo');
+const checkboxTarjeta = document.querySelector('#tarjeta');
+const checkboxDescuento = document.querySelector('#descuento');
+const descuento = document.querySelector('.descuento');
+const checkboxEnvio = document.querySelector('#envio');
+const envio = document.querySelector('.envio');
+// const subtotalProductos = document.querySelectorAll('.product-price');
+const subtotalProductos = 5000;
+
+// const subtotalProductos = () => {
+// 	for (let precioProducto of subtotalProductos) {
+
+// 	}
+// }
+
+const obtenerRecargo = (subtotalProductos) => {
+	const recargo = subtotalProductos * 0.1;
+	return recargo;
+};
+
+checkboxTarjeta.onclick = () => {
+	recargoParrafo.textContent = obtenerRecargo(subtotalProductos);
+	// total.textContent = subtotalProductos + obtenerRecargo(subtotalProductos);
+};
+
+// let tieneDescuento = true
+// let tieneRecargo = false
+// let tieneGastoDeEnvio = true
+
+const obtenerDescuento = (subtotalProductos) => {
+	return subtotalProductos - subtotalProductos * 0.1;
+};
+
+const chequearDescuento = () => {
+	if (checkboxDescuento.checked) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+const chequearRecargo = () => {
+	if (checkboxTarjeta.checked) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+const chequearEnvio = () => {
+	if (checkboxEnvio.checked) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+// const obtenerCalculoDescuento = (subtotalProductos) => {
+// 	let descuentoParcial = subtotalProductos - obtenerDescuento(subtotalProductos);
+// 	return descuentoParcial;
+// };
+
+checkboxDescuento.onclick = () => {
+	descuento.textContent = subtotalProductos - obtenerDescuento(subtotalProductos);
+	total.textContent = calcularTotal();
+};
+
+checkboxEnvio.onclick = () => {
+	if (chequearEnvio()) {
+		const valorEnvio = 300;
+		envio.textContent = valorEnvio;
+		total.textContent = calcularTotal();
+	} else {
+		envio.textContent = '$ ';
+	}
+};
+
+const obtenerGastoDeEnvio = (subtotalProductos) => {
+	return subtotalProductos + 50;
+};
+
+const obtenerCalculoEnvio = (subtotalProductos) => {
+	let envio = obtenerGastoDeEnvio(subtotalProductos) - subtotalProductos;
+	return envio;
+};
+
+const calcularTotal = (subtotalProductos) => {
+	total.textContent =
+		obtenerDescuento(subtotalProductos) +
+		obtenerRecargo(subtotalProductos) +
+		obtenerGastoDeEnvio(subtotalProductos);
+};
+
+// if (obtenerRecargo()) {
+// 	subtotalProductos - obtenerRecargo(subtotalProductos);
+// }
+// if (obtenerGastoDeEnvio()) {
+// 	subtotalProductos - obtenerCalculoEnvio(subtotalProductos);
+// }
+
+// const obtenerCalculoRecargo = (precio) => {
+//     let recargo = obtenerRecargo(precio) + precio
+//     return recargo
+// }

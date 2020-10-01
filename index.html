@@ -381,7 +381,7 @@
             <div class="overlay hidden" id="overlay"></div>
 
             <div>
-                <aside class="small-devices-hidden" id="small-devices-display">
+                <aside class="small-devices-hidden">
 
                     <div>
                         <button class="hidden" id="close-menu"><i class="fa fa-times" aria-hidden="true"></i></button>
@@ -400,7 +400,7 @@
                         </div>
 
                         <div class="category">
-                            <h2>CATEGORIA INSTRUMENTOS</h2>
+                            <h2>CATEGORIA</h2>
                             <label><input type="checkbox" value="stringed" class="filter category-filter">
                                 DE CUERDA </label>
                             <label><input type="checkbox" value="woodwind" class="filter category-filter">
@@ -476,33 +476,31 @@
     <!-- -------------- Menu displayed for empty cart when pressed ------------- -->
 
     <div id="menu" class="menu">
-        <div>
+
+        <div class="empty-cart-button">
             <button id="close-menu"><i class="fa fa-times" aria-hidden="true"></i></button>
         </div>
-
         <h2>Carrito</h2>
-        <p>Este carrito se ve desolado...</p>
-        <p>¡Agregá algún producto!</p>
-    </div>
-
-    <!-- ---------------- Menu displayed for full cart when pressed --------------- -->
-
-    <div id="fullcart-menu" class="fullcart-menu">
 
         <div>
-            <button id="close-menu"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <p>Este carrito se ve desolado...</p>
+            <p>¡Agregá algún producto!</p>
         </div>
 
-        <h2>Carrito</h2>
-        <p>1 producto(s) agregado(s)</p>
+        <!-- ---------------- Menu displayed for full cart when pressed --------------- -->
 
-        <div class="cart-products">
+        <div id="fullcart-menu" class="fullcart-menu">
+            <div>
+                <p>1 producto(s) agregado(s)</p>
+                <div class="cart-products">
 
+                </div>
+
+                <p>Subtotal $</p>
+                <button>Comprar</button>
+                <button>Vaciar</button>
+            </div>
         </div>
-
-        <p>Subtotal $</p>
-        <button>Comprar</button>
-        <button>Vaciar</button>
 
     </div>
 
@@ -523,10 +521,11 @@
             <div>
                 <h2>Opciones de pago</h2>
 
-                <label for="cash-debit"><input type="radio"> Efectivo / Débito </label>
-                <label for="credit-card"><input type="radio"> Tarjeta de crédito </label>
-                <label for="pay-shipping"><input type="checkbox"> Necesito envío </label>
-                <label for="discount-card"><input type="checkbox"> Tengo tarjeta de descuento </label>
+                <label for="cash-debit"><input type="radio" name="payment"> Efectivo / Débito </label>
+                <label for="credit-card"><input type="radio" name="payment" id="tarjeta"> Tarjeta de crédito
+                </label>
+                <label for="pay-shipping"><input type="checkbox" id="envio"> Necesito envío </label>
+                <label for="discount-card"><input type="checkbox" id="descuento"> Tengo tarjeta de descuento </label>
             </div>
 
         </section>
@@ -535,11 +534,11 @@
 
             <div>
                 <h2>Resumen</h2>
-                <p>Subtotal <span>$</span></p>
-                <p>Descuento 10% <span>$</span></p>
-                <p>Envío <span>$</span></p>
-                <p>Recargo <span>$</span></p>
-                <p>Total: <span>$</span></p>
+                <p>Subtotal <span id="subtotal">$</span></p>
+                <p>Descuento 10% <span class="descuento">$</span></p>
+                <p>Envío <span class="envio">$</span></p>
+                <p>Recargo <span id="recargo">$</span></p>
+                <p>Total: <span id="total">$</span></p>
             </div>
 
             <div>
