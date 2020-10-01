@@ -47,6 +47,7 @@ h1 {
 	text-shadow: 2px 4px rgb(80, 17, 80);
 	left: 30%;
 	top: 35%;
+	right: 30%;
 }
 
 section {
@@ -221,7 +222,7 @@ input:focus {
 	border: 1px solid orangered;
 	display: flex;
 	flex-grow: 1;
-	/* flex-basis: 100px; */
+	min-width: 32%;
 }
 
 .product-name {
@@ -542,6 +543,7 @@ div.hidden,
 	h1 {
 		font-size: 2rem;
 		left: 25%;
+		right: 25%;
 	}
 
 	/* --------------------- Filters button display ---------------------- */
@@ -603,6 +605,7 @@ div.hidden,
 	h1 {
 		font-size: 30px;
 		left: 15%;
+		right: 15%;
 	}
 
 	/* --------------------- Filters button display ---------------------- */
