@@ -216,6 +216,7 @@ input:focus {
 .products-container {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .product {
@@ -224,11 +225,7 @@ input:focus {
 	display: flex;
 	flex-grow: 1;
 	min-width: 25%;
-}
-
-.filter-prod-adjust {
-	flex-grow: 0;
-	min-width: 32%;
+	max-width: 32%;
 }
 
 .product-name {
@@ -264,7 +261,6 @@ input:focus {
 
 .grid-layout {
 	margin: 5px;
-	/* flex-basis: 200px; */
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -304,7 +300,7 @@ input:focus {
 	margin: 10px;
 	overflow: hidden;
 	flex-basis: 300px;
-	width: 95%;
+	min-width: 95%;
 }
 
 .about {
@@ -552,6 +548,12 @@ div.hidden,
 		right: 25%;
 	}
 
+	/* -------------------- product card resize -------------- */
+
+	.product {
+		min-width: 47%;
+	}
+
 	/* --------------------- Filters button display ---------------------- */
 
 	.products-amount .fa-filter {
@@ -564,11 +566,6 @@ div.hidden,
 		font-family: 'Grandstander', cursive;
 		font-size: 70%;
 		margin: 5px;
-	}
-
-	.filter-prod-respadjust {
-		flex-grow: 0;
-		min-width: 33%;
 	}
 
 	/* ------------------------ Hidden elements --------------------- */
@@ -585,10 +582,6 @@ div.hidden,
 	.header,
 	.products-amount {
 		flex-basis: 100%;
-	}
-
-	.product {
-		flex-basis: 45%;
 	}
 
 	/* ------------------- Purchase panel adjustments ------------------- */
@@ -617,6 +610,12 @@ div.hidden,
 		font-size: 30px;
 		left: 15%;
 		right: 15%;
+	}
+
+	/* -------------------- product card resize -------------- */
+
+	.product {
+		min-width: 100%;
 	}
 
 	/* --------------------- Filters button display ---------------------- */
