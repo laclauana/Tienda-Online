@@ -503,7 +503,7 @@
             <div>
                 <p>Subtotal $</p>
                 <button id="buy">Comprar</button>
-                <button>Vaciar</button>
+                <button id="regret">Vaciar</button>
             </div>
         </div>
 
@@ -512,7 +512,7 @@
 
     <!-- --------------------- Panel displayed when pressing "Comprar" button --------------- -->
 
-    <div class="purchase-panel hidden">
+    <div class="purchase-panel hidden" id="purchase-panel">
 
         <section>
 
@@ -548,8 +548,8 @@
             </div>
 
             <div>
-                <button>Seguir comprando</button>
-                <button type="submit">Finalizar</button>
+                <button id="ending-button">Seguir comprando</button>
+                <button id="ending-button" type="submit">Finalizar</button>
             </div>
 
         </section>

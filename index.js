@@ -275,8 +275,30 @@ const checkboxEnvio = document.querySelector('#envio');
 const envio = document.querySelector('.envio');
 
 const buyButton = document.querySelector('#buy');
+const purchasePanel = document.querySelector('#purchase-panel');
+const endPurchaseButton = document.querySelectorAll('#ending-button');
+const regretButton = document.querySelector('#regret');
 // const subtotalProductos = document.querySelectorAll('.product-price');
 const subtotalProductos = 5000;
+
+buyButton.onclick = () => {
+	purchasePanel.classList.remove('hidden');
+	menu.classList.add('hidden');
+	for (let button of endPurchaseButton) {
+		button.onclick = () => {
+			purchasePanel.classList.add('hidden');
+			overlay.classList.add('hidden');
+		};
+		// cartAmount.textContent = `Carrito (${amount} item)`;
+	}
+};
+
+regretButton.onclick = () => {
+	let amount = 0;
+	fullCart.classList.add('hidden');
+	emptyCart.classList.remove('hidden');
+	cartAmount.textContent = `Carrito (${amount} item)`;
+};
 
 // const subtotalProductos = () => {
 // 	buyButton.onclick = () => {
