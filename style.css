@@ -359,7 +359,6 @@ input:focus {
 }
 
 .menu,
-.fullcart-menu,
 .small-devices-display {
 	width: 300px;
 	height: 200vh;
@@ -370,20 +369,18 @@ input:focus {
 	transition: 1s;
 }
 
-.menu,
-.fullcart-menu {
+.menu {
 	transform: translate(300px);
 }
 
-.menu > div:nth-child(3),
 .menu > h2,
-.fullcart-menu > div {
+.emptycart-menu > div:only-child {
 	margin: 20px;
 	margin-top: 25px;
 }
 
-.empty-cart-button,
-.small-devices-display > div:first-child {
+.small-devices-display > div:first-child,
+.menu > div:nth-child(1) {
 	display: flex;
 	justify-content: flex-end;
 }
@@ -391,6 +388,21 @@ input:focus {
 .show-menu,
 .small-devices-showmenu {
 	transform: translate(0);
+}
+
+.fullcart-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.fullcart-menu > div {
+	margin: 12px;
+}
+
+.fullcart-menu > div:last-of-type {
+	/* este div no me toma propiedad de justify-content ni align-self para ubicarlo al fondo del contenedor padre */
+	margin-top: 250px;
 }
 
 .no-scroll {
@@ -486,7 +498,8 @@ input:focus {
 	font-size: 30px;
 }
 
-.purchase-panel button {
+.purchase-panel button,
+.fullcart-menu > div:last-child > button {
 	display: flex;
 	min-width: 200px;
 	justify-content: center;
@@ -496,16 +509,19 @@ input:focus {
 	font-size: 18px;
 }
 
-.purchase-panel button:hover {
+.purchase-panel button:hover,
+.fullcart-menu > div:last-child > button:hover {
 	box-shadow: 5px 3px 6px rgb(163, 144, 118);
 }
 
-.purchase-panel button:first-of-type {
+.purchase-panel button:first-of-type,
+.fullcart-menu > div:last-child > button:last-of-type {
 	color: purple;
 	border: solid 2px purple;
 }
 
-.purchase-panel div:last-child > button:last-child {
+.purchase-panel div:last-child > button:last-child,
+.fullcart-menu > div:last-child > button:first-of-type {
 	background-color: rgb(253, 108, 55);
 	color: white;
 }

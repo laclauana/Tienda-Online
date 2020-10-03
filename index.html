@@ -407,9 +407,9 @@
                                 DE VIENTO </label>
                             <label><input type="checkbox" value="percussion" class="filter category-filter">
                                 DE PERCUSION </label>
-                            <label><input type="checkbox" data-shared="secondhand" class="filter category-filter">
+                            <label><input type="checkbox" name="secondhand" class="filter category-filter">
                                 DE SEGUNDA MANO </label>
-                            <label><input type="checkbox" data-plus="affordable" class="filter category-filter">
+                            <label><input type="checkbox" name="affordable" class="filter category-filter">
                                 ECONOMICOS </label>
                         </div>
 
@@ -477,32 +477,38 @@
 
     <div id="menu" class="menu">
 
-        <div class="empty-cart-button">
+        <div>
             <button id="close-menu"><i class="fa fa-times" aria-hidden="true"></i></button>
         </div>
         <h2>Carrito</h2>
 
-        <div>
-            <p>Este carrito se ve desolado...</p>
-            <p>¡Agregá algún producto!</p>
+        <div id="empty-cart" class="emptycart-menu">
+            <div>
+                <p>Este carrito se ve desolado...</p>
+                <p>¡Agregá algún producto!</p>
+            </div>
         </div>
 
         <!-- ---------------- Menu displayed for full cart when pressed --------------- -->
 
-        <div id="fullcart-menu" class="fullcart-menu">
+        <div id="full-cart" class="fullcart-menu">
             <div>
                 <p>1 producto(s) agregado(s)</p>
+                <label> <input type="number"> </label>
                 <div class="cart-products">
 
                 </div>
+            </div>
 
+            <div>
                 <p>Subtotal $</p>
-                <button>Comprar</button>
+                <button id="buy">Comprar</button>
                 <button>Vaciar</button>
             </div>
         </div>
 
     </div>
+
 
     <!-- --------------------- Panel displayed when pressing "Comprar" button --------------- -->
 
@@ -512,9 +518,9 @@
 
             <div>
                 <h2>Datos personales</h2>
-                <form action="index.html" method="get">
-                    <label for="name">Nombre y apellido * <input type="text"></label>
-                    <label for="email">Email * <input type="email"></label>
+                <form action="post" method="get">
+                    <label for="name">Nombre y apellido * <input type="text" required></label>
+                    <label for="email">Email * <input type="email" required></label>
                 </form>
             </div>
 
@@ -543,7 +549,7 @@
 
             <div>
                 <button>Seguir comprando</button>
-                <button>Finalizar</button>
+                <button type="submit">Finalizar</button>
             </div>
 
         </section>

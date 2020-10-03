@@ -4,7 +4,6 @@ const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 const closeCartMenu = document.querySelectorAll('#close-menu');
 const purchaseButton = document.querySelectorAll('.purchase-button');
-const fullCartMenu = document.querySelector('#fullcart-menu');
 
 const searchingFilter = document.querySelector('#searching');
 const gradingFilter = document.getElementsByClassName('grading-filter');
@@ -21,14 +20,17 @@ const filterButton = document.querySelector('#filters-button');
 
 const asideMenu = document.querySelector('aside');
 
-//  -------------- Empty cart button's behaviour ---------------
+//  -------------- Cart button's behaviour ---------------
 
-const openEmptyCart = () => {
+const emptyCart = document.querySelector('#empty-cart');
+const fullCart = document.querySelector('#full-cart');
+
+const cartBehaviour = () => {
 	let amount = 0;
+
 	for (let button of purchaseButton) {
 		button.onclick = () => {
 			amount++;
-
 			cartAmount.textContent = `Carrito (${amount} item)`;
 		};
 	}
@@ -38,53 +40,39 @@ const openEmptyCart = () => {
 			overlay.classList.remove('hidden');
 			document.body.classList.add('no-scroll');
 			menu.classList.add('show-menu');
+
+			emptyCart.classList.remove('hidden');
+			emptyCart.classList.add('emptycart-menu');
+			fullCart.classList.add('hidden');
+
+			for (let cross of closeCartMenu) {
+				cross.onclick = () => {
+					overlay.classList.add('hidden');
+					document.body.classList.remove('no-scroll');
+					menu.classList.remove('show-menu');
+				};
+			}
+		} else if (amount > 0) {
+			overlay.classList.remove('hidden');
+			document.body.classList.add('no-scroll');
+			menu.classList.add('show-menu');
+
+			fullCart.classList.remove('hidden');
+			fullCart.classList.add('fullcart-menu');
+			emptyCart.classList.add('hidden');
+
+			for (let cross of closeCartMenu) {
+				cross.onclick = () => {
+					overlay.classList.add('hidden');
+					document.body.classList.remove('no-scroll');
+					menu.classList.remove('show-menu');
+				};
+			}
 		}
 	};
-
-	for (let cross of closeCartMenu) {
-		cross.onclick = () => {
-			overlay.classList.add('hidden');
-			document.body.classList.remove('no-scroll');
-			menu.classList.remove('show-menu');
-		};
-	}
 };
 
-openEmptyCart();
-
-// --------------- Full cart button's behaviour -----------------
-
-// Se me pisan las órdenes si activo esta función. No me sale reutilizar código a lo largo del JS porque en un montón de oportunidades hago exactamente lo mismo que en otra función, con pequeñas variaciones.
-// No me sale probar dando parámetros a la función que es lo que creo que "funcionaría" valga la redundancia. Ja!
-
-// const openFullCart = () => {
-// 	let amount = amount > 0;
-// 	for (let button of purchaseButton) {
-// 		button.onclick = () => {
-// 			amount++;
-
-// 			cartAmount.textContent = `Carrito (${amount} item)`;
-// 		};
-// 	}
-
-// 	cart.onclick = () => {
-// 		if (amount > 0) {
-// 			overlay.classList.remove('hidden');
-// 			document.body.classList.add('no-scroll');
-// 			fullCartMenu.classList.add('fullcart-menu');
-// 		}
-// 	};
-
-// 	for (let cross of closeCartMenu) {
-// 		cross.onclick = () => {
-// 			overlay.classList.add('hidden');
-// 			document.body.classList.remove('no-scroll');
-// 			fullCartMenu.classList.remove('fullcart-menu');
-// 		};
-// 	}
-// };
-
-// openFullCart();
+cartBehaviour();
 
 // -------------- Search per product filter ----------------
 
@@ -158,24 +146,21 @@ const selectedCategory = () => {
 
 const pickingMatchedCategory = (each) => {
 	for (let checkbox of categoryFilter) {
-		if (checkbox.value === each.dataset.category && checkbox.checked) {
+		if (
+			(checkbox.value === each.dataset.category && checkbox.checked) ||
+			(checkbox.name === each.dataset.shared && checkbox.checked) ||
+			(checkbox.name === each.dataset.plus && checkbox.checked)
+		) {
 			return true;
 		}
 	}
 };
 
-// const selectAffordableCategory = (each) => {
-// 	for (let checkbox of categoryFilter) {
-// 		if (checkbox.dataset.shared === each.dataset.shared && checkbox.checked) {
-// 			return true;
-// 		}
-// 	}
-// };
-
 const filterPerCategory = () => {
 	for (let each of singleProduct) {
 		each.classList.add('hidden');
 		refreshVisibleProducts();
+
 		if (selectedCategory()) {
 			if (pickingMatchedCategory(each)) {
 				each.classList.remove('hidden');
@@ -197,6 +182,9 @@ trashButton.onclick = () => {
 const wipingFilter = () => {
 	searchingFilter.value = ' ';
 	for (let checkbox of gradingFilter) {
+		checkbox.checked = false;
+	}
+	for (let checkbox of categoryFilter) {
 		checkbox.checked = false;
 	}
 	for (let each of singleProduct) {
@@ -285,13 +273,18 @@ const checkboxDescuento = document.querySelector('#descuento');
 const descuento = document.querySelector('.descuento');
 const checkboxEnvio = document.querySelector('#envio');
 const envio = document.querySelector('.envio');
+
+const buyButton = document.querySelector('#buy');
 // const subtotalProductos = document.querySelectorAll('.product-price');
 const subtotalProductos = 5000;
-// const subtotalProductos = () => {
-// 	for (let precioProducto of subtotalProductos) {
 
-// 	}
-// }
+// const subtotalProductos = () => {
+// 	buyButton.onclick = () => {
+// 		for (let precioProducto of subtotalProductos) {
+
+// 		}
+// 	};
+// };
 
 const pagaEnEfectivo = () => {
 	if (checkboxEfectivo.checked) {
@@ -304,7 +297,7 @@ const pagaEnEfectivo = () => {
 checkboxEfectivo.onclick = () => {
 	if (pagaEnEfectivo()) {
 		subtotal.textContent = `$${subtotalProductos}`;
-		total.textContent = `$${calcularTotal()}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)}`;
 		recargoParrafo.textContent = '$ ';
 	} else {
 		subtotal.textContent = '$ ';
@@ -338,13 +331,13 @@ const tieneEnvio = () => {
 
 const obtenerRecargo = (subtotalProductos) => {
 	const recargo = subtotalProductos * 0.1;
-	return `$${recargo}`;
+	return recargo;
 };
 
 checkboxTarjeta.onclick = () => {
 	if (tieneRecargo()) {
-		recargoParrafo.textContent = obtenerRecargo(subtotalProductos);
-		total.textContent = `$${calcularTotal()}`;
+		recargoParrafo.textContent = `$${obtenerRecargo(subtotalProductos)}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)} `;
 	} else {
 		recargoParrafo.textContent = '$ ';
 		total.textContent = `$${subtotalProductos}`;
@@ -358,10 +351,10 @@ const obtenerDescuento = (subtotalProductos) => {
 checkboxDescuento.onclick = () => {
 	if (tieneDescuento()) {
 		descuento.textContent = `$${subtotalProductos - obtenerDescuento(subtotalProductos)}`;
-		total.textContent = `$${calcularTotal()}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)}`;
 	} else {
 		descuento.textContent = '$ ';
-		total.textContent = `$${calcularTotal()}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)}`;
 	}
 };
 
@@ -369,10 +362,10 @@ const valorEnvio = 300;
 checkboxEnvio.onclick = () => {
 	if (tieneEnvio()) {
 		envio.textContent = `$${obtenerCalculoEnvio(subtotalProductos)}`;
-		total.textContent = `$${calcularTotal()}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)}`;
 	} else {
 		envio.textContent = '$ ';
-		total.textContent = `$${calcularTotal()}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)}`;
 	}
 };
 
@@ -396,14 +389,13 @@ const calcularTotal = (subtotalProductos) => {
 		return obtenerRecargo(subtotalProductos) - obtenerDescuento(subtotalProductos);
 	} else if (pagaEnEfectivo()) {
 		return subtotalProductos;
-	} else if (pagaEnEfectivo && tieneEnvio()) {
+	} else if (pagaEnEfectivo() && tieneEnvio()) {
 		return subtotalProductos + obtenerCalculoEnvio(subtotalProductos);
 	} else if (pagaEnEfectivo() && tieneDescuento()) {
 		return subtotalProductos - obtenerDescuento(subtotalProductos);
 	} else if (pagaEnEfectivo() && tieneDescuento() && tieneEnvio()) {
 		return subtotalProductos + obtenerCalculoEnvio(subtotalProductos) - obtenerDescuento(subtotalProductos);
 	}
-	return (total.textContent = `$${calcularTotal(subtotalProductos)}`);
 };
 
-// calcularTotal(subtotalProductos);
+calcularTotal(subtotalProductos);
