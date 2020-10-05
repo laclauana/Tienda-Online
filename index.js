@@ -291,6 +291,7 @@ const subtotal = document.querySelector('#subtotal');
 const checkboxEfectivo = document.querySelector('#efectivo');
 const total = document.querySelector('#total');
 const recargoParrafo = document.querySelector('#recargo');
+
 const checkboxTarjeta = document.querySelector('#tarjeta');
 const checkboxDescuento = document.querySelector('#descuento');
 const descuento = document.querySelector('.descuento');
@@ -303,11 +304,14 @@ const endPurchaseButton = document.querySelector('#ending-button');
 const keepOnLookingButton = document.querySelector('#keepon-looking');
 const regretButton = document.querySelector('#regret');
 
-// const subtotalProductos = 5000;
+// const subtotalProductos = document.querySelectorAll('div[data-price]');
+// console.log(subtotalProductos);
 
 const cancellPanel = document.querySelector('.cancell-purchase-panel');
-const emptyButton = document.querySelector('#empty');
+const emptyCartButton = document.querySelector('#empty');
 const cancellButton = document.querySelector('#cancell');
+
+const subtotalProductos = 5000;
 
 buyButton.onclick = () => {
 	purchasePanel.classList.remove('hidden');
@@ -329,7 +333,7 @@ buyButton.onclick = () => {
 regretButton.onclick = () => {
 	cancellPanel.classList.remove('hidden');
 
-	emptyButton.onclick = () => {
+	emptyCartButton.onclick = () => {
 		for (let product of singleProduct) {
 			product.classList.remove('in-cart');
 		}
@@ -345,17 +349,13 @@ regretButton.onclick = () => {
 	};
 };
 
-// const getSinglePrice = () => {
-// 	for (let precioProducto of subtotalProductos) {
-// 		let subtotal = (subtotal.textContent = `$${precioProducto}`);
-// 	}
-// 	return subtotal;
-// };
-
 // const subtotalProductos = () => {
-// 	getSinglePrice();
-// 	let totalPrice = calcularTotal(getSinglePrice());
-// 	total.textContent = `$${totalPrice}`;
+// 	for (let valor of subtotalProductos) {
+// 		buyButton.onclick = () => {
+// 			subtotal.textContent = valor;
+// 			total = `$${calcularTotal()}`;
+// 		};
+// 	}
 // };
 
 const pagaEnEfectivo = () => {
@@ -368,13 +368,12 @@ const pagaEnEfectivo = () => {
 
 checkboxEfectivo.onclick = () => {
 	if (pagaEnEfectivo()) {
-		subtotalProductos();
-		// 	subtotal.textContent = `$${subtotalProductos}`;
-		// 	total.textContent = `$${calcularTotal(subtotalProductos)}`;
-		// 	recargoParrafo.textContent = '$ ';
-		// } else {
-		// 	subtotal.textContent = '$ ';
-		// 	total.textContent = `$${subtotalProductos}`;
+		subtotal.textContent = `$${subtotalProductos}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)}`;
+		recargoParrafo.textContent = '$ ';
+	} else {
+		subtotal.textContent = '$ ';
+		total.textContent = `$${subtotalProductos}`;
 	}
 };
 
@@ -403,19 +402,19 @@ const tieneEnvio = () => {
 };
 
 const obtenerRecargo = (subtotalProductos) => {
-	const recargo = subtotalProductos() * 0.1;
+	const recargo = subtotalProductos * 0.1;
 	return recargo;
 };
 
-// checkboxTarjeta.onclick = () => {
-// 	if (tieneRecargo()) {
-// 		recargoParrafo.textContent = `$${obtenerRecargo(subtotalProductos}`;
-// 		total.textContent = `$${calcularTotal(subtotalProductos} `;
-// 	} else {
-// 		recargoParrafo.textContent = '$ ';
-// 		total.textContent = `$${subtotalProductos()}`;
-// 	}
-// };
+checkboxTarjeta.onclick = () => {
+	if (tieneRecargo()) {
+		recargoParrafo.textContent = `$${obtenerRecargo(subtotalProductos)}`;
+		total.textContent = `$${calcularTotal(subtotalProductos)} `;
+	} else {
+		recargoParrafo.textContent = '$ ';
+		total.textContent = `$${subtotalProductos}`;
+	}
+};
 
 const obtenerDescuento = (subtotalProductos) => {
 	return subtotalProductos - subtotalProductos * 0.1;
