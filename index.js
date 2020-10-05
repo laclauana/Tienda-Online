@@ -17,57 +17,80 @@ const container = document.querySelector('#list-layout');
 const productDescription = document.querySelectorAll('.product-description');
 const visibleProductsHeader = document.querySelector('#visible-products');
 const filterButton = document.querySelector('#filters-button');
+const productsInCart = document.querySelectorAll('.in-cart');
 
 const asideMenu = document.querySelector('aside');
+
+// --------------- Cart data update ----------------------
+
+const addedProduct = document.querySelector('#added-prod');
+const cartProducts = document.querySelector('.cart-products');
+
+// const updateCartData = () => {
+// 	addedProduct.innerHTML = `${productsInCart.length} producto(s) agregado(s)`
+// 	cartAmount.innerHTML = `Carrito ${productsInCart.length} item`
+
+// cartProducts.innerHTML = ''
+// for(let product of productsInCart){
+// 	let cartProduct = document.createElement("div")
+// 	cartProduct.innerHTML = <div class="cart-products in-cart">
+
+// 	<div>
+// 		<img src=`${product.dataset.src}`>
+// 	</div>
+// 	<div>
+// 		<p>`${product.dataset.name}`</p>
+// 		<label> <input type="number"> </label>
+// 	</div>
+// 	<div>
+// 		<button id="trash-can"><i class="far fa-trash-alt"></i></button>
+// 		<p>`${product.dataset.price}`</p>
+// 	</div>
+
+// </div>
+// 	cartProducts.appendChild(div);
+// 	cartProducts.innerHTML += cartProduct
+
+// }
 
 //  -------------- Cart button's behaviour ---------------
 
 const emptyCart = document.querySelector('#empty-cart');
 const fullCart = document.querySelector('#full-cart');
 
+let amount = 0;
+for (let button of purchaseButton) {
+	button.onclick = () => {
+		amount++;
+		cartAmount.textContent = `Carrito (${amount} item)`;
+
+		// for (let product of singleProduct) {
+		// 	product.classList.add('in-cart');
+		// }
+	};
+}
+
 const cartBehaviour = () => {
-	let amount = 0;
-
-	for (let button of purchaseButton) {
-		button.onclick = () => {
-			amount++;
-			cartAmount.textContent = `Carrito (${amount} item)`;
-		};
-	}
-
 	cart.onclick = () => {
-		if (amount === 0) {
-			overlay.classList.remove('hidden');
-			document.body.classList.add('no-scroll');
-			menu.classList.add('show-menu');
+		overlay.classList.remove('hidden');
+		document.body.classList.add('no-scroll');
+		menu.classList.add('show-menu');
 
+		for (let cross of closeCartMenu) {
+			cross.onclick = () => {
+				overlay.classList.add('hidden');
+				document.body.classList.remove('no-scroll');
+				menu.classList.remove('show-menu');
+			};
+		}
+		if (amount === 0) {
 			emptyCart.classList.remove('hidden');
 			emptyCart.classList.add('emptycart-menu');
 			fullCart.classList.add('hidden');
-
-			for (let cross of closeCartMenu) {
-				cross.onclick = () => {
-					overlay.classList.add('hidden');
-					document.body.classList.remove('no-scroll');
-					menu.classList.remove('show-menu');
-				};
-			}
 		} else if (amount > 0) {
-			overlay.classList.remove('hidden');
-			document.body.classList.add('no-scroll');
-			menu.classList.add('show-menu');
-
 			fullCart.classList.remove('hidden');
 			fullCart.classList.add('fullcart-menu');
 			emptyCart.classList.add('hidden');
-
-			for (let cross of closeCartMenu) {
-				cross.onclick = () => {
-					overlay.classList.add('hidden');
-					document.body.classList.remove('no-scroll');
-					menu.classList.remove('show-menu');
-				};
-			}
 		}
 	};
 };
@@ -276,36 +299,63 @@ const envio = document.querySelector('.envio');
 
 const buyButton = document.querySelector('#buy');
 const purchasePanel = document.querySelector('#purchase-panel');
-const endPurchaseButton = document.querySelectorAll('#ending-button');
+const endPurchaseButton = document.querySelector('#ending-button');
+const keepOnLookingButton = document.querySelector('#keepon-looking');
 const regretButton = document.querySelector('#regret');
-// const subtotalProductos = document.querySelectorAll('.product-price');
-const subtotalProductos = 5000;
+
+// const subtotalProductos = 5000;
+
+const cancellPanel = document.querySelector('.cancell-purchase-panel');
+const emptyButton = document.querySelector('#empty');
+const cancellButton = document.querySelector('#cancell');
 
 buyButton.onclick = () => {
 	purchasePanel.classList.remove('hidden');
-	menu.classList.add('hidden');
-	for (let button of endPurchaseButton) {
-		button.onclick = () => {
-			purchasePanel.classList.add('hidden');
-			overlay.classList.add('hidden');
-		};
-		// cartAmount.textContent = `Carrito (${amount} item)`;
-	}
+	menu.classList.remove('show-menu');
+
+	endPurchaseButton.onclick = () => {
+		window.location.reload();
+		return false;
+	};
+
+	keepOnLookingButton.onclick = () => {
+		purchasePanel.classList.add('hidden');
+		overlay.classList.add('hidden');
+		document.body.classList.remove('no-scroll');
+	};
+	subtotalProductos();
 };
 
 regretButton.onclick = () => {
-	let amount = 0;
-	fullCart.classList.add('hidden');
-	emptyCart.classList.remove('hidden');
-	cartAmount.textContent = `Carrito (${amount} item)`;
+	cancellPanel.classList.remove('hidden');
+
+	emptyButton.onclick = () => {
+		for (let product of singleProduct) {
+			product.classList.remove('in-cart');
+		}
+
+		cancellPanel.classList.add('hidden');
+		emptyCart.classList.remove('hidden');
+		emptyCart.classList.add('emptycart-menu');
+		fullCart.classList.add('hidden');
+		// cartAmount.textContent = `Carrito (${amount} item)`;
+	};
+	cancellButton.onclick = () => {
+		cancellPanel.classList.add('hidden');
+	};
 };
 
-// const subtotalProductos = () => {
-// 	buyButton.onclick = () => {
-// 		for (let precioProducto of subtotalProductos) {
+// const getSinglePrice = () => {
+// 	for (let precioProducto of subtotalProductos) {
+// 		let subtotal = (subtotal.textContent = `$${precioProducto}`);
+// 	}
+// 	return subtotal;
+// };
 
-// 		}
-// 	};
+// const subtotalProductos = () => {
+// 	getSinglePrice();
+// 	let totalPrice = calcularTotal(getSinglePrice());
+// 	total.textContent = `$${totalPrice}`;
 // };
 
 const pagaEnEfectivo = () => {
@@ -318,12 +368,13 @@ const pagaEnEfectivo = () => {
 
 checkboxEfectivo.onclick = () => {
 	if (pagaEnEfectivo()) {
-		subtotal.textContent = `$${subtotalProductos}`;
-		total.textContent = `$${calcularTotal(subtotalProductos)}`;
-		recargoParrafo.textContent = '$ ';
-	} else {
-		subtotal.textContent = '$ ';
-		total.textContent = `$${subtotalProductos}`;
+		subtotalProductos();
+		// 	subtotal.textContent = `$${subtotalProductos}`;
+		// 	total.textContent = `$${calcularTotal(subtotalProductos)}`;
+		// 	recargoParrafo.textContent = '$ ';
+		// } else {
+		// 	subtotal.textContent = '$ ';
+		// 	total.textContent = `$${subtotalProductos}`;
 	}
 };
 
@@ -352,19 +403,19 @@ const tieneEnvio = () => {
 };
 
 const obtenerRecargo = (subtotalProductos) => {
-	const recargo = subtotalProductos * 0.1;
+	const recargo = subtotalProductos() * 0.1;
 	return recargo;
 };
 
-checkboxTarjeta.onclick = () => {
-	if (tieneRecargo()) {
-		recargoParrafo.textContent = `$${obtenerRecargo(subtotalProductos)}`;
-		total.textContent = `$${calcularTotal(subtotalProductos)} `;
-	} else {
-		recargoParrafo.textContent = '$ ';
-		total.textContent = `$${subtotalProductos}`;
-	}
-};
+// checkboxTarjeta.onclick = () => {
+// 	if (tieneRecargo()) {
+// 		recargoParrafo.textContent = `$${obtenerRecargo(subtotalProductos}`;
+// 		total.textContent = `$${calcularTotal(subtotalProductos} `;
+// 	} else {
+// 		recargoParrafo.textContent = '$ ';
+// 		total.textContent = `$${subtotalProductos()}`;
+// 	}
+// };
 
 const obtenerDescuento = (subtotalProductos) => {
 	return subtotalProductos - subtotalProductos * 0.1;
