@@ -316,6 +316,7 @@ const subtotalProductos = 5000;
 buyButton.onclick = () => {
 	purchasePanel.classList.remove('hidden');
 	menu.classList.remove('show-menu');
+	total.textContent = calcularTotal(subtotalProductos);
 
 	endPurchaseButton.onclick = () => {
 		window.location.reload();
@@ -327,7 +328,6 @@ buyButton.onclick = () => {
 		overlay.classList.add('hidden');
 		document.body.classList.remove('no-scroll');
 	};
-	subtotalProductos();
 };
 
 regretButton.onclick = () => {
@@ -467,6 +467,8 @@ const calcularTotal = (subtotalProductos) => {
 		return subtotalProductos - obtenerDescuento(subtotalProductos);
 	} else if (pagaEnEfectivo() && tieneDescuento() && tieneEnvio()) {
 		return subtotalProductos + obtenerCalculoEnvio(subtotalProductos) - obtenerDescuento(subtotalProductos);
+	} else {
+		return `$${subtotalProductos}`;
 	}
 };
 
