@@ -278,7 +278,7 @@ input:focus {
 	margin: 10px;
 	min-height: 180px;
 	-webkit-transition-property: all;
-	-webkit-transition-duration: 0.3s;
+	-webkit-transition-duration: 0.2s;
 	-webkit-transition-timing-function: ease;
 }
 
@@ -289,7 +289,7 @@ input:focus {
 	margin: 10px;
 	height: 90%;
 	-webkit-transition-property: all;
-	-webkit-transition-duration: 0.3s;
+	-webkit-transition-duration: 0.2s;
 	-webkit-transition-timing-function: ease;
 }
 
@@ -355,7 +355,7 @@ input:focus {
 
 .overlay {
 	width: 100vw;
-	height: 200vh;
+	height: 300vh;
 	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
 	top: 0;
@@ -367,7 +367,7 @@ input:focus {
 .menu,
 .small-devices-display {
 	width: 30vw;
-	height: 200vh;
+	height: 300vh;
 	background-color: wheat;
 	position: fixed;
 	right: 0;
@@ -377,7 +377,7 @@ input:focus {
 }
 
 .menu {
-	transform: translate(1200px);
+	transform: translateX(130%);
 }
 
 .menu > h2,
@@ -622,6 +622,12 @@ div.hidden,
 
 /* ------------------- Responsive features for tablets --------------------- */
 
+@media (min-width: 900px) and (max-width: 1260px) {
+	.menu {
+		width: 75vh;
+	}
+}
+
 @media (min-width: 600px) and (max-width: 900px) {
 	/* ----------------------- Header adjustments -------------------- */
 
@@ -681,11 +687,11 @@ div.hidden,
 	/* -------------------- Cart menu resize --------------------- */
 
 	.menu {
-		width: 45vh;
+		width: 65vh;
 	}
 
 	.small-devices-display {
-		width: 30vh;
+		width: 45vh;
 	}
 
 	.in-cart {
@@ -822,7 +828,7 @@ div.hidden,
 	}
 
 	.small-devices-display {
-		width: 28vh;
+		width: 45vh;
 	}
 
 	/* ------------------- Purchase panel adjustments ------------------- */
@@ -855,10 +861,10 @@ div.hidden,
 	}
 
 	.cancell-purchase-panel {
-		width: 110%;
+		width: 100vw;
 		left: 0;
 		right: 0;
-		height: 110%;
+		height: 100vh;
 		top: 0;
 		bottom: 0;
 		display: flex;

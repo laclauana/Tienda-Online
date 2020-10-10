@@ -277,7 +277,6 @@ const filtersForSmallDevices = () => {
 				asideMenu.classList.remove('small-devices-display');
 				asideMenu.classList.add('small-devices-hidden');
 				asideMenu.classList.remove('.small-devices-showmenu');
-				menu.classList.remove('show-menu');
 			};
 		}
 	};
