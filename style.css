@@ -861,10 +861,10 @@ div.hidden,
 	}
 
 	.cancell-purchase-panel {
-		width: 100vw;
+		width: 125vw;
 		left: 0;
 		right: 0;
-		height: 100vh;
+		height: 150vh;
 		top: 0;
 		bottom: 0;
 		display: flex;
@@ -874,10 +874,10 @@ div.hidden,
 	}
 
 	.cancell-purchase-panel > p {
-		font-size: 35px;
+		font-size: 30px;
 		font-weight: bold;
 		text-align: center;
-		width: 85%;
+		width: 95%;
 	}
 
 	.cancell-purchase-panel > div {
