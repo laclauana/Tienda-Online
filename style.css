@@ -626,6 +626,10 @@ div.hidden,
 	.menu {
 		width: 75vh;
 	}
+
+	.purchase-panel {
+		width: 80%;
+	}
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
