@@ -408,14 +408,19 @@ input:focus {
 	/* este div no me toma propiedad de justify-content ni align-self para ubicarlo al fondo del contenedor padre */
 	display: flex;
 	flex-direction: column;
-	margin-top: 190px;
+	margin-top: 15%;
+}
+
+.added-prod {
+	max-height: 35vh;
+	overflow: scroll;
 }
 
 .in-cart {
 	display: flex;
 	justify-content: space-evenly;
-	min-width: 55vh;
-	overflow: scroll;
+	min-width: 57vh;
+	margin: 10px;
 }
 
 .in-cart > div:first-of-type > img {

@@ -26,49 +26,42 @@ const asideMenu = document.querySelector('aside');
 const addedProduct = document.querySelector('#added-prod');
 const cartProducts = document.querySelector('.cart-products');
 
-// const updateCartData = () => {
-// 	addedProduct.innerHTML = `${productsInCart.length} producto(s) agregado(s)`
-// 	cartAmount.innerHTML = `Carrito ${productsInCart.length} item`
+product = 0;
+for (let button of purchaseButton) {
+	button.onclick = () => {
+		product++;
+		addedProduct.innerHTML = `${product} producto(s) agregado(s)`;
+		cartAmount.innerHTML = `Carrito ${product} items`;
 
-// cartProducts.innerHTML = ''
-// for(let product of productsInCart){
-// 	let cartProduct = document.createElement("div")
-// 	cartProduct.innerHTML = <div class="cart-products in-cart">
+		for (let product of productsInCart) {
+			// const updateCartData = () => {
+			product.classList.add('in-cart');
+			for (let each of singleProduct) {
+				// let img = each.dataset.src;
+				// let name = each.dataset.name;
+				// let price = each.dataset.price;
 
-// 	<div>
-// 		<img src=`${product.dataset.src}`>
-// 	</div>
-// 	<div>
-// 		<p>`${product.dataset.name}`</p>
-// 		<label> <input type="number"> </label>
-// 	</div>
-// 	<div>
-// 		<button id="trash-can"><i class="far fa-trash-alt"></i></button>
-// 		<p>`${product.dataset.price}`</p>
-// 	</div>
+				cartProducts.innerHTML = ' ';
+				let productInCart = document.createElement('div');
+				cartProducts.appendChild(productInCart);
+				cartProducts.innerHTML += productInCart;
 
-// </div>
-// 	cartProducts.appendChild(div);
-// 	cartProducts.innerHTML += cartProduct
+				let cartName = document.createElement('div');
+				cartProducts.appendChild(cartName);
+				cartProducts.innerHTML += cartName;
 
-// }
+				let cartPrice = document.createElement('div');
+				cartProducts.appendChild(cartPrice);
+				cartProducts.innerHTML += cartPrice;
+			}
+		}
+	};
+}
 
 //  -------------- Cart button's behaviour ---------------
 
 const emptyCart = document.querySelector('#empty-cart');
 const fullCart = document.querySelector('#full-cart');
-
-let amount = 0;
-for (let button of purchaseButton) {
-	button.onclick = () => {
-		amount++;
-		cartAmount.textContent = `Carrito (${amount} item)`;
-
-		// for (let product of singleProduct) {
-		// 	product.classList.add('in-cart');
-		// }
-	};
-}
 
 const cartBehaviour = () => {
 	cart.onclick = () => {
@@ -83,11 +76,11 @@ const cartBehaviour = () => {
 				menu.classList.remove('show-menu');
 			};
 		}
-		if (amount === 0) {
+		if (product === 0) {
 			emptyCart.classList.remove('hidden');
 			emptyCart.classList.add('emptycart-menu');
 			fullCart.classList.add('hidden');
-		} else if (amount > 0) {
+		} else if (product > 0) {
 			fullCart.classList.remove('hidden');
 			fullCart.classList.add('fullcart-menu');
 			emptyCart.classList.add('hidden');
