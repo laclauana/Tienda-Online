@@ -36,23 +36,30 @@ for (let button of purchaseButton) {
 		for (let product of productsInCart) {
 			// const updateCartData = () => {
 			product.classList.add('in-cart');
+
 			for (let each of singleProduct) {
-				// let img = each.dataset.src;
-				// let name = each.dataset.name;
-				// let price = each.dataset.price;
+				let img = each.dataset.src;
+				let name = each.dataset.name;
+				let price = each.dataset.price;
 
 				cartProducts.innerHTML = ' ';
-				let productInCart = document.createElement('div');
-				cartProducts.appendChild(productInCart);
-				cartProducts.innerHTML += productInCart;
+				let cartImg = document.createElement('div');
+				// productInCart.innerHTML = `${img}`;
+				cartProducts.appendChild(cartImg);
+				cartProducts.innerHTML += cartImg;
+				// img.content.cloneNode(true);
 
 				let cartName = document.createElement('div');
+				// cartName.innerHTML = `${name}`;
 				cartProducts.appendChild(cartName);
 				cartProducts.innerHTML += cartName;
+				// name.content.cloneNode(true);
 
 				let cartPrice = document.createElement('div');
+				// cartPrice.innerHTML = `${price}`;
 				cartProducts.appendChild(cartPrice);
 				cartProducts.innerHTML += cartPrice;
+				// price.content.cloneNode(true);
 			}
 		}
 	};
