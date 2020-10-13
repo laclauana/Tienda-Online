@@ -4,13 +4,11 @@ const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 const closeCartMenu = document.querySelectorAll('#close-menu');
 const purchaseButton = document.querySelectorAll('.purchase-button');
-
 const searchingFilter = document.querySelector('#searching');
 const gradingFilter = document.getElementsByClassName('grading-filter');
 const categoryFilter = document.querySelectorAll('.category-filter');
 const singleProduct = document.getElementsByClassName('product');
 const trashButton = document.querySelector('#trash-can');
-
 const listLikeButton = document.querySelector('#list-layout-button');
 const gridLikeButton = document.querySelector('#grid-layout-button');
 const container = document.querySelector('#list-layout');
@@ -18,34 +16,27 @@ const productDescription = document.querySelectorAll('.product-description');
 const visibleProductsHeader = document.querySelector('#visible-products');
 const filterButton = document.querySelector('#filters-button');
 const productsInCart = document.querySelectorAll('.in-cart');
-
 const asideMenu = document.querySelector('aside');
-
-// --------------- Cart data update ----------------------
-
 const emptyCart = document.querySelector('#empty-cart');
 const fullCart = document.querySelector('#full-cart');
 const addedProduct = document.querySelector('#added-prod');
 const cartProducts = document.querySelector('.cart-products');
-each = 0;
+
+// --------------- Cart data update ----------------------
+quantity = 0;
 
 for (let button of purchaseButton) {
 	button.onclick = () => {
-		each++;
-		addedProduct.innerHTML = `${each} producto(s) agregado(s)`;
-		cartAmount.innerHTML = `Carrito ${each} items`;
-		updateCart();
-	};
-}
+		quantity++;
+		addedProduct.innerHTML = `${quantity} producto(s) agregado(s)`;
+		cartAmount.innerHTML = `Carrito ${quantity} items`;
 
-updateCart = () => {
-	for (let each of singleProduct) {
-		let img = each.dataset.src;
-		let name = each.dataset.name;
-		let price = each.dataset.price;
-		let productInCart = document.createElement('div');
-		productInCart.innerHTML = `<div class="cart-products in-cart">
-
+		for (let each of singleProduct) {
+			let img = each.dataset.src;
+			let name = each.dataset.name;
+			let price = each.dataset.price;
+			let productInCart = document.createElement('div');
+			productInCart.innerHTML = `<div class="cart-products in-cart">
 			<div>
 				<img src=${img}>
 			</div>
@@ -57,11 +48,16 @@ updateCart = () => {
 				<button id="trash-can"><i class="far fa-trash-alt"></i></button>
 				<p>${price}</p>
 			</div>
-
 		</div>`;
-		cartProducts.appendChild(productInCart).classList.add('in-cart');
-	}
-};
+			cartProducts.appendChild(productInCart).classList.add('in-cart');
+			if (button.id === each.id) {
+				productInCart.classList.remove('hidden');
+			} else {
+				productInCart.classList.add('hidden');
+			}
+		}
+	};
+}
 
 cart.onclick = () => {
 	overlay.classList.remove('hidden');
@@ -75,11 +71,11 @@ cart.onclick = () => {
 			menu.classList.remove('show-menu');
 		};
 	}
-	if (each === 0) {
+	if (quantity === 0) {
 		emptyCart.classList.remove('hidden');
 		emptyCart.classList.add('emptycart-menu');
 		fullCart.classList.add('hidden');
-	} else if (each > 0) {
+	} else if (quantity > 0) {
 		fullCart.classList.remove('hidden');
 		fullCart.classList.add('fullcart-menu');
 		emptyCart.classList.add('hidden');

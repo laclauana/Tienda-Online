@@ -426,8 +426,9 @@ input:focus {
 	display: flex;
 	justify-content: space-evenly;
 	min-width: 57vh;
-	margin: 10px;
+	margin: 5px;
 	flex-direction: column;
+	background-color: white;
 }
 
 .in-cart > div {
