@@ -52,10 +52,19 @@ for (let button of purchaseButton) {
 			cartProducts.appendChild(productInCart).classList.add('in-cart');
 			if (button.id === each.id) {
 				productInCart.classList.remove('hidden');
+				productInCart.id = each.id;
+
+				let removeProdButton = document.querySelectorAll('.cart-products #trash-can');
+				for (let removeButton of removeProdButton) {
+					removeButton.onclick = () => {
+						if (productInCart.id === each.id) {
+							productInCart.classList.add('hidden');
+						}
+					};
+				}
 			} else {
 				productInCart.classList.add('hidden');
 			}
-			console.log(productInCart);
 		}
 	};
 }
