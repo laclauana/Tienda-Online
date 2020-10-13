@@ -29,7 +29,7 @@ for (let button of purchaseButton) {
 	button.onclick = () => {
 		quantity++;
 		addedProduct.innerHTML = `${quantity} producto(s) agregado(s)`;
-		cartAmount.innerHTML = `Carrito ${quantity} items`;
+		cartAmount.innerHTML = `Carrito (${quantity} item)`;
 
 		for (let each of singleProduct) {
 			let img = each.dataset.src;
@@ -55,6 +55,7 @@ for (let button of purchaseButton) {
 			} else {
 				productInCart.classList.add('hidden');
 			}
+			console.log(productInCart);
 		}
 	};
 }
