@@ -23,79 +23,68 @@ const asideMenu = document.querySelector('aside');
 
 // --------------- Cart data update ----------------------
 
+const emptyCart = document.querySelector('#empty-cart');
+const fullCart = document.querySelector('#full-cart');
 const addedProduct = document.querySelector('#added-prod');
 const cartProducts = document.querySelector('.cart-products');
+each = 0;
 
-product = 0;
 for (let button of purchaseButton) {
 	button.onclick = () => {
-		product++;
-		addedProduct.innerHTML = `${product} producto(s) agregado(s)`;
-		cartAmount.innerHTML = `Carrito ${product} items`;
-
-		for (let product of productsInCart) {
-			// const updateCartData = () => {
-			product.classList.add('in-cart');
-
-			for (let each of singleProduct) {
-				let img = each.dataset.src;
-				let name = each.dataset.name;
-				let price = each.dataset.price;
-
-				cartProducts.innerHTML = ' ';
-				let cartImg = document.createElement('div');
-				// productInCart.innerHTML = `${img}`;
-				cartProducts.appendChild(cartImg);
-				cartProducts.innerHTML += cartImg;
-				// img.content.cloneNode(true);
-
-				let cartName = document.createElement('div');
-				// cartName.innerHTML = `${name}`;
-				cartProducts.appendChild(cartName);
-				cartProducts.innerHTML += cartName;
-				// name.content.cloneNode(true);
-
-				let cartPrice = document.createElement('div');
-				// cartPrice.innerHTML = `${price}`;
-				cartProducts.appendChild(cartPrice);
-				cartProducts.innerHTML += cartPrice;
-				// price.content.cloneNode(true);
-			}
-		}
+		each++;
+		addedProduct.innerHTML = `${each} producto(s) agregado(s)`;
+		cartAmount.innerHTML = `Carrito ${each} items`;
+		updateCart();
 	};
 }
 
-//  -------------- Cart button's behaviour ---------------
+updateCart = () => {
+	for (let each of singleProduct) {
+		let img = each.dataset.src;
+		let name = each.dataset.name;
+		let price = each.dataset.price;
+		let productInCart = document.createElement('div');
+		productInCart.innerHTML = `<div class="cart-products in-cart">
 
-const emptyCart = document.querySelector('#empty-cart');
-const fullCart = document.querySelector('#full-cart');
+			<div>
+				<img src=${img}>
+			</div>
+			<div>
+				<p>${name}</p>
+				<label> <input type="number"> </label>
+			</div>
+			<div>
+				<button id="trash-can"><i class="far fa-trash-alt"></i></button>
+				<p>${price}</p>
+			</div>
 
-const cartBehaviour = () => {
-	cart.onclick = () => {
-		overlay.classList.remove('hidden');
-		document.body.classList.add('no-scroll');
-		menu.classList.add('show-menu');
-
-		for (let cross of closeCartMenu) {
-			cross.onclick = () => {
-				overlay.classList.add('hidden');
-				document.body.classList.remove('no-scroll');
-				menu.classList.remove('show-menu');
-			};
-		}
-		if (product === 0) {
-			emptyCart.classList.remove('hidden');
-			emptyCart.classList.add('emptycart-menu');
-			fullCart.classList.add('hidden');
-		} else if (product > 0) {
-			fullCart.classList.remove('hidden');
-			fullCart.classList.add('fullcart-menu');
-			emptyCart.classList.add('hidden');
-		}
-	};
+		</div>`;
+		cartProducts.appendChild(productInCart).classList.add('in-cart');
+	}
 };
 
-cartBehaviour();
+cart.onclick = () => {
+	overlay.classList.remove('hidden');
+	document.body.classList.add('no-scroll');
+	menu.classList.add('show-menu');
+
+	for (let cross of closeCartMenu) {
+		cross.onclick = () => {
+			overlay.classList.add('hidden');
+			document.body.classList.remove('no-scroll');
+			menu.classList.remove('show-menu');
+		};
+	}
+	if (each === 0) {
+		emptyCart.classList.remove('hidden');
+		emptyCart.classList.add('emptycart-menu');
+		fullCart.classList.add('hidden');
+	} else if (each > 0) {
+		fullCart.classList.remove('hidden');
+		fullCart.classList.add('fullcart-menu');
+		emptyCart.classList.add('hidden');
+	}
+};
 
 // -------------- Search per product filter ----------------
 

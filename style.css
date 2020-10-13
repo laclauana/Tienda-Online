@@ -414,6 +414,12 @@ input:focus {
 .added-prod {
 	max-height: 35vh;
 	overflow: scroll;
+	flex-direction: column;
+}
+
+.added-prod > p {
+	justify-content: center;
+	display: flex;
 }
 
 .in-cart {
@@ -421,6 +427,12 @@ input:focus {
 	justify-content: space-evenly;
 	min-width: 57vh;
 	margin: 10px;
+	flex-direction: column;
+}
+
+.in-cart > div {
+	display: flex;
+	flex-direction: row;
 }
 
 .in-cart > div:first-of-type > img {
