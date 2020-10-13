@@ -415,6 +415,8 @@ input:focus {
 	max-height: 35vh;
 	overflow: scroll;
 	flex-direction: column;
+	min-height: 30vh;
+	min-width: 50vh;
 }
 
 .added-prod > p {
