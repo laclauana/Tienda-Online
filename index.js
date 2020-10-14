@@ -120,7 +120,12 @@ for (let button of purchaseButton) {
 
 // ----------------------- When removing every product from cart ----------------
 
-const backToEmptyCart = (product) => {};
+const backToEmptyCart = () => {
+	// if () {
+	// }
+};
+// cuando se elimina uno a uno todos los productos del carrito, como cuando clickean Vaciar, que realmente se vacie el carrito, aparezca el menu para carrito vacio, y se reinicie la cuenta del carrito.
+backToEmptyCart();
 
 // ----------------------- After pressing "COMPRAR" button from cart menu -----------------
 
