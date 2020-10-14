@@ -76,29 +76,32 @@ for (let button of purchaseButton) {
 	button.onclick = () => {
 		quantity++;
 		updateQuantity();
-		// ---------- we search for matches between selected product card and each button --------
+		// ---------- variable declaration for bringing specific details from product --------
 		for (let each of singleProduct) {
 			let img = each.dataset.src;
 			let name = each.dataset.name;
 			let price = each.dataset.price;
-			// ---------------- then we create a container for those picked products -------------
+			// ---------------- then we create a container for picked products -------------
 			let productInCart = document.createElement('div');
 			productInCart.innerHTML = `<div class="cart-products in-cart">
 			<div>
-				<img src=${img}>
+			<img src=${img}>
 			</div>
 			<div>
-				<p>${name}</p>
-				<label> <input type="number"> </label>
+			<p>${name}</p>
+			<label> <input type="number" value="1"> </label>
 			</div>
 			<div>
-				<button id="trash-can"><i class="far fa-trash-alt"></i></button>
-				<p>${price}</p>
+			<button id="trash-can"><i class="far fa-trash-alt"></i></button>
+			<p>${price}</p>
 			</div>
-		</div>`;
+			</div>`;
 			cartProducts.appendChild(productInCart).classList.add('in-cart');
+
+			// ---------- we relate selected product card with each proper button --------
 			if (button.id === each.id) {
 				productInCart.classList.remove('hidden');
+
 				// --------------- here we remove products from cart ---------------
 				let removeProdButton = document.querySelectorAll('.cart-products #trash-can');
 				for (let removeProd of removeProdButton) {
@@ -114,6 +117,10 @@ for (let button of purchaseButton) {
 		}
 	};
 }
+
+// ----------------------- When removing every product from cart ----------------
+
+const backToEmptyCart = (product) => {};
 
 // ----------------------- After pressing "COMPRAR" button from cart menu -----------------
 
