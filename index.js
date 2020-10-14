@@ -1,3 +1,5 @@
+// --------------- Variable declaration (seriously suggest to SKIP IT) ---------------
+
 const cart = document.querySelector('.cart > button');
 const cartAmount = document.querySelector('.cart span');
 const menu = document.getElementById('menu');
@@ -21,20 +23,65 @@ const emptyCart = document.querySelector('#empty-cart');
 const fullCart = document.querySelector('#full-cart');
 const addedProduct = document.querySelector('#added-prod');
 const cartProducts = document.querySelector('.cart-products');
+const buyButton = document.querySelector('#buy');
+const purchasePanel = document.querySelector('#purchase-panel');
+const endPurchaseButton = document.querySelector('#ending-button');
+const keepOnLookingButton = document.querySelector('#keepon-looking');
+const regretButton = document.querySelector('#regret');
+const cancellPanel = document.querySelector('.cancell-purchase-panel');
+const emptyCartButton = document.querySelector('#empty');
+const cancellButton = document.querySelector('#cancell');
 
-// --------------- Cart data update ----------------------
+// -------------------------------------- Cart behaviour ---------------------------------------
+
+// --------------- Cart content update -----------------
+
 quantity = 0;
+const updateQuantity = () => {
+	addedProduct.innerHTML = `${quantity} producto(s) agregado(s)`;
+	cartAmount.innerHTML = `Carrito (${quantity} item)`;
+};
+
+// ---------------------- Cart menu layout when it's empty and when it's full --------------------
+
+cart.onclick = () => {
+	// ------------ display properties in common -------------
+	overlay.classList.remove('hidden');
+	document.body.classList.add('no-scroll');
+	menu.classList.add('show-menu');
+
+	for (let cross of closeCartMenu) {
+		cross.onclick = () => {
+			overlay.classList.add('hidden');
+			document.body.classList.remove('no-scroll');
+			menu.classList.remove('show-menu');
+		};
+	}
+	// ---------------------- layout when empty --------------
+	if (quantity === 0) {
+		emptyCart.classList.remove('hidden');
+		emptyCart.classList.add('emptycart-menu');
+		fullCart.classList.add('hidden');
+		// --------------------- layout when full ---------------
+	} else if (quantity > 0) {
+		fullCart.classList.remove('hidden');
+		fullCart.classList.add('fullcart-menu');
+		emptyCart.classList.add('hidden');
+	}
+};
+
+// ---------------- Inner cart functioning when purchasing product ------------------
 
 for (let button of purchaseButton) {
 	button.onclick = () => {
 		quantity++;
-		addedProduct.innerHTML = `${quantity} producto(s) agregado(s)`;
-		cartAmount.innerHTML = `Carrito (${quantity} item)`;
-
+		updateQuantity();
+		// ---------- we search for matches between selected product card and each button --------
 		for (let each of singleProduct) {
 			let img = each.dataset.src;
 			let name = each.dataset.name;
 			let price = each.dataset.price;
+			// ---------------- then we create a container for those picked products -------------
 			let productInCart = document.createElement('div');
 			productInCart.innerHTML = `<div class="cart-products in-cart">
 			<div>
@@ -52,14 +99,13 @@ for (let button of purchaseButton) {
 			cartProducts.appendChild(productInCart).classList.add('in-cart');
 			if (button.id === each.id) {
 				productInCart.classList.remove('hidden');
-				productInCart.id = each.id;
-
+				// --------------- here we remove products from cart ---------------
 				let removeProdButton = document.querySelectorAll('.cart-products #trash-can');
-				for (let removeButton of removeProdButton) {
-					removeButton.onclick = () => {
-						if (productInCart.id === each.id) {
-							productInCart.classList.add('hidden');
-						}
+				for (let removeProd of removeProdButton) {
+					removeProd.onclick = () => {
+						removeProd.parentNode.parentNode.classList.add('hidden');
+						quantity--;
+						updateQuantity();
 					};
 				}
 			} else {
@@ -69,28 +115,50 @@ for (let button of purchaseButton) {
 	};
 }
 
-cart.onclick = () => {
-	overlay.classList.remove('hidden');
-	document.body.classList.add('no-scroll');
-	menu.classList.add('show-menu');
+// ----------------------- After pressing "COMPRAR" button from cart menu -----------------
 
-	for (let cross of closeCartMenu) {
-		cross.onclick = () => {
-			overlay.classList.add('hidden');
-			document.body.classList.remove('no-scroll');
-			menu.classList.remove('show-menu');
-		};
-	}
-	if (quantity === 0) {
+buyButton.onclick = () => {
+	// --------------------- here you may end purchase -----------------
+	purchasePanel.classList.remove('hidden');
+	menu.classList.remove('show-menu');
+	total.textContent = calcularTotal(subtotalProductos);
+
+	endPurchaseButton.onclick = () => {
+		updateQuantity();
+		window.location.reload();
+		return false;
+	};
+	// -------------------- here you may hold on and keep looking ------------
+	keepOnLookingButton.onclick = () => {
+		purchasePanel.classList.add('hidden');
+		overlay.classList.add('hidden');
+		document.body.classList.remove('no-scroll');
+	};
+};
+
+// ----------------------- After pressing "VACIAR" button from cart menu ---------------
+
+regretButton.onclick = () => {
+	// --------------- cancell purchase panel / alert -------------
+	cancellPanel.classList.remove('hidden');
+	// ----------------- when chose to empty cart ---------------
+	emptyCartButton.onclick = () => {
+		for (let product of singleProduct) {
+			product.classList.remove('in-cart');
+		}
+
+		cancellPanel.classList.add('hidden');
 		emptyCart.classList.remove('hidden');
 		emptyCart.classList.add('emptycart-menu');
 		fullCart.classList.add('hidden');
-	} else if (quantity > 0) {
-		fullCart.classList.remove('hidden');
-		fullCart.classList.add('fullcart-menu');
-		emptyCart.classList.add('hidden');
-	}
+	};
+	// ------------------- when chose to cancell and move forward on the purchase -------------
+	cancellButton.onclick = () => {
+		cancellPanel.classList.add('hidden');
+	};
 };
+
+// ------------------------------------------- Filters functioning ----------------------------------------
 
 // -------------- Search per product filter ----------------
 
@@ -252,7 +320,7 @@ const refreshVisibleProducts = () => {
 	visibleProductsHeader.innerHTML = `Mostrando ${visibleAmount} producto(s) de ${singleProduct.length}`;
 };
 
-// ------------------- Products filter from tablets and cell devices -------------
+// ---------------------- Products filter from tablets and cell devices ----------------
 
 const filtersForSmallDevices = () => {
 	filterButton.onclick = () => {
@@ -279,69 +347,22 @@ const filtersForSmallDevices = () => {
 
 filtersForSmallDevices();
 
-// ------------------------ Purchase panel functioning -------------------
+// ---------------------------------- Purchase panel functioning ---------------------------------
 
 const subtotal = document.querySelector('#subtotal');
 const checkboxEfectivo = document.querySelector('#efectivo');
 const total = document.querySelector('#total');
 const recargoParrafo = document.querySelector('#recargo');
-
 const checkboxTarjeta = document.querySelector('#tarjeta');
 const checkboxDescuento = document.querySelector('#descuento');
 const descuento = document.querySelector('.descuento');
 const checkboxEnvio = document.querySelector('#envio');
 const envio = document.querySelector('.envio');
 
-const buyButton = document.querySelector('#buy');
-const purchasePanel = document.querySelector('#purchase-panel');
-const endPurchaseButton = document.querySelector('#ending-button');
-const keepOnLookingButton = document.querySelector('#keepon-looking');
-const regretButton = document.querySelector('#regret');
-
 // const subtotalProductos = document.querySelectorAll('div[data-price]');
 // console.log(subtotalProductos);
 
-const cancellPanel = document.querySelector('.cancell-purchase-panel');
-const emptyCartButton = document.querySelector('#empty');
-const cancellButton = document.querySelector('#cancell');
-
 const subtotalProductos = 5000;
-
-buyButton.onclick = () => {
-	purchasePanel.classList.remove('hidden');
-	menu.classList.remove('show-menu');
-	total.textContent = calcularTotal(subtotalProductos);
-
-	endPurchaseButton.onclick = () => {
-		window.location.reload();
-		return false;
-	};
-
-	keepOnLookingButton.onclick = () => {
-		purchasePanel.classList.add('hidden');
-		overlay.classList.add('hidden');
-		document.body.classList.remove('no-scroll');
-	};
-};
-
-regretButton.onclick = () => {
-	cancellPanel.classList.remove('hidden');
-
-	emptyCartButton.onclick = () => {
-		for (let product of singleProduct) {
-			product.classList.remove('in-cart');
-		}
-
-		cancellPanel.classList.add('hidden');
-		emptyCart.classList.remove('hidden');
-		emptyCart.classList.add('emptycart-menu');
-		fullCart.classList.add('hidden');
-		// cartAmount.textContent = `Carrito (${amount} item)`;
-	};
-	cancellButton.onclick = () => {
-		cancellPanel.classList.add('hidden');
-	};
-};
 
 // const subtotalProductos = () => {
 // 	for (let valor of subtotalProductos) {
