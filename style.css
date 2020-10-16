@@ -159,7 +159,6 @@ i {
 
 .fa-times {
 	cursor: pointer;
-	margin: 5px;
 }
 
 .cart span,
@@ -371,7 +370,7 @@ input:focus {
 
 .menu,
 .small-devices-display {
-	width: 30vw;
+	width: 31vw;
 	height: 300vh;
 	background-color: wheat;
 	position: fixed;
@@ -387,8 +386,7 @@ input:focus {
 
 .menu > h2,
 .emptycart-menu > div:only-child {
-	margin: 20px;
-	margin-top: 25px;
+	margin: 25px;
 }
 
 .small-devices-display > div:first-child,
@@ -413,14 +411,14 @@ input:focus {
 	/* este div no me toma propiedad de justify-content ni align-self para ubicarlo al fondo del contenedor padre */
 	display: flex;
 	flex-direction: column;
-	margin-top: 15%;
+	margin-top: 10%;
 }
 
 .added-prod {
 	max-height: 35vh;
 	overflow-y: auto;
 	flex-direction: column;
-	min-height: 30vh;
+	min-height: 45vh;
 	min-width: 50vh;
 }
 
@@ -431,8 +429,8 @@ input:focus {
 
 .in-cart {
 	display: flex;
-	justify-content: space-evenly;
-	min-width: 57vh;
+	justify-content: space-between;
+	min-width: 50vh;
 	margin: 5px;
 	flex-direction: column;
 	background-color: white;
@@ -451,8 +449,11 @@ input:focus {
 .in-cart > div:nth-child(3) {
 	display: flex;
 	flex-direction: column;
+	width: 23%;
+}
+
+.in-cart > div:nth-child(3) {
 	justify-content: space-around;
-	align-items: center;
 }
 
 .no-scroll {
