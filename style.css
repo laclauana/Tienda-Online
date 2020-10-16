@@ -38,6 +38,7 @@ body {
 
 main {
 	display: flex;
+	margin-top: 5%;
 }
 
 h1 {
@@ -193,6 +194,10 @@ input:focus {
 	margin: 15px;
 	background-color: white;
 	border-radius: 5px;
+}
+
+.products-amount > div {
+	padding: 15px;
 }
 
 .products-amount > div:last-child {
@@ -755,6 +760,7 @@ div.hidden,
 		right: 0;
 		height: 120vh;
 		top: 0;
+		position: fixed;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -765,6 +771,8 @@ div.hidden,
 		font-size: 25px;
 		font-weight: bold;
 		text-align: center;
+		margin-left: 15%;
+		margin-right: 15%;
 	}
 
 	.cancell-purchase-panel > div {
@@ -796,7 +804,7 @@ div.hidden,
 	/* ------------------- Products header text resize ------------- */
 
 	.products-amount > div:first-child {
-		font-size: 15px;
+		font-size: 0.7em;
 	}
 
 	/* -------------------- product card resize -------------- */
@@ -885,23 +893,24 @@ div.hidden,
 	}
 
 	.cancell-purchase-panel {
-		width: 125vw;
+		min-width: 100%;
 		left: 0;
 		right: 0;
-		height: 150vh;
+		min-height: 100%;
 		top: 0;
+		position: fixed;
 		bottom: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-evenly;
+		justify-content: space-around;
 	}
 
 	.cancell-purchase-panel > p {
 		font-size: 30px;
 		font-weight: bold;
 		text-align: center;
-		width: 95%;
+		margin: 10px;
 	}
 
 	.cancell-purchase-panel > div {

@@ -1,4 +1,4 @@
-// --------------- Variable declaration (seriously suggest to SKIP IT) ---------------
+// ------------------------- Variable declaration ---------------------------
 
 const cart = document.querySelector('.cart > button');
 const cartAmount = document.querySelector('.cart span');
@@ -17,7 +17,6 @@ const container = document.querySelector('#list-layout');
 const productDescription = document.querySelectorAll('.product-description');
 const visibleProductsHeader = document.querySelector('#visible-products');
 const filterButton = document.querySelector('#filters-button');
-const productsInCart = document.querySelectorAll('.in-cart');
 const asideMenu = document.querySelector('aside');
 const emptyCart = document.querySelector('#empty-cart');
 const fullCart = document.querySelector('#full-cart');
@@ -120,10 +119,7 @@ for (let button of purchaseButton) {
 
 // ----------------------- When removing every product from cart ----------------
 
-const backToEmptyCart = () => {
-	// if () {
-	// }
-};
+const backToEmptyCart = () => {};
 // cuando se elimina uno a uno todos los productos del carrito, como cuando clickean Vaciar, que realmente se vacie el carrito, aparezca el menu para carrito vacio, y se reinicie la cuenta del carrito.
 backToEmptyCart();
 
@@ -370,20 +366,7 @@ const checkboxDescuento = document.querySelector('#descuento');
 const descuento = document.querySelector('.descuento');
 const checkboxEnvio = document.querySelector('#envio');
 const envio = document.querySelector('.envio');
-
-// const subtotalProductos = document.querySelectorAll('div[data-price]');
-// console.log(subtotalProductos);
-
 const subtotalProductos = 5000;
-
-// const subtotalProductos = () => {
-// 	for (let valor of subtotalProductos) {
-// 		buyButton.onclick = () => {
-// 			subtotal.textContent = valor;
-// 			total = `$${calcularTotal()}`;
-// 		};
-// 	}
-// };
 
 const pagaEnEfectivo = () => {
 	if (checkboxEfectivo.checked) {
