@@ -741,6 +741,15 @@ div.hidden,
 		flex-direction: column;
 	}
 
+	.purchase-panel > section {
+		margin: 10px;
+		margin-left: 40px;
+	}
+
+	.purchase-panel > section:first-child > div:first-of-type {
+		height: 27vh;
+	}
+
 	.purchase-panel > section:last-child > div > p:nth-child(2) {
 		margin-top: 15px;
 	}
@@ -752,7 +761,10 @@ div.hidden,
 	.purchase-panel > section:last-child > div:last-of-type {
 		display: flex;
 		justify-content: flex-start;
-		margin-top: 60px;
+	}
+
+	.purchase-panel > section:last-child > div:last-of-type > button {
+		min-width: 100%;
 	}
 
 	.cancell-purchase-panel {
@@ -881,6 +893,14 @@ div.hidden,
 		margin-top: 2px;
 	}
 
+	.purchase-panel > section:first-child > div:first-of-type {
+		height: 25vh;
+	}
+
+	.purchase-panel > section:last-child > div:first-of-type {
+		flex-grow: 0;
+	}
+
 	.purchase-panel > section:last-child > div > p:nth-child(2) {
 		margin-top: 10px;
 	}
@@ -888,9 +908,7 @@ div.hidden,
 	.purchase-panel > section:last-child > div:last-of-type {
 		display: flex;
 		flex-direction: column;
-		height: 200px;
 		width: 80%;
-		margin-top: 2px;
 	}
 
 	.cancell-purchase-panel {
