@@ -35,7 +35,7 @@ const cancellButton = document.querySelector('#cancell');
 
 // --------------- Cart content update -----------------
 
-quantity = 0;
+let quantity = 0;
 const updateQuantity = () => {
 	addedProduct.innerHTML = `${quantity} producto(s) agregado(s)`;
 	cartAmount.innerHTML = `Carrito (${quantity} item)`;
@@ -121,6 +121,7 @@ for (let button of purchaseButton) {
 
 const backToEmptyCart = () => {};
 // cuando se elimina uno a uno todos los productos del carrito, como cuando clickean Vaciar, que realmente se vacie el carrito, aparezca el menu para carrito vacio, y se reinicie la cuenta del carrito.
+// no se puede agregar un mismo producto haciendole click al boton, es decir que el boton tambien tiene que funcionar propiamente agregando productos al carrito. Para agregar el mismo producto mas de una vez deberia ser desde el input
 backToEmptyCart();
 
 // ----------------------- After pressing "COMPRAR" button from cart menu -----------------
@@ -146,20 +147,20 @@ buyButton.onclick = () => {
 
 // ----------------------- After pressing "VACIAR" button from cart menu ---------------
 
+emptyCartButton.onclick = () => {
+	for (let product of singleProduct) {
+		product.classList.remove('in-cart');
+	}
+
+	cancellPanel.classList.add('hidden');
+	emptyCart.classList.remove('hidden');
+	emptyCart.classList.add('emptycart-menu');
+	fullCart.classList.add('hidden');
+};
 regretButton.onclick = () => {
 	// --------------- cancell purchase panel / alert -------------
 	cancellPanel.classList.remove('hidden');
 	// ----------------- when chose to empty cart ---------------
-	emptyCartButton.onclick = () => {
-		for (let product of singleProduct) {
-			product.classList.remove('in-cart');
-		}
-
-		cancellPanel.classList.add('hidden');
-		emptyCart.classList.remove('hidden');
-		emptyCart.classList.add('emptycart-menu');
-		fullCart.classList.add('hidden');
-	};
 	// ------------------- when chose to cancell and move forward on the purchase -------------
 	cancellButton.onclick = () => {
 		cancellPanel.classList.add('hidden');
@@ -168,25 +169,34 @@ regretButton.onclick = () => {
 
 // ------------------------------------------- Filters functioning ----------------------------------------
 
+//--------------------------------------------- Main Filtering Function ----------------------------------------------
+
+const filter = () => {
+	for (let each of singleProduct) {
+		each.classList.remove('hidden');
+		if (selectedCategory() && !pickingMatchedCategory(each)) {
+			each.classList.add('hidden');
+		}
+		if (matchingCheckbox() && !pickingMatch(each)) {
+			each.classList.add('hidden');
+		}
+		if (!each.dataset.name.toLowerCase().includes(searchingFilter.value)) {
+			each.classList.add('hidden');
+		}
+	}
+};
+
 // -------------- Search per product filter ----------------
 
 searchingFilter.oninput = () => {
-	for (let each of singleProduct) {
-		if (each.dataset.name.toLowerCase().includes(searchingFilter.value)) {
-			each.classList.remove('hidden');
-			refreshVisibleProducts();
-		} else {
-			each.classList.add('hidden');
-			refreshVisibleProducts();
-		}
-	}
+	filter();
 };
 
 // ------------------- Search per grading filter ---------------------
 
 for (let checkbox of gradingFilter) {
 	checkbox.onclick = () => {
-		filterProducts();
+		filter();
 	};
 }
 
@@ -206,27 +216,11 @@ const pickingMatch = (each) => {
 	}
 };
 
-const filterProducts = () => {
-	for (let each of singleProduct) {
-		each.classList.add('hidden');
-		refreshVisibleProducts();
-		if (matchingCheckbox()) {
-			if (pickingMatch(each)) {
-				each.classList.remove('hidden');
-				refreshVisibleProducts();
-			}
-		} else {
-			each.classList.remove('hidden');
-			refreshVisibleProducts();
-		}
-	}
-};
-
 // -------------------- Search per category filter ----------------
 
 for (let checkbox of categoryFilter) {
 	checkbox.onclick = () => {
-		filterPerCategory();
+		filter();
 	};
 }
 
@@ -250,31 +244,10 @@ const pickingMatchedCategory = (each) => {
 	}
 };
 
-const filterPerCategory = () => {
-	for (let each of singleProduct) {
-		each.classList.add('hidden');
-		refreshVisibleProducts();
-
-		if (selectedCategory()) {
-			if (pickingMatchedCategory(each)) {
-				each.classList.remove('hidden');
-				refreshVisibleProducts();
-			}
-		} else {
-			each.classList.remove('hidden');
-			refreshVisibleProducts();
-		}
-	}
-};
-
 // -------------------- Filter wiping -------------------
 
 trashButton.onclick = () => {
-	wipingFilter();
-};
-
-const wipingFilter = () => {
-	searchingFilter.value = ' ';
+	searchingFilter.value = '';
 	for (let checkbox of gradingFilter) {
 		checkbox.checked = false;
 	}
@@ -282,10 +255,8 @@ const wipingFilter = () => {
 		checkbox.checked = false;
 	}
 	for (let each of singleProduct) {
-		if (each.classList.contains('hidden')) {
-			each.classList.remove('hidden');
-			refreshVisibleProducts();
-		}
+		each.classList.remove('hidden');
+		refreshVisibleProducts();
 	}
 };
 
