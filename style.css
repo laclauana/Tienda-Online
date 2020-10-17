@@ -159,6 +159,8 @@ i {
 
 .fa-times {
 	cursor: pointer;
+	display: flex;
+	color: orangered;
 }
 
 .cart span,
@@ -248,7 +250,7 @@ input:focus {
 }
 
 .product button:hover {
-	color: purple;
+	color: rgb(112, 64, 112);
 	background-color: rgb(250, 216, 154);
 	border-radius: 30px;
 	text-shadow: 2px 3px 1px white;
@@ -372,7 +374,8 @@ input:focus {
 .small-devices-display {
 	width: 31vw;
 	height: 300vh;
-	background-color: wheat;
+	background: rgb(147, 34, 195);
+	background: linear-gradient(0deg, rgba(147, 34, 195, 0.7399334733893557) 0%, rgba(245, 202, 136, 1) 100%);
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -393,7 +396,7 @@ input:focus {
 .menu > div:nth-child(1) {
 	display: flex;
 	justify-content: flex-end;
-	margin-right: 3px;
+	margin: 3px;
 }
 
 .show-menu,
@@ -408,32 +411,34 @@ input:focus {
 }
 
 .fullcart-menu > div:last-of-type {
-	/* este div no me toma propiedad de justify-content ni align-self para ubicarlo al fondo del contenedor padre */
 	display: flex;
 	flex-direction: column;
-	margin-top: 10%;
 }
 
 .added-prod {
 	max-height: 35vh;
 	overflow-y: auto;
 	flex-direction: column;
-	min-height: 45vh;
+	min-height: 53vh;
 	min-width: 50vh;
+	background-color: rgb(112, 64, 112);
+	border-radius: 8px;
 }
 
 .added-prod > p {
 	justify-content: center;
 	display: flex;
+	color: white;
 }
 
 .in-cart {
+	background-color: white;
+	border-radius: 8px;
 	display: flex;
 	justify-content: space-between;
 	min-width: 50vh;
 	margin: 5px;
 	flex-direction: column;
-	background-color: white;
 }
 
 .in-cart > div {
@@ -575,20 +580,20 @@ input:focus {
 .purchase-panel button:hover,
 .fullcart-menu > div:last-child > button:hover,
 .cancell-purchase-panel > div > button:hover {
-	box-shadow: 5px 3px 6px rgb(163, 144, 118);
+	box-shadow: 5px 3px 6px rgb(95, 85, 71);
 }
 
 .purchase-panel button:first-of-type,
 .fullcart-menu > div:last-child > button:last-of-type,
 .cancell-purchase-panel > div > button:last-of-type {
-	color: purple;
-	border: solid 2px purple;
+	color: rgb(112, 64, 112);
+	border: solid 2px rgb(112, 64, 112);
 }
 
 .purchase-panel div:last-child > button:last-child,
 .fullcart-menu > div:last-child > button:first-of-type,
 .cancell-purchase-panel > div > button:first-of-type {
-	background-color: rgb(253, 108, 55);
+	background-color: rgb(112, 64, 112);
 	color: white;
 }
 
