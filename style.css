@@ -361,7 +361,7 @@ input:focus {
 .overlay {
 	width: 100vw;
 	height: 300vh;
-	background-color: rgba(49, 49, 49, 0.753);
+	background-color: rgba(3, 3, 3, 0.753);
 	position: absolute;
 	top: 0;
 	bottom: 0;
