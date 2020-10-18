@@ -28,7 +28,7 @@ const endPurchaseButton = document.querySelector('#ending-button');
 const keepOnLookingButton = document.querySelector('#keepon-looking');
 const regretButton = document.querySelector('#regret');
 const cancellPanel = document.querySelector('.cancell-purchase-panel');
-const emptyCartButton = document.querySelector('#empty');
+const emptyCartButton = document.querySelector('#emptycart');
 const cancellButton = document.querySelector('#cancell');
 
 // -------------------------------------- Cart behaviour ---------------------------------------
@@ -37,8 +37,14 @@ const cancellButton = document.querySelector('#cancell');
 
 let quantity = 0;
 const updateQuantity = () => {
+	quantity = document.querySelectorAll('.in-cart').length;
 	addedProduct.innerHTML = `${quantity} producto(s) agregado(s)`;
 	cartAmount.innerHTML = `Carrito (${quantity} item)`;
+	if (quantity === 0) {
+		emptyCart.classList.remove('hidden');
+		emptyCart.classList.add('emptycart-menu');
+		fullCart.classList.add('hidden');
+	}
 };
 
 // ---------------------- Cart menu layout when it's empty and when it's full --------------------
@@ -71,73 +77,65 @@ cart.onclick = () => {
 
 // ---------------- Inner cart functioning when purchasing product ------------------
 
-for (let button of purchaseButton) {
-	button.onclick = () => {
-		quantity++;
-		updateQuantity();
-		// ---------- variable declaration for bringing specific details from product --------
-		for (let each of singleProduct) {
-			let img = each.dataset.src;
-			let name = each.dataset.name;
-			let price = each.dataset.price;
-			// ---------------- then we create a container for picked products -------------
-			let productInCart = document.createElement('div');
-			productInCart.innerHTML = `<div class="cart-products in-cart">
+const updateCart = () => {
+	updateQuantity();
+	cartProducts.innerHTML = '';
+	for (let product of singleProduct) {
+		if (product.classList.contains('in-cart')) {
+			const productInCart = document.createElement('div');
+			productInCart.innerHTML = `<div class="cart-products cart-item">
 			<div>
-			<img src=${img}>
+			<img src=${product.dataset.src}>
 			</div>
 			<div>
-			<p>${name}</p>
-			<label> <input type="number" value="1"> </label>
+			<p>${product.dataset.name}</p>
+			<label> <input type="number" id=${product.id}-amount value="1"> </label>
 			</div>
 			<div>
-			<button id="trash-can"><i class="far fa-trash-alt"></i></button>
-			<p>${price}</p>
+			<button id=trash-can-${product.id}><i class="far fa-trash-alt"></i></button>
+			<p>$${product.dataset.price}</p>
 			</div>
 			</div>`;
-			cartProducts.appendChild(productInCart).classList.add('in-cart');
 
-			// ---------- we relate selected product card with each proper button --------
-			if (button.id === each.id) {
-				productInCart.classList.remove('hidden');
+			cartProducts.appendChild(productInCart).classList.add('cart-item');
 
-				// --------------- here we remove products from cart ---------------
-				let removeProdButton = document.querySelectorAll('.cart-products #trash-can');
-				for (let removeProd of removeProdButton) {
-					removeProd.onclick = () => {
-						removeProd.parentNode.parentNode.classList.add('hidden');
-						quantity--;
-						updateQuantity();
-					};
-				}
-			} else {
-				productInCart.classList.add('hidden');
-			}
+			const trashCanButton = document.querySelector(`#trash-can-${product.id}`);
+
+			trashCanButton.onclick = () => {
+				document.querySelector(`#${product.id}`).classList.remove('in-cart');
+				updateCart();
+				calcularTotal();
+			};
+			let inputNumber = document.querySelector(`#${product.id}-amount`);
+			inputNumber.onclick = () => {
+				calcularTotal();
+			};
 		}
+	}
+};
+
+for (let button of purchaseButton) {
+	button.onclick = () => {
+		let product = document.querySelector(`#${button.id}`);
+		product.classList.add('in-cart');
+		updateCart();
+		calcularTotal();
 	};
 }
-
-// ----------------------- When removing every product from cart ----------------
-
-const backToEmptyCart = () => {};
-// cuando se elimina uno a uno todos los productos del carrito, como cuando clickean Vaciar, que realmente se vacie el carrito, aparezca el menu para carrito vacio, y se reinicie la cuenta del carrito.
-// no se puede agregar un mismo producto haciendole click al boton, es decir que el boton tambien tiene que funcionar propiamente agregando productos al carrito. Para agregar el mismo producto mas de una vez deberia ser desde el input
-backToEmptyCart();
 
 // ----------------------- After pressing "COMPRAR" button from cart menu -----------------
 
 buyButton.onclick = () => {
-	// --------------------- here you may end purchase -----------------
 	purchasePanel.classList.remove('hidden');
 	menu.classList.remove('show-menu');
-	total.textContent = calcularTotal(subtotalProductos);
+	calcularTotal();
 
 	endPurchaseButton.onclick = () => {
 		updateQuantity();
 		window.location.reload();
 		return false;
 	};
-	// -------------------- here you may hold on and keep looking ------------
+
 	keepOnLookingButton.onclick = () => {
 		purchasePanel.classList.add('hidden');
 		overlay.classList.add('hidden');
@@ -147,27 +145,19 @@ buyButton.onclick = () => {
 
 // ----------------------- After pressing "VACIAR" button from cart menu ---------------
 
-emptyCartButton.onclick = () => {
-	for (let product of singleProduct) {
-		product.classList.remove('in-cart');
-	}
-
-	cancellPanel.classList.add('hidden');
-	emptyCart.classList.remove('hidden');
-	emptyCart.classList.add('emptycart-menu');
-	fullCart.classList.add('hidden');
-};
 regretButton.onclick = () => {
-	// --------------- cancell purchase panel / alert -------------
 	cancellPanel.classList.remove('hidden');
-	// ----------------- when chose to empty cart ---------------
-	// ------------------- when chose to cancell and move forward on the purchase -------------
 	cancellButton.onclick = () => {
 		cancellPanel.classList.add('hidden');
 	};
 };
-
-// ------------------------------------------- Filters functioning ----------------------------------------
+emptyCartButton.onclick = () => {
+	for (let product of singleProduct) {
+		product.classList.remove('in-cart');
+	}
+	updateCart();
+	cancellPanel.classList.add('hidden');
+};
 
 //--------------------------------------------- Main Filtering Function ----------------------------------------------
 
@@ -329,128 +319,73 @@ filtersForSmallDevices();
 // ---------------------------------- Purchase panel functioning ---------------------------------
 
 const subtotal = document.querySelector('#subtotal');
-const checkboxEfectivo = document.querySelector('#efectivo');
+const subtotalCarrito = document.querySelector('.subtotal');
+const checkboxEfectivo = document.querySelector('#cash-debit');
 const total = document.querySelector('#total');
-const recargoParrafo = document.querySelector('#recargo');
-const checkboxTarjeta = document.querySelector('#tarjeta');
-const checkboxDescuento = document.querySelector('#descuento');
-const descuento = document.querySelector('.descuento');
-const checkboxEnvio = document.querySelector('#envio');
-const envio = document.querySelector('.envio');
-const subtotalProductos = 5000;
+const recargoParrafo = document.querySelector('#recharge');
+const checkboxTarjeta = document.querySelector('#credit-card');
+const checkboxDescuento = document.querySelector('#discount');
+const descuento = document.querySelector('.discount');
+const checkboxEnvio = document.querySelector('#shipping');
+const envio = document.querySelector('.shipping');
+let subtotalProductos = 0;
+let valorTotal = 0;
+let valorEnvio = 300;
+let valorRecargo = 0;
+let valorDescuento = 0;
 
-const pagaEnEfectivo = () => {
-	if (checkboxEfectivo.checked) {
-		return true;
-	} else {
-		return false;
+const calcularSubtotal = () => {
+	let productsInCart = document.querySelectorAll('.in-cart');
+	subtotalProductos = 0;
+	for (let product of productsInCart) {
+		let amount = +document.querySelector(`#${product.id}-amount`).value;
+		subtotalProductos += +product.dataset.price * amount;
 	}
+	subtotal.textContent = subtotalProductos;
 };
 
 checkboxEfectivo.onclick = () => {
-	if (pagaEnEfectivo()) {
-		subtotal.textContent = `$${subtotalProductos}`;
-		total.textContent = `$${calcularTotal(subtotalProductos)}`;
-		recargoParrafo.textContent = '$ ';
-	} else {
-		subtotal.textContent = '$ ';
-		total.textContent = `$${subtotalProductos}`;
-	}
-};
-
-const tieneDescuento = () => {
-	if (checkboxDescuento.checked) {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-const tieneRecargo = () => {
-	if (checkboxTarjeta.checked) {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-const tieneEnvio = () => {
-	if (checkboxEnvio.checked) {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-const obtenerRecargo = (subtotalProductos) => {
-	const recargo = subtotalProductos * 0.1;
-	return recargo;
+	calcularTotal();
+	recargoParrafo.textContent = `$${valorRecargo}`;
 };
 
 checkboxTarjeta.onclick = () => {
-	if (tieneRecargo()) {
-		recargoParrafo.textContent = `$${obtenerRecargo(subtotalProductos)}`;
-		total.textContent = `$${calcularTotal(subtotalProductos)} `;
-	} else {
-		recargoParrafo.textContent = '$ ';
-		total.textContent = `$${subtotalProductos}`;
-	}
-};
-
-const obtenerDescuento = (subtotalProductos) => {
-	return subtotalProductos - subtotalProductos * 0.1;
+	calcularTotal();
+	recargoParrafo.textContent = `$${valorRecargo}`;
 };
 
 checkboxDescuento.onclick = () => {
-	if (tieneDescuento()) {
-		descuento.textContent = `$${subtotalProductos - obtenerDescuento(subtotalProductos)}`;
-		total.textContent = `$${calcularTotal(subtotalProductos)}`;
-	} else {
-		descuento.textContent = '$ ';
-		total.textContent = `$${calcularTotal(subtotalProductos)}`;
-	}
+	calcularTotal();
+	descuento.textContent = `$${valorDescuento}`;
 };
 
-const valorEnvio = 300;
 checkboxEnvio.onclick = () => {
-	if (tieneEnvio()) {
-		envio.textContent = `$${obtenerCalculoEnvio(subtotalProductos)}`;
-		total.textContent = `$${calcularTotal(subtotalProductos)}`;
-	} else {
-		envio.textContent = '$ ';
-		total.textContent = `$${calcularTotal(subtotalProductos)}`;
+	calcularTotal();
+	envio.textContent = `$${valorEnvio}`;
+};
+
+const calcularTotal = () => {
+	calcularSubtotal();
+
+	if (checkboxTarjeta.checked) {
+		valorRecargo = subtotalProductos * 0.1;
+	} else if (checkboxEfectivo.checked) {
+		valorRecargo = 0;
 	}
-};
-
-const obtenerGastoDeEnvio = (subtotalProductos) => {
-	return subtotalProductos + valorEnvio;
-};
-
-const obtenerCalculoEnvio = (subtotalProductos) => {
-	let envio = obtenerGastoDeEnvio(subtotalProductos) - subtotalProductos;
-	return envio;
-};
-
-const calcularTotal = (subtotalProductos) => {
-	if (tieneRecargo()) {
-		return subtotalProductos + obtenerRecargo(subtotalProductos);
-	} else if (tieneRecargo() && tieneEnvio()) {
-		return subtotalProductos + obtenerRecargo(subtotalProductos) + obtenerCalculoEnvio(subtotalProductos);
-	} else if (tieneRecargo() && tieneEnvio() && tieneDescuento()) {
-		return subtotalProductos + obtenerRecargo(subtotalProductos) - obtenerDescuento(subtotalProductos);
-	} else if (tieneRecargo() && tieneDescuento()) {
-		return obtenerRecargo(subtotalProductos) - obtenerDescuento(subtotalProductos);
-	} else if (pagaEnEfectivo()) {
-		return subtotalProductos;
-	} else if (pagaEnEfectivo() && tieneEnvio()) {
-		return subtotalProductos + obtenerCalculoEnvio(subtotalProductos);
-	} else if (pagaEnEfectivo() && tieneDescuento()) {
-		return subtotalProductos - obtenerDescuento(subtotalProductos);
-	} else if (pagaEnEfectivo() && tieneDescuento() && tieneEnvio()) {
-		return subtotalProductos + obtenerCalculoEnvio(subtotalProductos) - obtenerDescuento(subtotalProductos);
+	if (checkboxEnvio.checked) {
+		valorEnvio = 300;
 	} else {
-		return `$${subtotalProductos}`;
+		valorEnvio = 0;
 	}
-};
+	if (checkboxDescuento.checked) {
+		valorDescuento = subtotalProductos * 0.1;
+	} else {
+		valorDescuento = 0;
+	}
 
-calcularTotal(subtotalProductos);
+	const valorTotal = subtotalProductos + valorRecargo + valorEnvio - valorDescuento;
+
+	total.textContent = `$${valorTotal}`;
+	subtotal.textContent = `$${subtotalProductos}`;
+	subtotalCarrito.textContent = `Subtotal $${subtotalProductos}`;
+};
