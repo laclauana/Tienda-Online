@@ -359,10 +359,10 @@ input:focus {
 /* ----------------------- Cart opened -------------------- */
 
 .overlay {
-	width: 100vw;
+	width: 100%;
 	height: 300vh;
-	background-color: rgba(3, 3, 3, 0.753);
-	position: absolute;
+	background-color: rgba(3, 3, 3, 0.856);
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -373,7 +373,7 @@ input:focus {
 .small-devices-display {
 	width: 31vw;
 	height: 300vh;
-	background: rgba(147, 34, 195, 0.267);
+	background: rgba(43, 10, 58, 0.493);
 	background: linear-gradient(0deg, rgba(147, 34, 195, 0.7399334733893557) 0%, rgba(245, 202, 136, 1) 100%);
 	position: fixed;
 	right: 0;
@@ -886,10 +886,6 @@ div.hidden,
 
 	.small-devices-display {
 		width: 45vh;
-	}
-
-	.overlay {
-		width: max-content;
 	}
 
 	/* ------------------- Purchase panel adjustments ------------------- */
