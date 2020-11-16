@@ -7,7 +7,7 @@ A detail worth mentioning is that for this project, we hadn't learnt arrays yet 
 
  ## Technologies used
 
- Modest HTML, twice as large CSS and a pretty decent amount of Javascript.
+ Modest HTML, twice as large CSS and a pretty decent amount of Javascript. Feel free to test my site's responsiveness as wide and as stretched as you'd like to. 
 
 ### Where to check on my online shopping store
 
