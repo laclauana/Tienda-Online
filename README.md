@@ -12,4 +12,4 @@ A detail worth mentioning is that for this project, we hadn't learnt arrays yet 
 ### Where to check on my online shopping store
 
 Here's my cheerful online shopping store which design patterns I came up with at a time when a website's appearance wasn't truly a matter of popular procedures to me. For better or for worse, I no longer subscribe to this kind of choices. Hopefuly you'll mostly focus on it's scripting bearing in mind what's been warned above. 
-[https://anaclette.github.io/TiendaOnline/]
+[https://anaclette.github.io/Tienda-Online/]
